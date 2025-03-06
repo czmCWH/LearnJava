@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/day01-oop/day01-oop.iml" filepath="$PROJECT_DIR$/day01-oop/day01-oop.iml" />
       <module fileurl="file://$PROJECT_DIR$/day02-oop/day02-oop.iml" filepath="$PROJECT_DIR$/day02-oop/day02-oop.iml" />
       <module fileurl="file://$PROJECT_DIR$/day03-oop/day03-oop.iml" filepath="$PROJECT_DIR$/day03-oop/day03-oop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day04-api/day04-api.iml" filepath="$PROJECT_DIR$/day04-api/day04-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/javasepromax.iml" filepath="$PROJECT_DIR$/javasepromax.iml" />
     </modules>
   </component>
