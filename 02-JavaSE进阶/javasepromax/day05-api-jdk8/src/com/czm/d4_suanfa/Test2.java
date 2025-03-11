@@ -1,4 +1,4 @@
-package com.czm.d4_sf;
+package com.czm.d4_suanfa;
 
 public class Test2 {
     /*
