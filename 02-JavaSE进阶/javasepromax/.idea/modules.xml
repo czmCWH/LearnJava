@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/day06-exception-collection/day06-exception-collection.iml" filepath="$PROJECT_DIR$/day06-exception-collection/day06-exception-collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/day07-collections-map/day07-collections-map.iml" filepath="$PROJECT_DIR$/day07-collections-map/day07-collections-map.iml" />
       <module fileurl="file://$PROJECT_DIR$/day08-stream-file-io/day08-stream-file-io.iml" filepath="$PROJECT_DIR$/day08-stream-file-io/day08-stream-file-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day09-io-code/day09-io-code.iml" filepath="$PROJECT_DIR$/day09-io-code/day09-io-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day10-io-code/day10-io-code.iml" filepath="$PROJECT_DIR$/day10-io-code/day10-io-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/javasepromax.iml" filepath="$PROJECT_DIR$/javasepromax.iml" />
     </modules>
   </component>
