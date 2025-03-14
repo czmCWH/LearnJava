@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--第一行必须是  文档声明，敲一个 < 就会匹配出来-->
+<users>
+    <user id="1">
+        <name>张三</name>
+        <sex>男</sex>
+        <age>31</age>
+        <sql>
+            <!-- 注意特殊字符：-->
+            <!-- select * from tb_student where age >= 18 && age <= 35 -->
+            select * from tb_student where age &gt;= 18 &amp;&amp; age &lt;= 35
+        </sql>
+    </user>
+    <user id="2" desc="这是一个女生">
+        <name>李芳</name>
+        <sex>女</sex>
+        <age>32</age>
+        <sql>
+            <!-- 特殊数据区，跨过xml编译校验，可以随便写内容-->
+            <![CDATA[
+               select * from tb_student where age >= 18 && age <= 35
+            ]]>
+        </sql>
+    </user>
+    <contact>
+        <phone>123123</phone>
+    </contact>
+</users>

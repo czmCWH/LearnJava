@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--
+    name="CONSOLE" 表示日志在控制台输出
+    class="ch.qos.logback.core.ConsoleAppender" 一种代码风格
+    -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--
+            格式化输出：
+                %d表示日期，
+                %thread表示线程名，
+                %-5level:级别从左显示5个字符宽度
+                %msg:日志消息%n是换行符
+            -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+     name="FILE"：表示日志输出方向是文件
+    -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <!--日志输出路径-->
+        <file>day11-special-file-log-code/src/log/output.log</file>
+        <!--指定日志文件拆分和压缩规则-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <!--通过指定压缩文件名称，来确定分割文件方式-->
+<!--            <fileNamePattern>day11-special-file-log-code/src/log/output.log-%i-%d{yyyy-MM-dd}-.log.gz </fileNamePattern>-->
+            <fileNamePattern>day11-special-file-log-code/src/log/output.log.%i</fileNamePattern>
+        </rollingPolicy>
+        <!--日志文件拆分的大小-->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>1MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <!--
+        控制日志的输出情况
+          level="DEBUG" 打印 debug、info、error 日志
+          level="ALL" 打印日志记录
+          level="OFF" 关闭日志记录
+    -->
+    <root level="ALL">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
