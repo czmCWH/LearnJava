@@ -4,11 +4,13 @@ import java.util.Objects;
 
 public class Test {
     /*
-     1、相等性比较
+     1、⚠️⚠️⚠️相等性比较
         ==：引用类型比较地址，值类型比较值
         equals()：得看具体的类型是否重写此方法，如果没有重写则是地址比较，否则按照重写的逻辑
         Objects.equals()：对 equals 的一层包装，保证了空安全
 
+            == 一般是比较地址；
+            equals 一般通过重写来比较内容；
      */
     public static void main(String[] args) {
         System.out.println("============ 1、普通类比较 ==========");

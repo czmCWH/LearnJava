@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/day11-special-file-log-code/day11-special-file-log-code.iml" filepath="$PROJECT_DIR$/day11-special-file-log-code/day11-special-file-log-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/day12-thread/day12-thread.iml" filepath="$PROJECT_DIR$/day12-thread/day12-thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/day13-net/day13-net.iml" filepath="$PROJECT_DIR$/day13-net/day13-net.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day14-junit-reflect-annotation-proxy/day14-junit-reflect-annotation-proxy.iml" filepath="$PROJECT_DIR$/day14-junit-reflect-annotation-proxy/day14-junit-reflect-annotation-proxy.iml" />
       <module fileurl="file://$PROJECT_DIR$/javasepromax.iml" filepath="$PROJECT_DIR$/javasepromax.iml" />
     </modules>
   </component>
