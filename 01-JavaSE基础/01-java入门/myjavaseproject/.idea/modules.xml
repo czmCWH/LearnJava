@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/day01-basic/day01-basic.iml" filepath="$PROJECT_DIR$/day01-basic/day01-basic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day02-basic-code/day02-basic-code.iml" filepath="$PROJECT_DIR$/day02-basic-code/day02-basic-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01-variable/day01-variable.iml" filepath="$PROJECT_DIR$/day01-variable/day01-variable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02-variable-type-operator/day02-variable-type-operator.iml" filepath="$PROJECT_DIR$/day02-variable-type-operator/day02-variable-type-operator.iml" />
       <module fileurl="file://$PROJECT_DIR$/day03-flow-control-code/day03-flow-control-code.iml" filepath="$PROJECT_DIR$/day03-flow-control-code/day03-flow-control-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/day04-array/day04-array.iml" filepath="$PROJECT_DIR$/day04-array/day04-array.iml" />
       <module fileurl="file://$PROJECT_DIR$/day05-method/day05-method.iml" filepath="$PROJECT_DIR$/day05-method/day05-method.iml" />

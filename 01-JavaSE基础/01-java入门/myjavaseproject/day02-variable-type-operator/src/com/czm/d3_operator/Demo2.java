@@ -1,6 +1,6 @@
-package com.czm.operator;
+package com.czm.d3_operator;
 
-public class OperatorDemo2 {
+public class Demo2 {
     public static void main(String[] args) {
         // 1、自增、自减案例
         int m = 3;

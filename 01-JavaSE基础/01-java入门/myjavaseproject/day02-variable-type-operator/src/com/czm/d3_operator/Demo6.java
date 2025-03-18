@@ -1,6 +1,6 @@
-package com.czm.operator;
+package com.czm.d3_operator;
 
-public class OperatorDemo6 {
+public class Demo6 {
     public static void main(String[] args) {
         /*
          1、三元运算符

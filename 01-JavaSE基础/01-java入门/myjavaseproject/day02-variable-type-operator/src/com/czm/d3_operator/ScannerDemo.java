@@ -1,4 +1,4 @@
-package com.czm.operator;
+package com.czm.d3_operator;
 // 1、导入java包
 import java.util.Scanner;
 

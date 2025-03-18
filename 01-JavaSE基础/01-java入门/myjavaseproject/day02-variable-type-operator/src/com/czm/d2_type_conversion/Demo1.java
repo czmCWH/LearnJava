@@ -1,6 +1,6 @@
-package com.czm.type;
+package com.czm.d2_type_conversion;
 
-public class TypeConversionDemo1 {
+public class Demo1 {
 
     public static void main(String[] args) {
         /*

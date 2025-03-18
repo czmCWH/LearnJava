@@ -1,6 +1,6 @@
-package com.czm.type;
+package com.czm.d2_type_conversion;
 
-public class TypeConversionDemo2 {
+public class Demo2 {
     public static void main(String[] args) {
         /*
          2、表达式的自动类型转换

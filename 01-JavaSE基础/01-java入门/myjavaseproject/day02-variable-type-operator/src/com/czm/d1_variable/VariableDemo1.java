@@ -1,4 +1,4 @@
-package com.czm.variable;
+package com.czm.d1_variable;
 
 public class VariableDemo1 {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package com.czm.type;
+package com.czm.d2_type_conversion;
 
-public class TypeConversionDemo3 {
+public class Demo3 {
     public static void main(String[] args) {
         /*
         1、强制类型转换

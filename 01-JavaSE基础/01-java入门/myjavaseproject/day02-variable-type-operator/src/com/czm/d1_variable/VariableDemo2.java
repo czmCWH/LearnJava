@@ -1,8 +1,9 @@
-package com.czm.variable;
+package com.czm.d1_variable;
 
 public class VariableDemo2 {
     public static void main(String[] args) {
-        // 目标：java 基本数据类型：4大类，总共8种。
+
+        // 目标：⚠️⚠️⚠️ java 基本数据类型：4大类，总共8种。
 
         // 1、byte 字节整型
         byte b = 127;
