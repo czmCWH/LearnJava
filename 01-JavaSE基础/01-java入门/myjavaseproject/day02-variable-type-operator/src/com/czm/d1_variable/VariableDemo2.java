@@ -39,7 +39,7 @@ public class VariableDemo2 {
         boolean bool = true;
         System.out.println(bool);
 
-        // 9、String 字符串类型，是引用数据类型
+        // 9、⚠️ String 字符串类型，是引用数据类型，不是基本数据类型
         String str = "好好学习";
         System.out.println(str);
 

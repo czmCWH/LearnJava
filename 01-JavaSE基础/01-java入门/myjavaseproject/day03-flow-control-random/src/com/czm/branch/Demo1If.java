@@ -1,9 +1,8 @@
 package com.czm.branch;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class IfDemo1 {
+public class Demo1If {
     public static void main(String[] args) {
         /*
          程序流程控制，是指控制程序的执行顺序。

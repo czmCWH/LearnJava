@@ -2,7 +2,7 @@ package com.czm.branch;
 
 import java.util.Scanner;
 
-public class SwitchDemo2 {
+public class Demo2Switch {
     public static void main(String[] args) {
         /*
          1、switch 分支
@@ -37,10 +37,10 @@ public class SwitchDemo2 {
         }
 
         /*
-         if 与 switch 的比较，各自适合什么样的场景：
+         ⚠️if 与 switch 的比较，各自适合什么样的场景：
             1、if在功能上远远强大于switch。
             2、当前条件是区间的时候，应该使用if分支结构。
-            3、当条件是与一个一个的值比较的时候，switch分支更合适:格式良好，性能较好，代码优雅
+            3、当条件是与一个一个的值比较的时候，switch分支更合适：格式良好，性能较好，代码优雅
          */
     }
 }

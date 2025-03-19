@@ -1,6 +1,6 @@
 package com.czm.branch;
 
-public class WhileDemo7 {
+public class Demo7While {
     public static void main(String[] args) {
         /*
          1、while 循环，先判断后执行
@@ -15,6 +15,7 @@ public class WhileDemo7 {
         }
 
         /*
+         ⚠️：
          while 和 for 功能上完全一样，for能解决的while一样能解决，反之亦然。
          使用规范：知道循环几次，使用for；不知道几次的使用 while。
          例如：

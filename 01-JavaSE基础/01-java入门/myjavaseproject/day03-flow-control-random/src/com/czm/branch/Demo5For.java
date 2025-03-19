@@ -1,6 +1,6 @@
 package com.czm.branch;
 
-public class ForDemo5 {
+public class Demo5For {
     public static void main(String[] args) {
         // for 循环案例
         // 1、求和
@@ -20,7 +20,7 @@ public class ForDemo5 {
         }
         System.out.println("sum = " + sum);
 
-        // 方式2：直接for循环产生奇数求和。
+        // ⚠️：方式2：直接for循环产生奇数求和。
         int sum2 = 0;
         for (int i = 1; i <= 10; i+=2) {
             sum2 += i;

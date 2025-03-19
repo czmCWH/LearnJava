@@ -1,6 +1,6 @@
 package com.czm.branch;
 
-public class BreakContinueDemo11 {
+public class Demo11BreakContinue {
     public static void main(String[] args) {
         /*
          1、跳转关键字

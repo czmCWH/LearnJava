@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/day01-variable/day01-variable.iml" filepath="$PROJECT_DIR$/day01-variable/day01-variable.iml" />
       <module fileurl="file://$PROJECT_DIR$/day02-variable-type-operator/day02-variable-type-operator.iml" filepath="$PROJECT_DIR$/day02-variable-type-operator/day02-variable-type-operator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day03-flow-control-code/day03-flow-control-code.iml" filepath="$PROJECT_DIR$/day03-flow-control-code/day03-flow-control-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day03-flow-control-random/day03-flow-control-random.iml" filepath="$PROJECT_DIR$/day03-flow-control-random/day03-flow-control-random.iml" />
       <module fileurl="file://$PROJECT_DIR$/day04-array/day04-array.iml" filepath="$PROJECT_DIR$/day04-array/day04-array.iml" />
       <module fileurl="file://$PROJECT_DIR$/day05-method/day05-method.iml" filepath="$PROJECT_DIR$/day05-method/day05-method.iml" />
       <module fileurl="file://$PROJECT_DIR$/day06-case-code/day06-case-code.iml" filepath="$PROJECT_DIR$/day06-case-code/day06-case-code.iml" />

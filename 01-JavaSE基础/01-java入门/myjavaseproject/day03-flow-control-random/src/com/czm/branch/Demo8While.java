@@ -1,6 +1,6 @@
 package com.czm.branch;
 
-public class WhileDemo8 {
+public class Demo8While {
     public static void main(String[] args) {
         /*
          1、do-while 循环，先执行后判断

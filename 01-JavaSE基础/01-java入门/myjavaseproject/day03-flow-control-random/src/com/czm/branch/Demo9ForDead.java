@@ -1,6 +1,6 @@
 package com.czm.branch;
 
-public class ForDeadDemo9 {
+public class Demo9ForDead {
     public static void main(String[] args) {
         /*
         1、死循环

@@ -1,6 +1,6 @@
 package com.czm.branch;
 
-public class ForForDemo10 {
+public class Demo10ForFor {
     public static void main(String[] args) {
         /*
          1、循环嵌套

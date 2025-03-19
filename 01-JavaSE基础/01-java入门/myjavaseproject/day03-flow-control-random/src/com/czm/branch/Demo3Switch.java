@@ -1,6 +1,6 @@
 package com.czm.branch;
 
-public class SwitchDemo3 {
+public class Demo3Switch {
     public static void main(String[] args) {
         /*
          switch 的注意事项

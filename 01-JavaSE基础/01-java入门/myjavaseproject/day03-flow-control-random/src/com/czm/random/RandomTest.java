@@ -4,8 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RandomTest {
+
+    // 案例：随机数实现猜数游戏
+
     public static void main(String[] args) {
-        // 实现猜数游戏
+
         Random r = new Random();
         // 1、随机生成 1～100 随机数
         int luckyNumber = r.nextInt(100) + 1;

@@ -18,7 +18,7 @@ public class RandomDemo1 {
         int num1 = r1.nextInt(11, 21);
         System.out.println(num1);
 
-        System.out.println("------- 3、传统方式生成指定区间随机数");
+        System.out.println("------- ⚠️ 3、传统方式生成指定区间随机数");
         Random r2 = new Random();
         int num2 = r2.nextInt(10) + 1;
         System.out.println("--- 1~10之间随机数 = " + num2);
