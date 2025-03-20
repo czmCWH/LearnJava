@@ -3,7 +3,7 @@ package com.czm.create;
 public class ArrayDemo4 {
     public static void main(String[] args) {
          /*
-         1、Java 内存分配：
+         ⚠️⚠️⚠️ Java 内存分配：
             方法区：字节码文件先加载到这里，如：xx.class。
             栈内存：方法运行时所进入的内存，以及一些变量。
             堆内存：new出来的都会在此处开辟空间，并产生地址

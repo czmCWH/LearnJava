@@ -22,10 +22,10 @@ public class ArrayDemo2 {
         int[] ages = new int[10];
         boolean[] flags = new boolean[10];
         System.out.println("----- 数组元素默认值");
-        System.out.println(names[0]);
-        System.out.println(scores[0]);
-        System.out.println(ages[0]);
-        System.out.println(flags[0]);
+        System.out.println("String[] = " + names[0]);
+        System.out.println("double[] = " + scores[0]);
+        System.out.println("int[] = " + ages[0]);
+        System.out.println("boolean[] + " + flags[0]);
 
         System.out.println("------ 访问动态类型数组");
         names[0] = "张三";
