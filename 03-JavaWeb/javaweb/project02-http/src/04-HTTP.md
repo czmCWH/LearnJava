@@ -17,7 +17,7 @@ HTTP：Hyper Text Transfer Protocol，超文本传输协议，规定了浏览器
 
 Host：请求的主机名
 User-Agent：浏览器版本，例如Chrome浏览器的标识类似 Mozilla/5.0 ... Chrome/79，IE浏览器的标识类似 Mozilla/5.0(Windows NT ...) like Gecko
-Accept：表示浏览器能接收的资源类型，如 text/*，image/* 或者 */*表示所有;
+Accept：表示浏览器能接收的资源类型，如 `text/*`，`image/*` 或者 `*/*`表示所有;
 Accept-Language：表示浏览器偏好的语言，服务器可以据此返回不同语言的网页；
 Accept-Encoding：表示浏览器可以支持的压缩类型，例如 gzip，deflate等。
 Content-Type：请求主体的数据类型。
