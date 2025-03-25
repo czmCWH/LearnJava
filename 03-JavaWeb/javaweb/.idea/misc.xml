@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/project03-springboot-web-start02/pom.xml" />
         <option value="$PROJECT_DIR$/project04-web-manager/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/project05-web-ioc-di/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

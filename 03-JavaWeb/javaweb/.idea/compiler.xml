@@ -12,7 +12,7 @@
         <module name="project01-maven-junit" />
         <module name="project03-springboot-web-start01" />
       </profile>
-      <profile name="Annotation profile for project04-web-manager" enabled="true">
+      <profile name="Annotation profile for project05-web-ioc-di" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -20,6 +20,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
         <module name="project04-web-manager" />
+        <module name="project05-web-ioc-di" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,6 +33,7 @@
       <module name="project03-springboot-web-start01" options="-parameters" />
       <module name="project03-springboot-web-start02" options="-parameters" />
       <module name="project04-web-manager" options="-parameters" />
+      <module name="project05-web-ioc-di" options="-parameters" />
     </option>
   </component>
 </project>
