@@ -1,11 +1,9 @@
 package com.czm.service;
 
-import com.czm.dao.DeptDao;
-import com.czm.dao.DeptDaoImpl;
+import com.czm.mapper.DeptDao;
 import com.czm.entity.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

@@ -8,11 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="project02-http" />
-        <module name="project08-spring-db-mybatis" />
-        <module name="project07-db-jdbc" />
         <module name="project03-springboot-web-start02" />
         <module name="project01-maven-junit" />
         <module name="project03-springboot-web-start01" />
+        <module name="project09-web-db-mybatis" />
+        <module name="project08-spring-db-mybatis" />
+        <module name="project07-db-jdbc" />
       </profile>
       <profile name="Annotation profile for project05-web-ioc-di" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -39,6 +40,7 @@
       <module name="project05-web-ioc-di" options="-parameters" />
       <module name="project08-db-Mybatis-`" options="-parameters" />
       <module name="project08-spring-db-mybatis" options="-parameters" />
+      <module name="project09-web-db-mybatis" options="-parameters" />
     </option>
   </component>
 </project>

@@ -27,4 +27,13 @@ public class UserMapperTest {
             System.out.println(user);
         }
     }
+
+    @Test
+    public void testFindList() {
+        List<User> list = userMapper.findList();
+        System.out.println("--- XML 数据库中查询到数据：");
+        for (User user : list) {
+            System.out.println(user);
+        }
+    }
 }

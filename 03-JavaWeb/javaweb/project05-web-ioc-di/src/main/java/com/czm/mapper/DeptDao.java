@@ -1,4 +1,4 @@
-package com.czm.dao;
+package com.czm.mapper;
 import java.util.List;
 
 public interface DeptDao  {

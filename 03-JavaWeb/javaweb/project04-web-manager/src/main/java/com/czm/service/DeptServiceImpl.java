@@ -1,7 +1,7 @@
 package com.czm.service;
 
-import com.czm.dao.DeptDao;
-import com.czm.dao.DeptDaoImpl;
+import com.czm.mapper.DeptDao;
+import com.czm.mapper.DeptDaoImpl;
 import com.czm.entity.Dept;
 
 import java.time.LocalDateTime;
