@@ -37,8 +37,8 @@ MySQL 官方提供了2种不同的版本：
 * 下载地址：<https://dev.mysql.com/downloads/mysql/>
 
 ## 1、Mac 上安装 MySQL
-
-1、Mac 上直接下载安装包双击安装即可，中间需要配置管理员账号密码；
+ 
+1、Mac 上直接下载安装包双击安装即可，中间需要配置 管理员账号密码；
 2、安装完成后，【系统偏好设置】> 【MySQL】> 【Configuration】> 复制 `Base Directory` 通常为：`/usr/local/mysql`
 3、配置 Mac 编辑Shell配置文件：`export PATH="/usr/local/mysql/bin:$PATH"`
 
@@ -54,10 +54,13 @@ $ quit
 
 ```shell
 # root 管理员用户登录
+# 方式1
+$ mysql -uroot -p123
+# 方式2  
 $ mysql -u root -p
 # 输入密码登录成功
 
-# 修改管理员密码
+# 修改管理员密码，账号：root，修改密码为：123
 $ mysqladmin -u root -p password 123
 # 输入原老密码...
 ```
@@ -65,6 +68,9 @@ $ mysqladmin -u root -p password 123
 ```shell
 # 查看 mysql服务是否在运行
 $ mysqladmin -u root -p ping
+
+# 注册MySQL服务，首次安装时windows上执行
+$ mysqld -install
 
 # 启动/停止 mysql 服务 --- net 命令不兼容 macOS
 # Mac端通过：【系统偏好设置】 → 【MySQL‌】
