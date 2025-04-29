@@ -12,6 +12,7 @@
         <module name="project01-maven-junit" />
         <module name="project03-springboot-web-start01" />
         <module name="project09-web-db-mybatis" />
+        <module name="project10-logback" />
         <module name="project08-spring-db-mybatis" />
         <module name="project07-db-jdbc" />
       </profile>
@@ -41,6 +42,7 @@
       <module name="project08-db-Mybatis-`" options="-parameters" />
       <module name="project08-spring-db-mybatis" options="-parameters" />
       <module name="project09-web-db-mybatis" options="-parameters" />
+      <module name="project10-logback" options="-parameters" />
     </option>
   </component>
 </project>

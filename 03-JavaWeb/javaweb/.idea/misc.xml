@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/project08-db-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/project08-spring-db-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/project09-web-db-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/project10-logback/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
