@@ -57,7 +57,7 @@ public interface DeptMapper {
     void update(Dept dept);
 
     /**
-     * 更新部分部门信息，通过 Mybatis 实现动态SQL。
+     * 更新 部分 部门信息，通过 Mybatis 的 XML 语句实现动态SQL。
      * @param dept
      */
     void updateOption(Dept dept);

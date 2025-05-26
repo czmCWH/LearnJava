@@ -1,7 +1,7 @@
 # JDBC
 
 JDBC，(Java DataBase Connectivity)，就是使用Java语言操作关系型数据库的一套API。它是Java EE 的13项规范之一。
-偏底层，基本上不用。
+JDBC 偏底层，基本上不用。
 
 * Java 中操作数据库框架：MyBatis、MyBatisPlus、Hibernate、SpringData JPA
 
@@ -27,7 +27,7 @@ JDBC，(Java DataBase Connectivity)，就是使用Java语言操作关系型数�
 > 1、查看顺序从下往上看；
 > 2、查看 Exception 后面的异常信息；
 
-## 2、JDBC 解析
+## 2、JDBC API 详解
 
 ### `DriverManager` 驱动管理作用：
 

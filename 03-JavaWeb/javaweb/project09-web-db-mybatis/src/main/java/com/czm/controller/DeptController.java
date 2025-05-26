@@ -12,9 +12,13 @@ import java.util.List;
 
 /**
  * controller，控制层，接收请求，调用 Service 层来响应结果。
+ * 一般都是先写 controller 的逻辑。
  */
 
+// @RequestMapping 作用在类上表示公共路径的抽取，如下缩写的路径就都可以省略为：
+//  @GetMapping、@DeleteMapping、@PostMapping、@GetMapping("/{id}")、 @PutMapping
 //@RequestMapping("/depts")
+
 @RestController     // 等价于 @Controller+@ResponseBody
 public class DeptController {
 
@@ -35,6 +39,9 @@ public class DeptController {
         return Result.success(depts);
     }
 
+    // 如下代码所示发送 delete 请求:
+    // /depts?id=1
+
     // 获取请求参数，方式1,通过原始的 HttpServletRequest 对象获取请求参数
 //    @RequestMapping(value = "/depts", method = RequestMethod.DELETE)
 //    @DeleteMapping("/depts")    // 简写方式
@@ -45,15 +52,15 @@ public class DeptController {
 //        return Result.success();
 //    }
 
-    // 获取请求参数，方式2，通过 Spring 提供的 `@RequestParam` 注解， 将请求参数绑定给方法形参。
+    // 获取请求参数，方式2（记住），通过 Spring 提供的 `@RequestParam` 注解， 将请求参数绑定给方法形参。
 //    @DeleteMapping("/depts")    // 简写方式
 //    public Result delete(@RequestParam(value = "id", required = false) Integer deptId) {
-//        // @RequestParam 注解 required 属性默认为true，代表该参数必须传递，如果不传递将报错。如果参数可选，可以将属性设置为false。
+//        // @RequestParam 注解 required 属性默认为true，代表 id 参数必须传递，如果不传递将报错：code=400。如果参数可选，可以将 required 属性设置为false。
 //        System.out.println("--- 2删除ID = " + deptId);
 //        return Result.success();
 //    }
 
-    // 获取请求参数，方式3，如果请求参数名与形参变量名相同，直接定义方法形参即可接收。(省略@RequestParam)
+    // 获取请求参数，方式3（推荐），如果请求参数名与形参变量名相同，直接定义方法形参即可接收。(省略@RequestParam)
     @DeleteMapping("/depts")    // 简写方式
     public Result delete(Integer id) {
         System.out.println("--- 3删除ID = " + id);
@@ -66,7 +73,7 @@ public class DeptController {
      * @param dept
      * @return
      */
-    // @RequestBody 注解，用来接收 json 格式请求参数
+    // @RequestBody 注解，用来接收 json 格式请求参数，必须用对应参数的对象接收。
     @PostMapping("/depts")
     public Result addDept(@RequestBody Dept dept) {
         System.out.println("--- post 请求参数 = " + dept);
@@ -74,10 +81,15 @@ public class DeptController {
         return Result.success();
     }
 
+    // /depts?id=1，id 为普通参数
+    // /depts/{id}/{name}，id、name 为路径参数
+
     /**
-     * 根据ID查询部门信 息
+     * 根据ID查询部门信息
      * @param id
      * @return
+     *
+     * @PathVariable 注解用于接收路径参数。
      */
     @GetMapping("/depts/{id}")
     public Result getById(@PathVariable Integer id) {
