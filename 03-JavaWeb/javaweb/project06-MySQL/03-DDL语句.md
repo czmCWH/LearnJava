@@ -21,9 +21,10 @@ mysql> create database [if not exists] 数据库名 [default charset utf8mb4]；
 mysql> drop database [if exists] 数据库名;
 ```
 
-* 注意：
-* 上述语法中的 `database`，也可以替换成 `schema`。
+* ⚠️ 注意：
+* 上述语法中的 `database`，也可以替换成 `schema`。(`create schema`)
 * `MySQL8` 版本中，默认字符集为 `utf8mb4`。
+
 
 ## 2、创建表
 

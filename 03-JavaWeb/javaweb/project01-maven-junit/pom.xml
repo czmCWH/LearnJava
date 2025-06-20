@@ -22,11 +22,13 @@
             <!--排除依赖-->
             <exclusions>
                 <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
+                    <groupId>org.junit.jupiter</groupId>
+                    <artifactId>junit-jupiter</artifactId>
+                    <!--不需要写版本号，因为只能导入一个版本的依赖-->
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- 添加 junit 依赖，进行单元测试 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

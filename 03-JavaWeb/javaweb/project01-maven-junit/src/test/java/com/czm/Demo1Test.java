@@ -3,7 +3,7 @@ package com.czm;
 import org.junit.jupiter.api.*;
 
 /**
- * 演示：单元测试常用注解
+ * 演示：junit 依赖的常用注解
  */
 public class Demo1Test {
 
