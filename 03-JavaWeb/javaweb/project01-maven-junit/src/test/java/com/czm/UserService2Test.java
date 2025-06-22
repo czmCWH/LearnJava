@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 /**
- * 演示：ValueSource 注解 参数化测试
+ * 演示2：ValueSource 注解 参数化测试
  */
 @DisplayName("演示：注解参数化测试")
 public class UserService2Test {

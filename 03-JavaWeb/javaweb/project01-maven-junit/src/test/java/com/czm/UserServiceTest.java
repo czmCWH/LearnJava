@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * 演示：@Test 和 断言
+ * 演示3：@Test 和 断言
  *
  * 测试类，用于测试 UserService 业务方法，规范的命名方式为 “类名 + Test” 或者 “Test + 类名”
 

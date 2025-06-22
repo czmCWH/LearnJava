@@ -20,7 +20,7 @@ Maven 是基于 project object model(项目对象模型，POM)的概念，通过
 2、标准的项目构建流程：标准化的跨平台(Linux、Windows、MacOS)的自动化项目构建方式。如进行如下操作：
 	编译(compile)、测试(test)、打包(package)】发布(deploy)
 
-3、统一项目结构：提供标准、统一的项目结构。
+3、统一项目结构：提供标准、统一的项目结构，如下：
 
 ```
 - src/
