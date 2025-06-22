@@ -9,6 +9,9 @@ import java.io.IOException;
 
 /**
  * 演示3：在 Servlet 程序中，通过 HttpServletResponse 设置相应数据（注意：一般不设置）。
+ *
+ * `HttpServletResponse`：用于封装所有的响应数据；
+ *
  */
 
 @WebServlet(urlPatterns = "/response")

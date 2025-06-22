@@ -3,7 +3,7 @@ package com.czm.entity;
 import lombok.Data;
 
 /**
- * 统一响应结果类
+ * 此实体类，用于统一响应结果类
  */
 @Data
 public class Result {
@@ -11,6 +11,7 @@ public class Result {
     private String msg;     // 错误信息
     private Object data;    // 数据
 
+    // 没有响应数据的 success
     public static Result success() {
         Result result = new Result();
         result.code = 1;
@@ -18,6 +19,7 @@ public class Result {
         return result;
     }
 
+    // 存在响应数据的 success
     public static Result success(Object data) {
         Result result = new Result();
         result.code = 1;
@@ -26,6 +28,7 @@ public class Result {
         return result;
     }
 
+    // 响应失败的数据
     public static Result error(String msg) {
         Result result = new Result();
         result.code = 0;

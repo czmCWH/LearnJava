@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Project04WebManagerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Project04WebManagerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Project04WebManagerApplication.class, args);
+    }
 
 }

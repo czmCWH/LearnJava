@@ -22,12 +22,21 @@
         <processorPath useClasspath="false">
           <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
-        <module name="project04-web-manager" />
         <module name="project05-web-ioc-di" />
+      </profile>
+      <profile name="Annotation profile for project04-web-manager" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="project04-web-manager" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21">
       <module name="project03-springboot-web-start02" target="17" />
+      <module name="project04-web-manager02" target="21" />
       <module name="springboot-quickstart01" target="21" />
       <module name="springboot-quickstart02" target="17" />
     </bytecodeTargetLevel>
@@ -37,6 +46,7 @@
       <module name="project03-springboot-web-start01" options="-parameters" />
       <module name="project03-springboot-web-start02" options="-parameters" />
       <module name="project04-web-manager" options="-parameters" />
+      <module name="project04-web-manager02" options="-parameters" />
       <module name="project05-web-ioc-di" options="-parameters" />
       <module name="project08-spring-db-mybatis" options="-parameters" />
       <module name="project09-web-db-mybatis" options="-parameters" />

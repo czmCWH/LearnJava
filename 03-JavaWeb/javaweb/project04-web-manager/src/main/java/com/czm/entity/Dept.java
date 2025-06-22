@@ -4,7 +4,11 @@ package com.czm.entity;
 
 import java.time.LocalDateTime;
 
-//@Data
+/**
+ * 实现一个实体类，用于封装数据。
+ */
+
+//@Data     // 可以直接通过 lombok 依赖实现 get/set 方法
 public class Dept {
     private Integer id;
     private String name;

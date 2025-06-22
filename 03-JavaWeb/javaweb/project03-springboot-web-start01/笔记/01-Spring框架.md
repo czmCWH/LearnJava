@@ -57,12 +57,12 @@ server.port=9999
 
 1、为什么一个 main 方法就将 web应用启动了?
 因为创建的 `SpringBoot` 项目添加了起步依赖:
-	`spring-boot-starter-web`：包含了web应用开发所需要的常见依赖，如：`tomcat`。因此对于 `SpringBoot` 项目不需要安装 Tomcat。
+	`spring-boot-starter-web`：包含了web应用开发所需要的常见依赖，如：`tomcat` 依赖。因此对于 `SpringBoot` 项目不需要安装 Tomcat。
 	`spring-boot-starter-test`：包含了单元测试所需要的常见依赖。
 `SpringBoot` 官方提供的 starter：
 
 2、`Tomcat` 是一个 `Servlet容器`，为什么可以运行我们编写的 `HelloController`?
-由于在 `SpringBoot` 进行 web 程序开发时，底层提供了一个非常核心的 `DispatcherServlet`，请求到达 `DispatchServlet` 之后，会
+由于在 `SpringBoot` 进行 web 程序开发时，底层提供了一个非常核心的 `DispatcherServlet` 运行在 `Tomcat` 中，用来接收前端的请求。请求到达 `DispatchServlet` 之后，会
 根据请求路径，将请求转给我们定义的 `Controller` 程序，最终由 `Controller` 程序进行逻辑的处理。
 
 # 四、打包项目在本地电脑上运行

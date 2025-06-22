@@ -9,6 +9,9 @@ import java.io.IOException;
 
 /**
  * 演示2：在 Servlet 程序中，通过 HttpServletRequest 对象获取所有的请求头信息。
+ *
+ * `HttpServletRequest`：用于封装所有的请求数据；
+ *
  */
 
 @WebServlet(urlPatterns = "/info")  // 在注解中定义请求路径
