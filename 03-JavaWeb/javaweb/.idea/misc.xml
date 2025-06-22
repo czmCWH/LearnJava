@@ -18,12 +18,17 @@
         <option value="$PROJECT_DIR$/project09-web-db-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/project10-logback/pom.xml" />
         <option value="$PROJECT_DIR$/project01-maven-junit/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-quickstart01/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-quickstart02/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/project03-springboot-web-start02/pom.xml" />
         <option value="$PROJECT_DIR$/project08-db-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-quickstart01/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-quickstart02/pom.xml" />
       </set>
     </option>
   </component>

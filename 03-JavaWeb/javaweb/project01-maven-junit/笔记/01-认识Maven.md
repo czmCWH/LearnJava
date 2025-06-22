@@ -24,11 +24,11 @@ Maven 是基于 project object model(项目对象模型，POM)的概念，通过
 
 ```
 - src/
-		- main/
-			- java/
-			- resources/
-		- test/
-	- pom.xml
+	- main/
+		- java/
+		- resources/
+	- test/
+- pom.xml
 ```
 
 

@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 启动类，用于启动 SpringBootWeb 程序
+ *
+ * 启动完毕后，通过 http://localhost:8080/hello 访问项目
  */
 
 @SpringBootApplication
