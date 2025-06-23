@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
- * 请求处理类
+ * 1、控制层：接收请求，响应数据
  * 运行项目后：
  *  访问 http://localhost:8080/depts2，将以统一数据结构响应返回。
  *
@@ -90,9 +90,10 @@ public class DeptController {
     }
 
     /*
-        采用3层结构拆分！！！
+        ⚠️⚠️⚠️ 采用3层结构拆分 + 面向接口编程！！！
      */
 
+    // DeptService 多态的方式获取不同的示例
     private DeptService deptService = new DeptServiceImpl();
 
     @GetMapping("/depts3")      // 限定接口的请求方式，只能以 GET 方式请求

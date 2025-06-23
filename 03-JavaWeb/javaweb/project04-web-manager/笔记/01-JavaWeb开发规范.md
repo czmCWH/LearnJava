@@ -1,7 +1,8 @@
 # 一、JavaWeb 开发规范
 
-* 早期前后端混合开发：前后端项目在一个工程里，前端项目会放在 `src/main/resources/static/` 目录下。
-* 前后端分离开发：前端项目部署到 `nginx 服务器`；后端项目部署到 `tomcat 服务器`。
+> 早期前后端混合开发：前后端项目在一个工程里，前端项目会放在 `src/main/resources/static/` 目录下。
+> 
+> 前后端分离开发：前端项目部署到 `nginx 服务器`；后端项目部署到 `tomcat 服务器`。
 
 ## 1、前后端分离开发
 
@@ -64,3 +65,5 @@ public class Result {
 ```
 
 限制接口请求方式必须为GET，可以通过 @RequestMapping 注解的 method 属性指定，也可以使用 @GetMapping。
+
+# 四、三层架构 + 面向接口编程

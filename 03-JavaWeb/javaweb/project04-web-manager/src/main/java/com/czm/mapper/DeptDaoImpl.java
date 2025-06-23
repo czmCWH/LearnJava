@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * 数据访问层，处理数据访问数据
+ * 在实现类中实现接口
  */
 public class DeptDaoImpl implements DeptDao {
     public List<String> list() {

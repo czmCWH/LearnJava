@@ -9,20 +9,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
- * 业务逻辑处理层
+ * 业务逻辑处理层实现类
  */
 public class DeptServiceImpl implements DeptService {
 
+    // DeptDao 多态的方式采用不同的实现类
     private DeptDao deptDao = new DeptDaoImpl();
 
     public List<Dept> list() {
-        // 1、获取原始数据
+        // 1、通过 Dao 获取原始数据
         List<String> stringList = deptDao.list();
 
-
         // 2、处理数据 - 将数据封装成 List<Dept>
-
-        // 2、解析文本中的数据，并将其封装成集合
+        // 解析文本中的数据，并将其封装成集合
         List<Dept> depts = stringList.stream().map((str) -> {
             String[] parts = str.split(",");
             Integer id = Integer.parseInt(parts[0]);

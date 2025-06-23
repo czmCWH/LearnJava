@@ -71,13 +71,39 @@ build-error: 16 (30 days)
 
 # 三、Nginx 反向代理
 
-Tomcat 服务器：部署后端web项目。承受并发只有 200～300。
-Nginx 服务器：部署前端项目。承受并发有 2万～3万。
+当用户访问前端页面时，是去获取 Nginx 服务器上的内容。前端页面中进行网络请求时，nginx 服务器 会根据 `nginx.conf` 文件中配置的反向代理，
+将用户访问的地址替换为代理地址，这样请求的数据就不必直接请求后端服务器。
+
+* 反向代理的好处：
+	安全（用户不必访问目标服务器地址，避免目标服务器被攻击）；
+	内容缓存；
+	负载均衡器（采用轮询的方式，让每台服务器处理差不多的请求量）；
 
 
-当用户访问 Nginx 服务器时，Nginx会根据配置的反向代理，将用户访问的地址替换为代理地址。
-反向代理的好处：
-	用户不必访问目标服务器地址；
-	内容缓存、负载均衡器；
+> Tomcat 服务器：部署后端web项目。承受并发只有 200～300。
+> Nginx 服务器：部署前端项目。承受并发有 2万～3万。
 
+Nginx 反向代理 配置示例如下：
 
+```config
+server {
+	listen				90;
+	server_name 	localhost;
+	client_max_body_size	10m;
+	
+	location / {
+		root html;
+		index index.html index.htm;
+		try_files $uri $uri/ /index.html;	
+	}
+	
+	location ^~ /api/ {
+		rewrite ^/api/(.*)$ /$1 break;
+		proxy_pass "http": //localhost:8080;
+	}	
+}
+```
+1. `location`：用于定义匹配特定 `uri` 请求的规则。 
+2. `^~ /api/`：表示精确匹配，即只匹配以 `/api/` 开头的路径。
+3. `rewrite`：该指令用于重写匹配到的 `uri` 路径
+4. `proxy_pass`：该指令用于代理转发，它将匹配到的请求转发给位于后端的指令服务器。
