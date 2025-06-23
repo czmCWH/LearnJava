@@ -1,10 +1,10 @@
 # DQL 查询表数据
 
-DQL 英文全称是 Data Query Language(数据查询语言)，用来查询数据库表中的记录。
+DQL 英文全称是 `Data Query Language` (数据查询语言)，用来查询数据库表中的记录。
 
 完整的DQL语句语法：
 
-```mysql
+```
 select 字段列表 from 表名称 
 where 条件列表 
 group by 分组字段列表 
@@ -41,14 +41,14 @@ select * from emp;
 -- 3、为查询字段设置别名
 select username as 用户名, entrydate as 入职日期 from emp;
 select username 用户名, entrydate 入职日期 from emp;
-select username 用户名, entrydate '入职 日期' from emp;
+select username 用户名, entrydate '入职 日期' from emp;    -- 别名中存在空格需加引号
 
 -- 4、查询入职日期，不要重复
 -- ⚠️⚠️⚠️去除 username + entrydate 的重复记录
 select distinct entrydate, username from emp;
 ```
 
-## 2、DQL-条件查询
+## 2、DQL-条件查询 ---------xxxxxxx
 
 `select 字段列表 from 表名 where 条件列表;`
 

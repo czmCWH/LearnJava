@@ -1,12 +1,14 @@
 # 一、数据库
 
-数据库：DataBase(DB)，是存储和管理数据的仓库。
+数据库：`DataBase(DB)`，是存储和管理数据的仓库。
 
-数据库管理系统：DataBase Management System(DBMS)，操纵和管理数据库的**大型软件**。
+数据库管理系统：`DataBase Management System(DBMS)`，操纵和管理数据库的**大型软件**。
 
-SQL：Structured Query Language，操作关系型数据库的编程语言，定义了一套操作关系型数据库统一标准。
+`SQL`：`Structured Query Language`，操作关系型数据库的编程语言，定义了一套操作关系型数据库统一标准。
 
-## 数据库产品：
+开发者 给 数据库软件 发送 `SQL` 指令，数据库软件 就会去操作数据库。
+
+## 数据库软件产品：
 
 	`Oracle`：收费的大型数据库，0racle 公司的产品。如：银行、保险...
 	
@@ -14,7 +16,7 @@ SQL：Structured Query Language，操作关系型数据库的编程语言，定�
 	
 	`SQL Server`：MicroSoft 公司收费的中型的数据库。C#、.net等语言常使用。
 
-	`PostgreSQL`：开源免费中小型的数据库。
+	`PostgreSQL`：开源免费中小型的数据库。有些小公司会用。
 
 	`DB2`：IBM公司的大型收费数据库产品。
 
@@ -38,10 +40,20 @@ MySQL 官方提供了2种不同的版本：
 
 ## 1、Mac 上安装 MySQL
  
-1、Mac 上直接下载安装包双击安装即可，中间需要配置 管理员账号密码；
+1、Mac 上直接下载安装包双击安装即可，中间需要配置 管理员root账号密码；
 2、安装完成后，【系统偏好设置】> 【MySQL】> 【Configuration】> 复制 `Base Directory` 通常为：`/usr/local/mysql`
-3、配置 Mac 编辑Shell配置文件：`export PATH="/usr/local/mysql/bin:$PATH"`
+3、配置 Mac 编辑Shell配置文件 如下：
 
+```shell
+$ open ~/.zshrc
+
+# MySQL 配置
+export PATH=/usr/local/mysql/bin:$PATH
+
+$ source ~/.zshrc
+```
+
+打开 【系统偏好设置】> 【MySQL】启动，可在终端执行如下命令：
 
 ```shell
 # 登陆 mysql
@@ -86,9 +98,11 @@ mysql -u[用户名] -p[密码] -h[数据库服务器IP地址] -P[端口号：默
 
 ## 3、MySQL 客户端工具 - 图形化工具
 
+> 终端命令行方式操作数据库适用于临时快速查看一下，缺点是：无提示、操作繁琐、无历史记录。
+
 常见的工具有：`SQLyog`、`Navicat`、`IntelliJ IDEA `、`DataGrip`
 
-`DataGrip` 是 `JetBrains` 旗下的一款数据库管理工具，是管理和开发 MySQL、Oracle、PostgreSQL 的理想解决方案。
+`DataGrip` 是 `JetBrains` 旗下的一款数据库管理工具，是管理和开发 `MySQL、Oracle、PostgreSQL` 的理想解决方案。
 官网：<https://www.jetbrains.com/zh-cn/datagrip/>
 
 开发中使用 `IDEA` 连接数据库即可。
@@ -108,4 +122,4 @@ mysql> show databases
 ```
 
 使用数据库过程：
-**先登录 MySQL > 创建数据库 > 创建表 > 在表中记录数据**
+`先登录 MySQL 服务器 > 创建数据库 > 在数据库中创建表 > 在表中记录数据`
