@@ -13,12 +13,12 @@ import java.util.List;
  * 业务逻辑处理层
  */
 
-//@Component      // Spring IOC，程序启动时，会自动创建该类对象，并交由IOC容器管理。
+//@Component      // @Component 注解实现 Spring IOC，当程序启动时，会自动创建该类对象，并交由IOC容器管理。也称为 Bean 对象。
 @Service    // 用来标识当前类属于逻辑处理类，也是将该类型交给 IOC 容器管理。与 @Component 作用一样。
 public class DeptServiceImpl implements DeptService {
 
 //    private DeptDao deptDao = new DeptDaoImpl();
-    @Autowired      // 从 Spring IOC 容器中，自动寻找 Bean 对象，为改变了赋值 --- 依赖注入，ID的实现
+    @Autowired      // @Autowired 注解的作用是从 Spring IOC 容器中，自动寻找 Bean 对象，并为该变量赋值 --- 即：依赖注入，DI的实现
     private DeptDao deptDao;
 
     public List<Dept> list() {

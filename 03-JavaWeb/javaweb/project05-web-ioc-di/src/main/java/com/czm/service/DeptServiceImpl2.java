@@ -15,7 +15,8 @@ import java.util.List;
  */
 
 @Primary
-@Service()    // value 属性指定 bean 的名字
+@Service   // value 属性指定 bean 的名字
+//@Service("DeptServiceImpl2")    // value 属性指定 bean 对象的名字，默认是类名的首字母小写。
 public class DeptServiceImpl2 implements DeptService {
 
     //    private DeptDao deptDao = new DeptDaoImpl();

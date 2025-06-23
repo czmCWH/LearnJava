@@ -67,3 +67,5 @@ public class Result {
 限制接口请求方式必须为GET，可以通过 @RequestMapping 注解的 method 属性指定，也可以使用 @GetMapping。
 
 # 四、三层架构 + 面向接口编程
+
+> 具体可查看 `project05-web-ioc-di/笔记/`

@@ -63,7 +63,9 @@ public class DeptController {
     }
 
 //    private DeptService deptService = new DeptServiceImpl();
-//    @Autowired      // 从 Spring IOC 容器中，自动寻找 Bean 对象，为改变了赋值 --- 依赖注入，ID的实现
+//    private DeptService deptService = new DeptServiceImpl2();     // 存在强耦合
+
+//    @Autowired      // @Autowired 注解的作用是从 Spring IOC 容器中，自动寻找 DeptService 类型的 Bean 对象，并为该变量赋值 --- 即：依赖注入，DI的实现
     @Resource(name = "deptServiceImpl2")
     private DeptService deptService;
 

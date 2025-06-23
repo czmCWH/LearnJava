@@ -1,4 +1,4 @@
-# Nginx 服务器
+# Nginx 服务器（了解）
 
 nginx 是一款 HTTP Web 服务器、反向代理、内容缓存、负载均衡器、TCP/UDP 代理服务器和邮件代理服务器。
 
