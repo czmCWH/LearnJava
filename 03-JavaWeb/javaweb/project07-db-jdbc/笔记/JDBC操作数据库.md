@@ -1,31 +1,41 @@
-# JDBC
 
-JDBC，(Java DataBase Connectivity)，就是使用Java语言操作关系型数据库的一套API。它是Java EE 的13项规范之一。
-JDBC 偏底层，基本上不用。
+> 通过 Java 程序操作数据库。Java 中操作数据库的技术有很多，最底层的是 JDBC。
 
-* Java 中操作数据库框架：MyBatis、MyBatisPlus、Hibernate、SpringData JPA
+# 一、JDBC
+`JDBC`，(`Java DataBase Connectivity`)，就是使用 `Java` 语言操作关系型数据库的一套 `API`。它是 `Java EE` 的13项规范之一。
+`JDBC` 偏底层，操作很繁琐，基本上不用。市面上有很多第三方封装了 `JDBC`，简化代码开发。
 
-> JDBC 的本质:
->
-> sun公司官方定义的一套操作所有关系型数据库的规范，即接口。
-> 各个数据库厂商去实现这套接口，提供数据库**驱动jar包**。
-> 我们可以使用这套接口 (JDBC)编程，**真正执行的代码是驱动jar包中的实现类**
+* `Java` 中操作数据库框架：`MyBatis`(最常用)、`MyBatisPlus`、`Hibernate`(早期)、`SpringData JPA`(早期)
 
-## 1、使用 JDBC 的步骤
+### JDBC 的本质
+
+为什么 `JDBC` 是一套 API，而不是实现类可以直接使用？
+因为 关系型数据库 有很多产品，都有各自的特点。为了方便开发者操作，由数据库软件厂商根据 `JDBC` 来提供具体实现。
+
+`JDBC` 的本质是 `sun` 公司官方定义的一套操作所有关系型数据库的规范，即接口。各个数据库厂商去实现这套接口，即提供数据库**驱动jar包**。
+开发者使用这套接口 (`JDBC`)编程，而真正执行的代码是 `驱动jar包` 中的实现类。
+
+# 二、在 Java 程序中操作 MySql 
+
+实现案例：在 Java 程序中 以 junit 单元测试的方式操作数据库。
+
+## 1、实现步骤
 
 步骤1、项目准备
-    创建项目，引入 mysql的驱动，以及 junit依赖；
+    创建普通的 `Maven` 项目，引入 `mysql的驱动`，以及 `junit依赖`；
     注册驱动；
-    获取数据库连接对象 Connection；
-    获取 SQL 语句执行对象 Statement；
+    获取数据库连接对象 `Connection`；
+    获取 `SQL` 语句执行对象 `Statement`；
 
-步骤2、执行 SQL 语句
+步骤2、执行 `SQL` 语句
 
 步骤3、释放资源
 
 > Java 终端报错
 > 1、查看顺序从下往上看；
 > 2、查看 Exception 后面的异常信息；
+
+
 
 ## 2、JDBC API 详解
 

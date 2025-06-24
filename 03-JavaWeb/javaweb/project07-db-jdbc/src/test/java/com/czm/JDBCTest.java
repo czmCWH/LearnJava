@@ -17,7 +17,9 @@ public class JDBCTest {
         // 1、准备工作
 
         // 1.1、注册驱动 --- 固定步骤
-        Class.forName("com.mysql.cj.jdbc.Driver");  // 可以省略不写，具体看源码
+        // 以反射的方式，根据 全类名 加载指定的类。
+        // 可以省略不写，具体看源码。
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         // 1.2、获取数据库连接对象
         // jdbc:mysql://，连接数据库使用的协议

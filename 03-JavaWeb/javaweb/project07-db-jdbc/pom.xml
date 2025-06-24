@@ -15,13 +15,13 @@
     </properties>
 
     <dependencies>
-<!--        mysql驱动-->
+        <!-- mysql驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
-<!--        junit单元测试-->
+        <!-- junit单元测试 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
