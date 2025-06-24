@@ -70,7 +70,6 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public void update(Dept dept) {
         // 1、补充基础属性
-        dept.setCreateTime(LocalDateTime.now());
         dept.setUpdateTime(LocalDateTime.now());
         // 2、调用 mapper
         deptMapper.update(dept);
