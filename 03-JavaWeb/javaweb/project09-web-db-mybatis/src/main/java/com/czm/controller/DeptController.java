@@ -15,11 +15,7 @@ import java.util.List;
  * ⚠️ 一般都是先写 controller 的逻辑。
  */
 
-// @RequestMapping 作用在类上表示公共路径的抽取，如下缩写的路径就都可以省略为：
-//  @GetMapping、@DeleteMapping、@PostMapping、@GetMapping("/{id}")、 @PutMapping
-//@RequestMapping("/depts")
-
-@RestController     // 等价于 @Controller+@ResponseBody
+@RestController
 public class DeptController {
 
 //    @Autowired
@@ -30,7 +26,7 @@ public class DeptController {
      * Get 请求，获取所有数据
      * @return
      */
-    @GetMapping("/depts")      // 限定接口的请求方式，只能以 GET 方式请求
+    @GetMapping("/depts")
     public Result getAllDept() {
         // 1、调用 Service，获取数据
         List<Dept> depts = deptService.list();

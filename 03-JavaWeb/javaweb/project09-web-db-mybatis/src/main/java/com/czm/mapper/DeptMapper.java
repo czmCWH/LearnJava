@@ -14,12 +14,12 @@ public interface DeptMapper {
     /**
      * 查询部门列表
      */
-//    @Results({
-////            @Result(column = "create_time", property = "createTime"),
-//            @Result(column = "update_time", property = "updateTime")
-//    })
-//    @Select("select * from dept")
-    @Select("select id, name, update_time updateTime from dept")
+    @Results({
+            @Result(column = "create_time", property = "createTime"),
+            @Result(column = "update_time", property = "updateTime")
+    })  //  Mybatis数据封装方式1，@Results 设置字段名与属性名映射
+    @Select("select * from dept")
+//    @Select("select id, name, update_time updateTime from dept")  // Mybatis数据封装方式2 取别名
     List<Dept> list();
 
     /**
