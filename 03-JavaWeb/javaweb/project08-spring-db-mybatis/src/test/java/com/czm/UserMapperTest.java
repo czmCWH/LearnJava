@@ -13,7 +13,8 @@ import java.util.List;
  * 解决此类报错：@SpringBootTest(classes = 启动类名称.class)
  */
 
-@SpringBootTest     // 作用：在单元测试运行时，会加载 Spring 环境，拿到 IOC容器
+// @SpringBootTest  注解作用：在单元测试运行时加载 Spring 环境，拿到 IOC容器
+@SpringBootTest
 public class UserMapperTest {
 
     @Autowired  // 依赖注入，
