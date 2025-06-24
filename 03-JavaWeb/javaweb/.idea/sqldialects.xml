@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/project06-MySQL/sql/DDL.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project06-MySQL/sql/DML.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project06-MySQL/sql/DQL.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project07-db-jdbc/笔记/sql/user.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project09-web-db-mybatis/src/main/java/com/czm/mapper/DeptMapper.java" dialect="MySQL" />
   </component>
 </project>
