@@ -29,7 +29,7 @@ mybatis.mapper-locations=classpath:mapper/*.xml
 
 ### MybatisX 插件
 
-`MybatisX` 是一款基于 IDEA 的快速开发 `Mybatis` 的插件，为效率而生。
+`MybatisX` 是一款基于 `IDEA` 的快速开发 `Mybatis` 的插件，为效率而生。
 安装方式：选中 IDEA 图标 > Settings > Plugins > 搜索 `MybatisX`，安装即可。
 
 ## Mybatis 开发使用 注解 还是 XML ？

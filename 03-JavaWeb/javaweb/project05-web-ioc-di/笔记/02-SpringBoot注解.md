@@ -15,6 +15,10 @@
     @GetMapping("/depts")		// 查
   @RequestMapping 修饰类时，来对其简化版抽取公共路径。
 
+  请求参数接收：
+     @RequestBody
+     @PathVariable
+
 - IOC 控制反转
   @Component，修饰 实现类，声明 bean 对象的基础注解。其衍生注解：
     @Controller，标准在控制层，都用 @RestController。

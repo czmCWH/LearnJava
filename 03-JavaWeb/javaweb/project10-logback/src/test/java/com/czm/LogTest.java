@@ -25,9 +25,7 @@ public class LogTest {
         }
         log.info("计算结果 sum = " + sum);
         // 占位符的方式输出
-        log.info("计算结果 sum = {}", + sum);
+        log.info("计算结果 sum = {}", + sum);   // 占位符的方式
         log.info("结束计算。");
     }
-
-
 }

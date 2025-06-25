@@ -2,24 +2,24 @@
 
 `浏览器 -> Controller -> Service -> Mapper -> DB Server`
 
-**Controller：**
-1、接收请求参数
-2、调用 Service 层的方法
-3、响应结果
+1、`Controller` 层
+* 接收请求参数；
+* 调用 Service 层的方法；
+* 响应结果
 
-**Service：**
-1、补全基础属性
-2、调用 Mapper 接口方法
+2、`Service` 层
+* 补全基础属性； 
+* 调用 `Mapper` 接口方法
 
-**Mapper：**
-1、执行 sql 语句
+3、`Mapper` 层
+* 执行 `sql` 语句；
 
 # 二、Spring boot + Mybatis 接收网络请求，响应数据
 
 ## 1、Controller 中接收  URL 查询请求参数
 
-案例实现 `DELETE 请求，/depts?id=123`，根据ID删除数据，具体实现查看 `src/main/java/com/czm/controller/Controller01.java`。
-
+案例实现 `DELETE 请求，/depts?id=123`，根据ID删除数据，具体实现查看 
+`src/main/java/com/czm/controller/Controller01.java` 中的示例。
 
 ## 2、Mapper 中接收 Controller 的参数
 
@@ -78,8 +78,8 @@ public Result getById(@PathVariable Integer id) {   // @PathVariable 注解获�
 
 ## Controller 中公共请求路径抽取
 
-> 一个完整的请求路径，应该是类上的 @RequestMapping 的value属性 + 方法上的 @RequestMapping的value属性。
-
+一个完整的请求路径，应该是类上的 `@RequestMapping` 的 `value`属性 + 方法上的 `@RequestMapping` 的 value属性。
+实体类上的 `@RequestMapping` 修饰放在 `@RestController` 之前。
 
 # 一、Mybatis 实现动态 SQL
 SQL语句不是固定的，而是 随着用户的输入 或 外部条件的变化而变化的 SQL语句，称为 `动态SQL`。
