@@ -6,5 +6,9 @@
     <file url="file://$PROJECT_DIR$/project06-MySQL/sql/DQL.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project07-db-jdbc/笔记/sql/user.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project09-web-db-mybatis/src/main/java/com/czm/mapper/DeptMapper.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project09-web-db-mybatis/笔记/sql/创建部门表.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project11-多表查询/sql/01-多表关系.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project11-多表查询/sql/02-一对多案例.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project11-多表查询/sql/03-多表查询案例.sql" dialect="MySQL" />
   </component>
 </project>

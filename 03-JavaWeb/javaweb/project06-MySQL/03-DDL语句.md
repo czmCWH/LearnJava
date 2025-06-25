@@ -113,7 +113,7 @@ show create table user;
 alter table user add qq varchar(20) unique comment '用户qq号';
 -- 修改字段类型
 alter table user modify qq char(20);
--- 修改字段名与字段类型
+-- 修改字段名与字段类型。不能只修改字段名，必须带上修改为的类型。
 alter table user change qq qq_new varchar(20) comment '用户qq号';
 -- 删除字段
 alter table user drop column qq_new;
