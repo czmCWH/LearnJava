@@ -10,5 +10,6 @@
     <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/01-多表关系.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/02-多表查询案例.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/03-项目案例准备.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project12-springboot-mybatis-insert/笔记/sql/01-创建员工日志表.sql" dialect="MySQL" />
   </component>
 </project>

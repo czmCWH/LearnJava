@@ -5,7 +5,7 @@
 <!-- XML 文件头需要从 Mybatis 官网中获取：https://mybatis.org/mybatis-3/zh_CN/getting-started.html  -->
 <mapper namespace="com.czm.mapper.EmpMapper">
     <!-- 新增员工信息
-        useGeneratedKeys="true" keyProperty="id"
+        ⚠️ useGeneratedKeys="true" keyProperty="id"：表示sql执行完毕后，把表的主键ID赋值给实体类 emp
      -->
     <insert id="insertXml" useGeneratedKeys="true" keyProperty="id">
         insert into emp

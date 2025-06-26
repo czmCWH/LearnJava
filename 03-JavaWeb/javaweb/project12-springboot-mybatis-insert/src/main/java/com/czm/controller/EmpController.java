@@ -22,9 +22,12 @@ public class EmpController {
      * @return
      */
     @PostMapping("/emps")
-    Result save(@RequestBody Emp emp) {
+    Result save(@RequestBody Emp emp) throws Exception {
         log.info("--- 新增员工信息：{}", emp);
-        empService.save(emp);
+//        empService.save(emp);     // 正常案例
+//        empService.save2(emp);      // 演示：spring 事务管理，rollbackFor 指定异常处理
+        empService.save3(emp);      // 演示 Spring 事务管理，propagation 事务传播行为
+
         return Result.success();
     }
 }
