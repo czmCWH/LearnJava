@@ -21,10 +21,20 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
         <module name="project04-web-manager" />
         <module name="project11-springboot-mybatis-select" />
         <module name="project05-web-ioc-di" />
+      </profile>
+      <profile name="Annotation profile for project12-springboot-mybatis-insert" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="project12-springboot-mybatis-insert" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21">
@@ -47,6 +57,7 @@
       <module name="project10-logback" options="-parameters" />
       <module name="project11-springboot-mybatis-select" options="-parameters" />
       <module name="project11-web-mybatis-select" options="-parameters" />
+      <module name="project12-springboot-mybatis-insert" options="-parameters" />
       <module name="springboot-quickstart01" options="-parameters" />
       <module name="springboot-quickstart02" options="-parameters" />
     </option>
