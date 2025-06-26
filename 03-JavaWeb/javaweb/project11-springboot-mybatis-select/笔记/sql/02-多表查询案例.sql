@@ -145,4 +145,8 @@ select dept_id, count(*) cnt from emp group by emp.dept_id having cnt > 2;
 # 连表查询，查询部门名称
 select dept.name, dept_id, count(*) cnt from emp, dept where emp.dept_id = dept.id group by emp.dept_id having cnt > 2;
 
-
+-- 员工列表查询
+-- 基本查询
+select emp.*, dept.name from emp left join dept  on dept.id = emp.dept_id;
+-- 分页查询
+-- 条件分页查询

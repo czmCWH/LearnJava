@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="lombok.Data" />
+    </list>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -20,6 +25,7 @@
         <option value="$PROJECT_DIR$/project01-maven-junit/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-quickstart01/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-quickstart02/pom.xml" />
+        <option value="$PROJECT_DIR$/project11-springboot-mybatis-select/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

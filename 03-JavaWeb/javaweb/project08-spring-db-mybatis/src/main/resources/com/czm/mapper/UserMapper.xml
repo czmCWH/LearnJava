@@ -1,4 +1,4 @@
-<!-- XML 文件头需要从 Mybatis 官网中获取  -->
+<!-- XML 文件头需要从 Mybatis 官网中获取：https://mybatis.org/mybatis-3/zh_CN/getting-started.html  -->
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">

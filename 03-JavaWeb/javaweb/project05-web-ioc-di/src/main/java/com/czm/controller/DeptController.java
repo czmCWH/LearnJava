@@ -66,7 +66,7 @@ public class DeptController {
 //    private DeptService deptService = new DeptServiceImpl2();     // 存在强耦合
 
 //    @Autowired      // @Autowired 注解的作用是从 Spring IOC 容器中，自动寻找 DeptService 类型的 Bean 对象，并为该变量赋值 --- 即：依赖注入，DI的实现
-    @Resource(name = "deptServiceImpl2")
+    @Resource(name = "deptServiceImpl2")    // ⚠️：IOC 中的实体类名默认是 首字母小写的。所以此处不能写 DeptServiceImpl2
     private DeptService deptService;
 
     @GetMapping("/depts3")      // 限定接口的请求方式，只能以 GET 方式请求
