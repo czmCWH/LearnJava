@@ -58,6 +58,7 @@ public class EmpServiceImpl implements EmpService {
     }
 
     // ---- 2、指定 Spring 事务处理异常，优化员工信息新增
+    // 优化点：即只有当 emp、emp_expr 都操作成功，才提交事务。如果抛出任何异常，则进行事务回滚。
 
     @Transactional(rollbackFor = Exception.class)    // ⚠️⚠️⚠️ 开启 Spring 事务，并指定其能处理所有异常
     @Override
