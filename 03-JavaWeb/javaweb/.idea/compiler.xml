@@ -33,8 +33,18 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="project12-springboot-mybatis-insert" />
+      </profile>
+      <profile name="Annotation profile for project13-springboot-mybatis-delete-update" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="project13-springboot-mybatis-delete-update" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21">
@@ -58,6 +68,7 @@
       <module name="project11-springboot-mybatis-select" options="-parameters" />
       <module name="project11-web-mybatis-select" options="-parameters" />
       <module name="project12-springboot-mybatis-insert" options="-parameters" />
+      <module name="project13-springboot-mybatis-delete-update" options="-parameters" />
       <module name="springboot-quickstart01" options="-parameters" />
       <module name="springboot-quickstart02" options="-parameters" />
     </option>

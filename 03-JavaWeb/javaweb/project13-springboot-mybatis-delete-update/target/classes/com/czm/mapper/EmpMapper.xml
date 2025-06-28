@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- XML 文件头需要从 Mybatis 官网中获取：https://mybatis.org/mybatis-3/zh_CN/getting-started.html  -->
+
+<mapper namespace="com.czm.mapper.EmpMapper">
+    <!-- 1、批量删除员工信息 -->
+    <delete id="deleteBatch">
+        delete from emp where id in
+        <!-- for 循环遍历集合转化为 sql 语句，如：[1,2,3] -> (1,2,3) -->
+        <foreach collection="ids" separator="," item="id" open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
