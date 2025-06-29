@@ -28,6 +28,7 @@
         <option value="$PROJECT_DIR$/project11-springboot-mybatis-select/pom.xml" />
         <option value="$PROJECT_DIR$/project12-springboot-mybatis-insert/pom.xml" />
         <option value="$PROJECT_DIR$/project13-springboot-mybatis-delete-update/pom.xml" />
+        <option value="$PROJECT_DIR$/project14-springboot-login/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
