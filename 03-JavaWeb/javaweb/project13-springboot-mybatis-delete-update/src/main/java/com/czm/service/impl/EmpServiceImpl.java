@@ -31,12 +31,20 @@ public class EmpServiceImpl implements EmpService {
         empExprMapper.deleteBatch(ids);
     }
 
+    /**
+     * 员工信息回显，方式一。
+     * 通过连接查询同事查询2张表，并通过 XML 封装返回结果。
+     */
     @Override
     public Emp getById(Integer id) {
         // 1、调用 mapper 查询员工信息，需要查询 emp、emp_expr 2张表，需要做连表查询
         return empMapper.getById(id);
     }
 
+    /**
+     * 员工信息回显，方式二。
+     * 分2步查询2张表
+     */
     @Override
     public Emp getById2(Integer id) {
         // 1、查询员工基本信息封装到 emp 对象中
