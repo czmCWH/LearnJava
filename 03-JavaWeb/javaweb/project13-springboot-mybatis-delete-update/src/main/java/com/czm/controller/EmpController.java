@@ -1,12 +1,11 @@
 package com.czm.controller;
 
+import com.czm.entity.Emp;
 import com.czm.entity.Result;
 import com.czm.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +34,30 @@ public class EmpController {
         log.info("--- delete 集合方式接收传递的数组 = {}", ids);
 
         empService.delete(ids);
+        return Result.success();
+    }
+
+    /**
+     * 根据ID查询用户信息
+     * @param id 用户ID
+     */
+    @GetMapping("/emps/{id}")
+    Result getById(@PathVariable Integer id) {  // ⚠️ @PathVariable 注解来接收路径参数
+        log.info("--- 回显查询员工信息 id = {}", id);
+        Emp emp = empService.getById(id);
+//        Emp emp = empService.getById2(id);
+        return Result.success(emp);
+    }
+
+    /**
+     * 更新员工信息
+     * @param emp
+     * @return
+     */
+    @PutMapping("/emps")
+    Result update(@RequestBody Emp emp) {
+        log.info("--- 修改员工基本信息 emp = {}", emp);
+        empService.update(emp);
         return Result.success();
     }
 }

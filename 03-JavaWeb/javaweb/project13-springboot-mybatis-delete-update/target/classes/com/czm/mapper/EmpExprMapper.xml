@@ -11,4 +11,23 @@
             #{empId}
         </foreach>
     </delete>
+
+    <!-- 根据员工ID查询员工经历List  -->
+    <select id="getByEmpId">
+        select * from emp_expr where emp_id = #{empId}
+    </select>
+
+    <!-- 根据员工ID删除工作经历 -->
+    <delete id="deleteByEmpId">
+        delete from emp_expr where emp_id = #{empId}
+    </delete>
+
+    <!-- 批量插入员工工作经历信息 -->
+    <insert id="insertBatch">
+        insert into emp_expr values
+        <foreach collection="exprList" item="expr" separator=",">
+            (null, #{expr.empId}, #{expr.begin}, #{expr.end}, #{expr.company}, #{expr.job})
+        </foreach>
+    </insert>
+
 </mapper>

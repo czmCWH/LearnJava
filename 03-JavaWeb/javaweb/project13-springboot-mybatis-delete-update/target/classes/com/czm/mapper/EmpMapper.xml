@@ -13,4 +13,64 @@
             #{id}
         </foreach>
     </delete>
+
+
+    <!-- 2、查询 员工基本信息+工作经历List-->
+
+    <resultMap id="empResultMap" type="com.czm.entity.Emp" autoMapping="true">
+        <!-- id 标签 设置主键映射-->
+        <id column="id" property="id"/>
+        <!-- 设置查询数据字段名 与 封装的实体类属性名映射关系。
+             由于 autoMapping="true" 指定自动映射，所以不必手动全部写 -->
+<!--        <result column="username" property="username" />-->
+<!--        <result column="password" property="password" />-->
+<!--        <result column="name" property="name" />-->
+<!--        &lt;!&ndash;  .......   &ndash;&gt;-->
+
+        <!-- 设置工作经历映射关系 -->
+        <!-- collection 标签用于封装集合数据，适用于一对多关系 -->
+        <collection property="exprList" ofType="com.czm.entity.EmpExpr">
+            <result column="ee_id" property="id" />
+            <result column="ee_empId" property="empId" />
+            <result column="ee_begin" property="begin" />
+            <result column="ee_end" property="end" />
+            <result column="ee_company" property="company" />
+            <result column="ee_job" property="job" />
+        </collection>
+
+    </resultMap>
+
+    <!-- resultType="com.czm.entity.Emp" 表示 SQL 语句查询到一条数据后封装到 Emp 对象中-->
+<!--    <select id="getById" resultType="com.czm.entity.Emp">-->
+    <!-- resultMap="empResultMap" 表示把查询出来的集合封装到 empResultMap 中-->
+    <select id="getById" resultMap="empResultMap">
+        select e.*,
+                    ex.id ee_id,
+                    ex.emp_id ee_empId,
+                    ex.begin ee_begin,
+                    ex.end ee_end,
+                    ex.company ee_company,
+                    ex.job ee_job
+        from emp e left join emp_expr ex on e.id = ex.emp_id where e.id = #{empId};
+    </select>
+
+
+    <!-- 根据 id 修改员工基本信息 -->
+    <update id="update">
+        update emp
+        <set>
+            <if test="username != null and username != ''">username = #{username},</if>
+            <if test="password != null and password != ''">password = #{password},</if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            <if test="job != null">job = #{job},</if>
+            <if test="salary != null">salary = #{salary},</if>
+            <if test="image != null and image != ''">image = #{image},</if>
+            <if test="entryDate != null">entry_date = #{entryDate},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>
