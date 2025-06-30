@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * HTTP 请求，登录标记方案：
+ * HTTP 请求，登录标记方案：（现已淘汰）
  * 1、Cookie 案例；
  * 2、Session 案例；
  */
