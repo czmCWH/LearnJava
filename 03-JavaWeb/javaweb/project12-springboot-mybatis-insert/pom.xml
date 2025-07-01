@@ -94,6 +94,7 @@
 
     <build>
         <plugins>
+        <!-- maven 打包插件，如果缺失，会导致打出来的 jar包，无法运行！！！会提示：jar 中没有主清单属性 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
