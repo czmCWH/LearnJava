@@ -27,25 +27,26 @@
         <module name="project11-springboot-mybatis-select" />
         <module name="project05-web-ioc-di" />
       </profile>
-      <profile name="Annotation profile for project12-springboot-mybatis-insert" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
-          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
-        </processorPath>
-        <module name="project12-springboot-mybatis-insert" />
-      </profile>
       <profile name="Annotation profile for project14-springboot-login" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="project14-springboot-login" />
         <module name="project13-springboot-mybatis-delete-update" />
+        <module name="project12-springboot-mybatis-insert" />
+      </profile>
+      <profile name="Annotation profile for project15-springboot-aop-quickstart" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="project15-springboot-aop-quickstart" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21">
@@ -71,6 +72,7 @@
       <module name="project12-springboot-mybatis-insert" options="-parameters" />
       <module name="project13-springboot-mybatis-delete-update" options="-parameters" />
       <module name="project14-springboot-login" options="-parameters" />
+      <module name="project15-springboot-aop-quickstart" options="-parameters" />
       <module name="springboot-quickstart01" options="-parameters" />
       <module name="springboot-quickstart02" options="-parameters" />
     </option>
