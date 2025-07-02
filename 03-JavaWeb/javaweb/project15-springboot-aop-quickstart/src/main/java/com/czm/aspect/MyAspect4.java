@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 演示：切面表达式 - @annotation(注解的全类名)
+ * ⚠️⚠️⚠️ 如果把 @Aspect + @Component 都注释掉，将不执行此 Spring AOP切面类
  */
 
 @Slf4j
