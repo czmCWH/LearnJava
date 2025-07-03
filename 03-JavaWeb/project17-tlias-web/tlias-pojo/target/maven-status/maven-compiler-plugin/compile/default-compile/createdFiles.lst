@@ -1,0 +1,6 @@
+com/czm/entity/EmpQueryParam.class
+com/czm/entity/Result.class
+com/czm/entity/PageBean.class
+com/czm/entity/EmpExpr.class
+com/czm/entity/Dept.class
+com/czm/entity/Emp.class
