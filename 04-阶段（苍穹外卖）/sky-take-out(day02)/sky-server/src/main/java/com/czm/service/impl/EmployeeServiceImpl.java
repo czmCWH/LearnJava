@@ -12,6 +12,7 @@ import com.czm.exception.AccountNotFoundException;
 import com.czm.exception.PasswordErrorException;
 import com.czm.mapper.EmployeeMapper;
 import com.czm.service.EmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import org.springframework.util.DigestUtils;
 
 import java.time.LocalDateTime;
 
+@Slf4j
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -72,18 +74,30 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void save(EmployeeDTO employeeDTO) {
 
-        Employee employee= new Employee();
-        BeanUtils.copyProperties(employeeDTO,employee);
+        log.info("--- EmployeeServiceImpl 线程ID = {}", Thread.currentThread().getId());
 
-        //设置默认密码123456,并用md5加密
+        // 1、补充缺失的属性值
+
+        /*
+          EmployeeDTO 是一个 DTO 类，只包含前端提交的参数；
+          Employee 是一个 Entity 类，包含数据库表中所有的值；
+          由于需要存入到 数据库中，所有需要转换为  Employee；
+         */
+        Employee employee= new Employee();
+        BeanUtils.copyProperties(employeeDTO, employee);    // 属性拷贝，将 employeeDTO 中的所有属性值拷贝到 employee 中
+
+        // 设置默认密码 123456，并用 md5 加密。
+        // ⚠️ 用户密码需要加密后才能存入到数据库中，如果直接明文存储到数据库会有泄漏风险。
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
+
+        //设置账号初始状态
+        employee.setStatus(StatusConstant.ENABLE);
 
         //设置创建时间和修改时间
         employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
 
-        //设置账号状态
-        employee.setStatus(StatusConstant.ENABLE);
+
 
         //设置创建人id和修改人id
         //用jwt获取
@@ -92,14 +106,18 @@ public class EmployeeServiceImpl implements EmployeeService {
         //TODO
 
 
+        /* 设置创建人 和 更新人的ID
+         * 即需要动态的获取当前登录用户的 ID，后端生成 token 中包含用户ID；另外 获取登录用户ID，会在多个业务中获取到。
+         */
 
 
         //通过ThreadLocal这个线程的存储空间来储存数据,并使用get(),remove()方法获取和删除数据
         //为了方便使用,直接将ThreadLocal的相关方法和创建其对象的代码封装入BaseContext类中
+        // 从 ThreadLocal 获取登录用户ID
         employee.setUpdateUser(BaseContext.getCurrentId());
         employee.setCreateUser(BaseContext.getCurrentId());
 
-
+        // 2、调用 mapper 中的方法，将员工对象存入到数据库
         employeeMapper.insert(employee);
 
     }

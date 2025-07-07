@@ -40,7 +40,7 @@ public class EmployeeController {
      */
     @PostMapping("/login")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
-        log.info("员工登录：{}", employeeLoginDTO);
+        log.info("--- 员工登录：{}", employeeLoginDTO);
 
         Employee employee = employeeService.login(employeeLoginDTO);
 
@@ -75,14 +75,13 @@ public class EmployeeController {
 
     /**
      * 新增员工
-     *
+     * 注意 @RequestBody 是在 springframework.web 包内，如果导入错了无法接受到请求参数！
      * @return
      */
     @PostMapping
     public Result save(@RequestBody EmployeeDTO employeeDTO ) {
-
-        log.info("新增员工:{}", employeeDTO);
-
+        log.info("--- EmployeeController 线程ID = {}", Thread.currentThread().getId());
+        log.info("--- 新增员工:{}", employeeDTO);
 
         employeeService.save(employeeDTO);
 

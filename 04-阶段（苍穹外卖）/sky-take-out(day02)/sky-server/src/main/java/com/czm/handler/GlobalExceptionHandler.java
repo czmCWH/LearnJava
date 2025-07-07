@@ -40,14 +40,16 @@ public class GlobalExceptionHandler {
      * @return
      */
 
-    //定义一个全局异常处理器
-    //形参写异常的类型
-    //根据控制台返回的异常信息 Duplicate entry 'zhangsan' for key 'employee.idx_username'
-    //处理捕获的异常,上述异常信息是指 'zhangsan'名字重复(Duplicate entry)
+    /**
+     * 定义一个捕获 Sql 异常的全局异常处理方法。
+     * @param ex
+     * @return
+     */
     @ExceptionHandler
-    public Result exceptionHandler(SQLIntegrityConstraintViolationException ex){
+    public Result doSQLException(SQLIntegrityConstraintViolationException ex){
         String message= ex.getMessage();
-       if ("Duplicate entry".contains(message)){
+        log.error("--- 异常信息:{}", message);
+       if (message.contains("Duplicate entry")){
            String[] split = message.split(" ");
            String username = split[2];
            String msg = username + MessageConstant.ALREADY_EXISTS;

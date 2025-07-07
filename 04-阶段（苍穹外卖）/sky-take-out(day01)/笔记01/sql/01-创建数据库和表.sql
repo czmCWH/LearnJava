@@ -127,8 +127,8 @@ INSERT INTO `dish_flavor` VALUES (103,65,'辣度','[\"不辣\",\"微辣\",\"中�
 drop table if exists employee;
 create table employee (
     id bigint primary key auto_increment comment '主键',
-    name varchar(32) unique collate utf8_bin not null comment '姓名',
-    username varchar(32) collate utf8_bin not null comment '用户名',
+    name varchar(32) collate utf8_bin not null comment '姓名',
+    username varchar(32) unique collate utf8_bin not null comment '用户名',
     password varchar(64) collate utf8_bin not null comment '密码',
     phone varchar(11) collate utf8_bin not null comment '手机号',
     sex varchar(2) collate utf8_bin not null comment '性别',

@@ -1,7 +1,7 @@
 package com.czm.constant;
 
 /**
- * 信息提示常量类
+ * 信息提示常量类，用于提示异常信息！
  */
 public class MessageConstant {
 

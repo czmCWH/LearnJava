@@ -127,11 +127,11 @@ INSERT INTO `dish_flavor` VALUES (103,65,'辣度','[\"不辣\",\"微辣\",\"中�
 drop table if exists employee;
 create table employee (
     id bigint primary key auto_increment comment '主键',
-    name varchar(32) unique collate utf8_bin not null comment '姓名',
-    username varchar(32) collate utf8_bin not null comment '用户名',
+    name varchar(32) collate utf8_bin not null comment '姓名',
+    username varchar(32) unique collate utf8_bin not null comment '用户名',
     password varchar(64) collate utf8_bin not null comment '密码',
     phone varchar(11) collate utf8_bin not null comment '手机号',
-    sex varchar(2) collate utf8_bin not null comment '性别',
+    sex varchar(2) collate utf8_bin not null comment '性别：1男；2女',
     id_number varchar(18) collate utf8_bin not null comment '身份证号',
     status int not null default '1' comment '状态 0:禁用，1:启用',
     create_time datetime default null comment '创建时间',
@@ -141,6 +141,8 @@ create table employee (
 ) engine=innodb auto_increment=2 default charset=utf8mb3 collate=utf8_bin comment='员工信息';
 
 INSERT INTO `employee` VALUES (1,'管理员','admin','123456','13812312312','1','110101199001010047',1,'2022-02-15 15:51:20','2022-02-17 09:16:20',10,1);
+
+update employee set password = md5("123456") where password = "123456";
 
 -- ****************************************** 7、订单明细表
 drop table if exists `order_detail`;
