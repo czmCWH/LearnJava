@@ -6,25 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tlias-utils" />
-        <module name="tlias-pojo" />
+        <module name="sky-common" />
+        <module name="sky-pojo" />
       </profile>
-      <profile name="Annotation profile for tlias-parent" enabled="true">
+      <profile name="Annotation profile for sky-take-out" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
-        <module name="tlias-web-manager" />
+        <module name="sky-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="untitled" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="tlias-pojo" options="-parameters" />
-      <module name="tlias-utils" options="-parameters" />
-      <module name="tlias-web-manager" options="-parameters" />
+      <module name="sky-common" options="-parameters" />
+      <module name="sky-pojo" options="-parameters" />
+      <module name="sky-server" options="-parameters" />
     </option>
   </component>
 </project>
