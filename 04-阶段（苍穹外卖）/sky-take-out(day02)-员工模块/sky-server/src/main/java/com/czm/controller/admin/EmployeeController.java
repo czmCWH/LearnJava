@@ -117,4 +117,15 @@ public class EmployeeController {
         return Result.success(employee);
     }
 
+    /**
+     * 更新员工信息
+     * @return
+     */
+    @PutMapping
+    public Result<String> update(@RequestBody EmployeeDTO dto) {
+        log.info("--- 编辑员工信息 = {}", dto);
+        employeeService.update(dto);
+        return Result.success();
+    }
+
 }
