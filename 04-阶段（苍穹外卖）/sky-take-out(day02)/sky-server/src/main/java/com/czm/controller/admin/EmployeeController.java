@@ -98,5 +98,16 @@ public class EmployeeController {
         return Result.success(result);
     }
 
+    /**
+     * 修改员工账号状态：1启用 、0禁用
+     * @param status
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    public Result<String> enableOrDisable(@PathVariable Integer status, Long id) {   // @PathVariable 注解用于接收路径参数
+        log.info("--- 启用禁用员工: status = {}, id = {}", status, id);
+        employeeService.enableOrDisable(status, id);
+        return Result.success();
+    }
 
 }

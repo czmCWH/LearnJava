@@ -142,4 +142,18 @@ public class EmployeeServiceImpl implements EmployeeService {
         // 3、封装 PageResult对象并返回
         return new PageResult(page.getTotal(), page.getResult());
     }
+
+    @Override
+    public void enableOrDisable(Integer status, Long id) {
+        // 1、补充普通参数（更新时间、更新人）
+        Employee employee = Employee.builder()
+                .status(status)
+                .id(id)
+                .updateTime(LocalDateTime.now())
+                .updateUser(BaseContext.getCurrentId())
+                .build();
+
+        // 2、更新员工信息
+        employeeMapper.update(employee);
+    }
 }
