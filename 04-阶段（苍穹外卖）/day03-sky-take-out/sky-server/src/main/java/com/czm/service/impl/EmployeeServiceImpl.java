@@ -98,8 +98,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setStatus(StatusConstant.ENABLE);
 
         //设置创建时间和修改时间
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+        // 使用公共字段自动填充逻辑
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
 
 
 
@@ -118,8 +119,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         //通过ThreadLocal这个线程的存储空间来储存数据,并使用get(),remove()方法获取和删除数据
         //为了方便使用,直接将ThreadLocal的相关方法和创建其对象的代码封装入BaseContext类中
         // 从 ThreadLocal 获取登录用户ID
-        employee.setUpdateUser(BaseContext.getCurrentId());
-        employee.setCreateUser(BaseContext.getCurrentId());
+//        employee.setUpdateUser(BaseContext.getCurrentId());
+//        employee.setCreateUser(BaseContext.getCurrentId());
 
         // 2、调用 mapper 中的方法，将员工对象存入到数据库
         employeeMapper.insert(employee);
@@ -172,8 +173,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         // 拷贝属性值
         BeanUtils.copyProperties(dto, employee);
         // 更新时间、更新人
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        // 使用公共字段自动填充逻辑
+//        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setUpdateUser(BaseContext.getCurrentId());
         // 2、更新员工信息
         employeeMapper.update(employee);
     }

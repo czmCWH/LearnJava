@@ -24,7 +24,7 @@ public class DeptServiceImpl implements DeptService {
      * 查询部门列表
      * @return
      */
-    @Log
+    @Log   // 自定义注解
     public List<Dept> list() {
         // 1、调用 Mapper 方法，获取数据库中的数据并返回
         return deptMapper.list();

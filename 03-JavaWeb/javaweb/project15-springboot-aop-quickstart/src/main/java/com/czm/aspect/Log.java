@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * 自定义一个 Log 注解，作用标志作用
  */
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME) // 表示 注解存在 的生命周期
+@Target(ElementType.METHOD)     // 注解作用的范围，在此设置为 注解作用在方法上
 public @interface Log {
 }

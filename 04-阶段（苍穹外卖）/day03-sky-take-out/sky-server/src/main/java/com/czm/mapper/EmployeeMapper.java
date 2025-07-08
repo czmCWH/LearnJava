@@ -1,6 +1,8 @@
 package com.czm.mapper;
 
+import com.czm.anno.AutoFill;
 import com.czm.entity.Employee;
+import com.czm.enumeration.OperationType;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -22,6 +24,7 @@ public interface EmployeeMapper {
      * @param employee
      * @return
      */
+    @AutoFill(OperationType.INSERT)
     @Insert("insert into employee values (null, #{name},#{username},#{password},#{phone},#{sex},#{idNumber},#{status},#{createTime},#{updateTime}," +
             "#{createUser},#{updateUser})")
     void insert(Employee employee);
@@ -37,6 +40,7 @@ public interface EmployeeMapper {
      * 更新员工信息
      * @param employee
      */
+    @AutoFill(OperationType.UPDATE)
     void update(Employee employee);
 
     /**

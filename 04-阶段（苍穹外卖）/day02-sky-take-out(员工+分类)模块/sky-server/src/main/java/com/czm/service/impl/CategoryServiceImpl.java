@@ -50,11 +50,10 @@ public class CategoryServiceImpl implements CategoryService {
         // 补充默认属性
         category.setStatus(StatusConstant.DISABLE); // 分类状态，默认禁用
         // 补充创建时间、创建人、
-        // 使用公共字段自动填充逻辑
-//        category.setCreateTime(LocalDateTime.now());
-//        category.setUpdateTime(LocalDateTime.now());
-//        category.setCreateUser(BaseContext.getCurrentId());
-//        category.setUpdateUser(BaseContext.getCurrentId());
+        category.setCreateTime(LocalDateTime.now());
+        category.setUpdateTime(LocalDateTime.now());
+        category.setCreateUser(BaseContext.getCurrentId());
+        category.setUpdateUser(BaseContext.getCurrentId());
 
         categoryMapper.insert(category);
     }
@@ -95,9 +94,8 @@ public class CategoryServiceImpl implements CategoryService {
         BeanUtils.copyProperties(dto, category);
 
         // 设置修改时间、修改人
-        // 使用公共字段自动填充逻辑
-//        category.setUpdateTime(LocalDateTime.now());
-//        category.setUpdateUser(BaseContext.getCurrentId());
+        category.setUpdateTime(LocalDateTime.now());
+        category.setUpdateUser(BaseContext.getCurrentId());
         // 2、执行 sql 修改
         categoryMapper.update(category);
     }

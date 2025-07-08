@@ -91,7 +91,7 @@ c、在满足业务需要的前提下，**尽量缩小切入点的匹配范围**
 ## 2、切入点表达式 - @annotation(自定义注解的全类名)
 `@annotation` 切入点表达式，用于匹配标识有特定注解（即开发者自定义的注解）的方法。
 
-代码实现：`/aspect/MyAspect4.java`，`/service/impl/DeptServiceImpl.java`
+代码实现：，`Log.java`，`/aspect/MyAspect4.java`，`/service/impl/DeptServiceImpl.java`
 
 ## 3、execution、@annotation 切入点表达式的应用场景
 
