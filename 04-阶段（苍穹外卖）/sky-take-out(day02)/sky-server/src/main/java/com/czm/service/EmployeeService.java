@@ -34,4 +34,11 @@ public interface EmployeeService {
      * @param id
      */
     void enableOrDisable(Integer status, Long id);
+
+    /**
+     * 根据ID查询用户信息
+     * @param id
+     * @return
+     */
+    Employee getById(Long id);
 }

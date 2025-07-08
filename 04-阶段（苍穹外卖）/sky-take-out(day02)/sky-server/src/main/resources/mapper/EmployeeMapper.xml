@@ -40,4 +40,11 @@
         where id = #{id}
     </update>
 
+    <!--3
+        根据ID查询员工信息
+     -->
+    <select id="getById" resultType="com.czm.entity.Employee">
+        select * from employee where id = #{id}
+    </select>
+
 </mapper>
