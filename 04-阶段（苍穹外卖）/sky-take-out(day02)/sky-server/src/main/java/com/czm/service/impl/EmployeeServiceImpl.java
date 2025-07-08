@@ -6,12 +6,16 @@ import com.czm.constant.StatusConstant;
 import com.czm.context.BaseContext;
 import com.czm.dto.EmployeeDTO;
 import com.czm.dto.EmployeeLoginDTO;
+import com.czm.dto.EmployeePageQueryDTO;
 import com.czm.entity.Employee;
 import com.czm.exception.AccountLockedException;
 import com.czm.exception.AccountNotFoundException;
 import com.czm.exception.PasswordErrorException;
 import com.czm.mapper.EmployeeMapper;
+import com.czm.result.PageResult;
 import com.czm.service.EmployeeService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,7 +88,7 @@ public class EmployeeServiceImpl implements EmployeeService {
           由于需要存入到 数据库中，所有需要转换为  Employee；
          */
         Employee employee= new Employee();
-        BeanUtils.copyProperties(employeeDTO, employee);    // 属性拷贝，将 employeeDTO 中的所有属性值拷贝到 employee 中
+        BeanUtils.copyProperties(employeeDTO, employee);    // 属性拷贝，将 employeeDTO 中的所有属性值拷贝到 employee 中。基于反射机制
 
         // 设置默认密码 123456，并用 md5 加密。
         // ⚠️ 用户密码需要加密后才能存入到数据库中，如果直接明文存储到数据库会有泄漏风险。
@@ -120,5 +124,22 @@ public class EmployeeServiceImpl implements EmployeeService {
         // 2、调用 mapper 中的方法，将员工对象存入到数据库
         employeeMapper.insert(employee);
 
+    }
+
+    /**
+     * 分页查询需要使用 PageHelper 插件
+     * @param dto
+     * @return
+     */
+    @Override
+    public PageResult page(EmployeePageQueryDTO dto) {
+        // 1、设置分页参数
+        PageHelper.startPage(dto.getPage(), dto.getPageSize());
+
+        // 2、调用mapper查询方法，强转返回类型为 Page
+        Page<Employee> page = employeeMapper.list(dto.getName());
+
+        // 3、封装 PageResult对象并返回
+        return new PageResult(page.getTotal(), page.getResult());
     }
 }

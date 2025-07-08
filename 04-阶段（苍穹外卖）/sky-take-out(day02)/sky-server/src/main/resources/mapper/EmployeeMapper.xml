@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sky.mapper.EmployeeMapper">
+<mapper namespace="com.czm.mapper.EmployeeMapper">
+    <!--
+        根据姓名模糊查询员工列表，需要根据创建时间倒序排序
+        注意：
+        1、sql语句后面不能加分号
+        2、name可能不传，所以需要把 where 改为标签
+     -->
+    <select id="list" resultType="com.czm.entity.Employee">
+        select * from employee
+                 <where>
+                     <if test="name != null and name != ''">
+                         name like concat('%', #{name}, '%')
+                     </if>
+                 </where>
+        order by create_time desc
+    </select>
 </mapper>

@@ -3,18 +3,17 @@ package com.czm.controller.admin;
 import com.czm.constant.JwtClaimsConstant;
 import com.czm.dto.EmployeeDTO;
 import com.czm.dto.EmployeeLoginDTO;
+import com.czm.dto.EmployeePageQueryDTO;
 import com.czm.entity.Employee;
 import com.czm.properties.JwtProperties;
+import com.czm.result.PageResult;
 import com.czm.result.Result;
 import com.czm.service.EmployeeService;
 import com.czm.utils.JwtUtil;
 import com.czm.vo.EmployeeLoginVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -79,7 +78,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping
-    public Result save(@RequestBody EmployeeDTO employeeDTO ) {
+    public Result<String> save(@RequestBody EmployeeDTO employeeDTO ) {     // @RequestBody 接收 json 格式请求参数
         log.info("--- EmployeeController 线程ID = {}", Thread.currentThread().getId());
         log.info("--- 新增员工:{}", employeeDTO);
 
@@ -87,4 +86,17 @@ public class EmployeeController {
 
         return Result.success();
     }
+
+    /**
+     * 员工列表分页查询
+     * @return
+     */
+    @GetMapping("/page")
+    public Result<PageResult> page(EmployeePageQueryDTO dto) {  // Get 请求接收普通参数，即查询字符串参数（?key1=value1&key2=value2）。
+        log.info("--- 员工分页查询: {}", dto);
+        PageResult result = employeeService.page(dto);
+        return Result.success(result);
+    }
+
+
 }
