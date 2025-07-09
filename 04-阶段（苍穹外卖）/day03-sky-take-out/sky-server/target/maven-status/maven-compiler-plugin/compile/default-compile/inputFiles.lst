@@ -1,8 +1,0 @@
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/SkyServerApplication.java
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/config/WebMvcConfiguration.java
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/controller/admin/EmployeeController.java
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/handler/GlobalExceptionHandler.java
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/interceptor/JwtTokenAdminInterceptor.java
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/mapper/EmployeeMapper.java
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/service/EmployeeService.java
-/Users/CZM/Git/github/LearnJava/04-阶段（苍穹外卖）/sky-take-out/sky-server/src/main/java/com/czm/service/impl/EmployeeServiceImpl.java

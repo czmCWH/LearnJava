@@ -1,0 +1,50 @@
+server:
+  port: 8888
+
+debug: true
+
+spring:
+  # 启用 dev 环境配置
+  profiles:
+    active: dev
+  # 启用循环依赖
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: ${sky.datasource.driver-class-name}
+    url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${sky.datasource.username}
+    password: ${sky.datasource.password}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml    # 配置映射 XML 文件，使得 mapper 中的文件和 xml文件不同包时，也能匹配上。
+  type-aliases-package: com.sky.entity    # 配置 xml 中 result 中包名，这样 xml 中就可以直接写类名，而不是全类名 com.sky.entity.类名
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+# 配置开启日志级别
+logging:
+  level:
+    com:
+      sky:
+        mapper: debug
+        service: info
+        controller: info
+
+sky:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: itcast
+    # 设置jwt过期时间
+    admin-ttl: 720000000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+
+  # 阿里云OSS配置
+  alioss:
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.alioss.access-key-secret}
+    bucket-name: ${sky.alioss.bucket-name}
