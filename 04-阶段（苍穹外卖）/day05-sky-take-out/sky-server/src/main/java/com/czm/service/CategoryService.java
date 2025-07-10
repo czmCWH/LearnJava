@@ -7,6 +7,10 @@ import com.czm.result.PageResult;
 
 import java.util.List;
 
+/**
+ * 分类管理
+ */
+
 public interface CategoryService {
     /**
      * 新增分类

@@ -16,11 +16,26 @@
 
 ### SpringAOP 程序开发步骤
 1、导入 AOP 依赖
+
+AOP依赖方案一：运行时动态代理，性能较低，
 ```xml
 <!-- AOP 起步依赖 -->
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-aop</artifactId>
+</dependency>
+```
+AOP依赖方案二：字节码直接增强，无代理开销。
+```xml
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjrt</artifactId>
+    <version>1.9.20</version>
+</dependency>
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.9.24</version>
 </dependency>
 ```
 

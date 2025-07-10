@@ -19,6 +19,7 @@ public class SetmealDish implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    // 套餐和菜品关系的主键id
     private Long id;
 
     //套餐id
@@ -33,6 +34,6 @@ public class SetmealDish implements Serializable {
     //菜品原价
     private BigDecimal price;
 
-    //份数
+    //菜品份数
     private Integer copies;
 }

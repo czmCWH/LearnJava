@@ -51,6 +51,13 @@ public interface DishMapper {
     Dish selectById(Long id);
 
     /**
+     * 根据 ID 列表 查询 菜品列表
+     * @param ids
+     * @return
+     */
+    List<DishVO> selectByIds(List<Long> ids);
+
+    /**
      * 批量删除菜品
      * @param ids
      */

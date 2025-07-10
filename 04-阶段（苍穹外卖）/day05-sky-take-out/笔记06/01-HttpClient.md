@@ -1,0 +1,22 @@
+# 一、HttpClient
+`HttpClient` 是 `Apache` 的一个子项目，是高效的、功能丰富 的 支持 `HTTP` 协议的客户端编程工具包。
+
+作用：用于在 `java` 项目中发送 `http` 请求，并接收响应数据。
+应用场景：对接第三方服务，例如：微信支付、短信服务、地图服务等
+
+
+# 二、使用 HttpClient
+步骤1、创建 HttpClient 对象；
+```
+HttpClients
+HttpClient
+CloseableHttpClient
+HttpGet
+HttpPost
+```
+
+步骤2、创建 Http 请求对象；
+
+步骤3、调用 HttpClient 的 execute 方法发送请求；
+
+

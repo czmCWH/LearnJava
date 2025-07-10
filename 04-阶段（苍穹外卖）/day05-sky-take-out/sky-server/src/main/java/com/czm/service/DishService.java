@@ -8,6 +8,10 @@ import com.czm.vo.DishVO;
 
 import java.util.List;
 
+/**
+ * 菜品管理
+ */
+
 public interface DishService {
 
     /**

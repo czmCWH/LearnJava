@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.czm.mapper.SetmealMapper">
+    <!--1、插入套餐    -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into setmeal values (null, #{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{createTime}, #{updateTime},
+                                    #{createUser}, #{updateUser})
+    </insert>
+
+    <!--2、分页查询菜品 List
+        根据 套餐名称、分类类型、状态 条件进行查询
+    -->
+    <select id="list" resultType="com.czm.vo.SetmealVO">
+        select * from setmeal
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <!--3、根据套餐ID查询套餐    -->
+    <select id="selectById" resultType="com.czm.vo.SetmealVO">
+        select * from setmeal where id = #{setmealId}
+    </select>
+
+    <!--3、根据套餐IDs批量查询套餐    -->
+    <select id="selectByIds" resultType="com.czm.vo.SetmealVO">
+        select * from setmeal where id in
+        <foreach collection="setmealIds" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!--4、批量删除套餐    -->
+    <delete id="deleteBatch">
+        delete from setmeal where id in
+        <foreach collection="setmealIds" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--5、更新套餐    -->
+    <update id="update">
+        update setmeal
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

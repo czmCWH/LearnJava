@@ -6,6 +6,10 @@ import com.czm.dto.EmployeePageQueryDTO;
 import com.czm.entity.Employee;
 import com.czm.result.PageResult;
 
+/**
+ * 员工管理 Service
+ */
+
 public interface EmployeeService {
 
     /**
