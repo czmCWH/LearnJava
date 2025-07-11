@@ -7,8 +7,8 @@ import com.czm.service.SetmealService;
 import com.czm.vo.DishItemVO;
 import com.czm.vo.SetmealVO;
 import lombok.extern.slf4j.Slf4j;
-import net.sf.jsqlparser.statement.alter.ConstraintState;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +31,7 @@ public class SetmealController {
     /**
      * 根据分类ID查询套餐
      */
+    @Cacheable(cacheNames = "setmeal", key = "#categoryId")     // SpringCache 使用 @Cacheable 注解先查询缓存，有缓存直接返回，否则调用方法后，并将返回值存入缓存
     @GetMapping("/list")
     public Result<List<SetmealVO>> listByCategoryId(Long categoryId) {  // 接收URL字符串查询参数
         log.info("--- 根据分类ID查询套餐 = {}", categoryId);

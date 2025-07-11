@@ -55,13 +55,15 @@ public class DishServiceImpl implements DishService {
 
         // 2、构建菜品 口味列表 数据，将其存入 dish_flavor 表中
         List<DishFlavor> dishFlavorList = dto.getFlavors();
-        // 给 口味列表数据 补充关联的 菜品ID
-        dishFlavorList.forEach(dishFlavor -> {
-            dishFlavor.setDishId(dish.getId());
-        });
+        if (dishFlavorList != null && dishFlavorList.size() > 0) {
+            // 给 口味列表数据 补充关联的 菜品ID
+            dishFlavorList.forEach(dishFlavor -> {
+                dishFlavor.setDishId(dish.getId());
+            });
 
-        // 调用 mapper 保存，批量插入口味列表数据
-        dishFlavorMapper.insertBatch(dishFlavorList);
+            // 调用 mapper 保存，批量插入口味列表数据
+            dishFlavorMapper.insertBatch(dishFlavorList);
+        }
     }
 
     @Override
@@ -139,7 +141,7 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public List<DishVO> listByDish(Dish dish) {
+    public List<DishVO> listWithFlavor(Dish dish) {
         // 1、先查询菜品 dish表
         List<DishVO> dishVOList = dishMapper.listByDish(dish);
         // 2、根据菜品ID 查询口味
@@ -148,6 +150,20 @@ public class DishServiceImpl implements DishService {
             dishVO.setFlavors(flavors);
         });
         return dishVOList;
+    }
+
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        Dish dish = new Dish();
+        dish.setId(id);
+        dish.setStatus(status);
+        dishMapper.update(dish);
+    }
+
+    @Override
+    public List<Dish> getByCategoryId(Long categoryId) {
+        List<Dish> dishes = dishMapper.getByCategoryId(categoryId);
+        return dishes;
     }
 
 }

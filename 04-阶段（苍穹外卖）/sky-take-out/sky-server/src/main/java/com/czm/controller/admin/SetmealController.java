@@ -7,6 +7,7 @@ import com.czm.result.Result;
 import com.czm.service.SetmealService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public class SetmealController {
     /**
      * 新增套餐
      */
+    @CacheEvict(cacheNames = "setmeal", key = "#dto.categoryId")    // SpringCache 使用 @CacheEvict 注解清理 setmeal 指定分类的缓存
     @PostMapping
     public Result<String> addSetmeal(@RequestBody SetmealDTO dto) { // @RequestBody 接收 json 格式参数
         log.info("--- 新增套餐 = {}", dto);
@@ -52,6 +54,7 @@ public class SetmealController {
     /**
      * 根据套餐 ids 批量删除套餐
      */
+    @CacheEvict(cacheNames = "setmeal", allEntries = true)    // SpringCache 使用 @CacheEvict 注解清理 setmeal 全部的缓存
     @DeleteMapping
     public Result<String> delete(@RequestParam List<Long> ids) {    // 接收 url集合类型字符串查询参数
          /*
@@ -67,6 +70,7 @@ public class SetmealController {
     /**
      * 修改套餐
      */
+    @CacheEvict(cacheNames = "setmeal", allEntries = true)    // SpringCache 使用 @CacheEvict 注解清理 setmeal 全部的缓存
     @PutMapping
     public Result update(@RequestBody SetmealDTO dto) { // @RequestBody 接收 json 格式参数
         log.info("--- 修改套餐 = {}", dto);
@@ -77,6 +81,7 @@ public class SetmealController {
     /**
      * 修改起售停售套餐
      */
+    @CacheEvict(cacheNames = "setmeal", allEntries = true)    // SpringCache 使用 @CacheEvict 注解清理 setmeal 全部的缓存
     @PostMapping("/status/{status}")
     public Result<String> startOrStop(@PathVariable Integer status, Long id) {     // @PathVariable 注解路径参数；Long id 接收普通查询字符串参数
         log.info("--- 设置套餐起售和停售状态 = {}, {}", status, id);

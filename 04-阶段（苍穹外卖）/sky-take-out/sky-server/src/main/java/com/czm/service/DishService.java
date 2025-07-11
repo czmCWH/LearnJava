@@ -49,5 +49,15 @@ public interface DishService {
     /**
      * 根据分类ID、状态、菜品名称等信息 查询 菜品 List
      */
-    List<DishVO> listByDish(Dish dish);
+    List<DishVO> listWithFlavor(Dish dish);
+
+    /**
+     * 修改菜品状态
+     */
+    void startOrStop(Integer status, Long id);
+
+    /**
+     * 根据分类ID查询菜品List
+     */
+    List<Dish> getByCategoryId(Long categoryId);
 }
