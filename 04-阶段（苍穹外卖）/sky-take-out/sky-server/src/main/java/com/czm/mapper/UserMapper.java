@@ -28,4 +28,10 @@ public interface UserMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")   // ⚠️：需返回用户ID给前端
     @Insert("insert into user (openid, name, create_time) values (#{openid}, #{name}, #{createTime})")
     void insert(User user);
+
+    /**
+     * 根据用户ID查询用户信息
+     */
+    @Select("select * from user where id = #{id}")
+    User selectById(Long id);
 }
