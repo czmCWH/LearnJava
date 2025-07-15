@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 
 /**
- * 数据统计相关
+ * 数据统计模块
  */
 
 @Slf4j

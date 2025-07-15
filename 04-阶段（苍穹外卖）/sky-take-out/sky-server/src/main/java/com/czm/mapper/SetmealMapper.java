@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 套餐 Mapper
@@ -83,4 +84,10 @@ public interface SetmealMapper {
      */
     @Select("select * from setmeal_dish sd left join dish d on sd.dish_id = d.id where sd.setmeal_id = #{id}")
     List<DishItemVO> getDishItemBySetmealId(Long id);
+
+
+    /**
+     * 根据条件统计套餐数量 - 起售/停售
+     */
+    Integer countByMap(Map map);
 }

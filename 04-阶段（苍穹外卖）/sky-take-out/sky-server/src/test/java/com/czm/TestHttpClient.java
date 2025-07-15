@@ -30,7 +30,6 @@ public class TestHttpClient {
      ⚠️：调试需要注意：先启动 SkyServerApplication 工程，再执行 @Test 的方法！！！
      */
 
-
     @Test
     public void testGet() throws Exception {
         // 1、创建 HttpClient 对象

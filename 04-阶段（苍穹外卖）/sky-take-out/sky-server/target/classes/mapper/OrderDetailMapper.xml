@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.czm.mapper.OrderDetailMapper">
+    <!--1、批量插入订单明细-->
+    <insert id="insertBatch" parameterType="com.czm.entity.OrderDetail">
+        insert into order_detail values
+        <foreach collection="orderDetailList" item="detail" separator=",">
+            (null, #{detail.name}, #{detail.image}, #{detail.orderId}, #{detail.dishId}, #{detail.setmealId}, #{detail.dishFlavor}, #{detail.number},
+            #{detail.amount})
+        </foreach>
+    </insert>
+</mapper>
