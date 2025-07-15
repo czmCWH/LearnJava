@@ -52,7 +52,7 @@ public class WebSocketServer {
     }
 
     /**
-     * 群发 - 给所有的客户端发送消息
+     * 群发 - 给所有的 admin 客户端发送消息
      *
      * @param message
      */

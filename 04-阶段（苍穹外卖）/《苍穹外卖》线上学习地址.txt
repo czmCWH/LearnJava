@@ -7,4 +7,5 @@ https://www.bilibili.com/video/BV1TP411v7v6
 
 
 代码地址：
-<https://gitee.com/hong-yushuo/projects>
+<https://gitee.com/wmsydc/sky-take-out>，规范，但代码有缺失
+<https://gitee.com/hong-yushuo/projects>，代码非常的全！！！

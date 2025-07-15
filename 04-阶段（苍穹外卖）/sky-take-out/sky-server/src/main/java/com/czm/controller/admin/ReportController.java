@@ -7,6 +7,7 @@ import com.czm.vo.OrderReportVO;
 import com.czm.vo.SalesTop10ReportVO;
 import com.czm.vo.TurnoverReportVO;
 import com.czm.vo.UserReportVO;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -73,5 +74,14 @@ public class ReportController {
         log.info("--- 商品销量排名 begin:{},end:{}", begin, end);
         SalesTop10ReportVO vo = reportService.top10(begin, end);
         return Result.success(vo);
+    }
+
+    /**
+     * 导出运营数据报表
+     * @param response
+     */
+    @GetMapping("/export")
+    public void export(HttpServletResponse response){
+        reportService.exportBusinessData(response);
     }
 }

@@ -4,6 +4,7 @@ import com.czm.vo.OrderReportVO;
 import com.czm.vo.SalesTop10ReportVO;
 import com.czm.vo.TurnoverReportVO;
 import com.czm.vo.UserReportVO;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.time.LocalDate;
 
@@ -31,4 +32,10 @@ public interface ReportService {
      * 商品销量前10
      */
     SalesTop10ReportVO top10(LocalDate begin, LocalDate end);
+
+    /**
+     * 导出近30天的运营数据报表
+     * @param response
+     **/
+    void exportBusinessData(HttpServletResponse response);
 }

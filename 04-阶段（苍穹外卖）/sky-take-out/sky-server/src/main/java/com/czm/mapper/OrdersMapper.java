@@ -1,6 +1,7 @@
 package com.czm.mapper;
 
 import com.czm.dto.GoodsSalesDTO;
+import com.czm.dto.OrdersPageQueryDTO;
 import com.czm.entity.Orders;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.MapKey;
@@ -37,7 +38,7 @@ public interface OrdersMapper {
     /**
      * 分页查询订单的信息，按条件动态查询
      */
-    Page<Orders> pageQuery(Orders orders);
+    Page<Orders> pageQuery(OrdersPageQueryDTO dto);
 
     /**
      * 根据订单ID查询订单基本信息
@@ -50,6 +51,13 @@ public interface OrdersMapper {
      */
     @Select("select * from orders where status = #{status} and order_time < #{orderTime}")
     List<Orders> selectByStatusAndOrderTime(Integer status, LocalDateTime orderTime);
+
+    /**
+     * 根据状态统计订单数量
+     * @param status
+     */
+    @Select("select count(id) from orders where status = #{status}")
+    Integer countStatus(Integer status);
 
     /**
      * 根据 时间段 统计营业额
