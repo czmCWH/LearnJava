@@ -1,0 +1,28 @@
+spring:
+  # 配置数据库连接
+  datasource:
+    url: jdbc:mysql://localhost:3306/mp?rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123
+
+# 配置日志打印
+logging:
+  level:
+    com.czm: debug
+  pattern:
+    dateformat: HH:mm:ss
+
+# 配置 Mybatis
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.czm.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+
