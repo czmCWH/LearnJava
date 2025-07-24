@@ -9,12 +9,11 @@
 可以使用 容器化技术-`Docker` 解决此问题，即便对 Linux不熟悉，也能只要在部署的服务器上安装了 `Docker`，就能轻松部署各种常见软件、Java项目。
 
 # 二、什么是 Docker
-`Docker` 是一个快速构建、运行、管理应用的工具。
+`Docker` 是一个快速构建、运行、管理应用的工具。即用于部署项目，是一个典型的运维工具。
 它将应用程序及其依赖环境（包括库、配置文件等）打包成‌轻量级、可移植的镜像‌，实现‌一次构建，到处运行。
 
 Docker可以帮助我们下载应用镜像，创建并运行镜像的容器，从而快速部署应用。
-
-
+ 
 * Docker官方文档: <https://docs.docker.com/>
 * Docker 介绍：<https://docs.docker.com/get-started/docker-overview/>
 * Docker 常见命令：<https://docs.docker.com/reference/cli/docker/>
@@ -29,7 +28,7 @@ Docker可以帮助我们下载应用镜像，创建并运行镜像的容器，�
 镜像中的应用程序运行后形成的 进程 就是 容器，只是 Docker 会给容器做隔离，对外不可见。
 可以基于同一个镜像创建运行多个容器，形成集群。
 
-容器就是一个完整的应用 
+容器就是一个完整的应用。
 
 ### Docker Registry 镜像仓库
 镜像仓库 是一个 Docker 镜像的托管平台，用于 存储 和 管理 Docker镜像，类似于 GitHub。
@@ -50,7 +49,7 @@ Docker可以帮助我们下载应用镜像，创建并运行镜像的容器，�
 
 Docker 架构官方文档：<https://docs.docker.com/get-started/docker-overview/>
 
-> Docker 本身包含一个后台服务，我们可以利用 Docker 命令告诉 Docker 服务，帮助我们快速部署指 定的应用。
+> Docker 本身包含一个后台服务，我们可以利用 Docker 命令告诉 Docker 服务，帮助我们快速部署指定的应用。
 > Docker 服务 部署应用时，首先要去搜索并下载应用对应的镜像，然后根据镜像创建并 运行容器，应用就部署完成了。
 
 
@@ -71,3 +70,6 @@ Docker 架构官方文档：<https://docs.docker.com/get-started/docker-overview
 
 
 
+<https://www.bilibili.com/video/BV1vo4y1T73j?spm_id_from=333.788.player.switch&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=2>
+好👍 <https://www.bilibili.com/video/BV1HP4118797/?spm_id_from=333.337.search-card.all.click&vd_source=f97692c2f656607aeb97ee92b4310d9e>
+https://www.bilibili.com/video/BV1S142197x7?spm_id_from=333.788.videopod.episodes&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=31
