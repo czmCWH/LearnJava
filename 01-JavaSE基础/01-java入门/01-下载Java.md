@@ -30,6 +30,9 @@ Java 的产品叫 JDK (Java Development Kit:java开发者工具包)(比如: 微�
 
 Java 版本选型，JDK 8、11、17、21;很多企业还在使用JDK8/JDK11。
 
+注意在 Mac 上安装时，尽量下载`.tar.gz`压缩包，便于管理 。
+
+
 ## 2、测试 Java 是否安装成功
 
 ```shell
