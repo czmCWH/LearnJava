@@ -41,7 +41,7 @@ spring:
 ### 步骤3、服务发现
 ```java
 
-// DiscoveryClient 是 SpringCloud 接口，现集成了 Nacon 组件后，它由 Nacon 组件去实现，用于 注册中心服务列表
+// DiscoveryClient 是 SpringCloud 接口，现集成了 Nacon 组件后，它由 Nacon 组件去实现，用于在微服务架构中动态获取服务实例信息‌。
 private final DiscoveryClient discoveryClient;
 
 public void getData() {
@@ -54,7 +54,7 @@ public void getData() {
     ServiceInstance instance = instances.get(RandomUtil.randomInt(0, instances.size()));
 
     // instance.getUri();       主机名和端口号 合起来叫 Uri
-    // ⚠️，服务调用者不需要写死服务提供者的端口和IP信息，而是每次通过 服务名称 动态获取它当前的 实例列表，还可以通过负载均衡从中获取一个可用的实例。
+    // ⚠️，此时此刻，使用 Nacon 组件后，服务调用者不需要写死服务提供者的端口和IP信息，而是每次通过 服务名称 动态获取它当前的 实例列表，还可以通过负载均衡从中获取一个可用的实例。
 
     // 2.3、利用 RestTemplate 发起 http 请求，得到 http 相应
     ResponseEntity<List<ItemDTO>>  response = restTemplate.exchange(
