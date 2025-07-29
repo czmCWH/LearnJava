@@ -10,6 +10,8 @@
 
 `OpenFeign` 已经被 `SpringCloud`  自动装配，实现起来非常简单:
 
+> `OpenFeign` 发起的网络请求，最终由对应微服务的 Controller 进行处理。
+
 #### 步骤1、引入依赖，包括 `OpenFeign` 和 负载均衡组件 `SpringCloudLoadBalancer`
 
 ```pom
