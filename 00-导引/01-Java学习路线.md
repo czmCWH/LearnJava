@@ -7,5 +7,5 @@
 # Java 学习视频
 
 2024年黑马程序员Java学习路线图，<https://zhuanlan.zhihu.com/p/596422138>
-
+2025黑马程序员Java学习路线图，<https://www.bilibili.com/opus/494817843530680807?spm_id_from=333.1387.0.0>
 
