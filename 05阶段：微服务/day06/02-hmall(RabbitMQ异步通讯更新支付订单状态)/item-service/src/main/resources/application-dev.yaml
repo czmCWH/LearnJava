@@ -1,0 +1,4 @@
+hm:
+  db:
+    host: mysql # 数据库容器名称
+    pw: root

@@ -1,0 +1,17 @@
+logging:
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+
+spring:
+  application:
+    name: consumer
+  rabbitmq:
+    host: localhost    # RabbitMQ 服务器的地址  10.0.1.65
+    port: 5672  # 端口
+    virtual-host: /hmall  # RabbitMQ 服务器上创建的虚拟主机名
+    username: hmall  # 登录 RabbitMQ 服务器的用户名
+    password: 123     # 登录 RabbitMQ 服务器的密码
+
+    listener:
+      simple:
+        prefetch: 1 # 每次只能获取一条消息，处理完成才能获取下一个消息
