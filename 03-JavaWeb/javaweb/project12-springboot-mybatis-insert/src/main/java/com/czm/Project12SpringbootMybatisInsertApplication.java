@@ -12,5 +12,4 @@ public class Project12SpringbootMybatisInsertApplication {
         SpringApplication.run(Project12SpringbootMybatisInsertApplication.class, args);
         log.info("------ 项目启动成功！");
     }
-
 }

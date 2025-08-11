@@ -15,6 +15,7 @@
     <groupId>com.czm</groupId>
     <artifactId>project03-springboot-web-start01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <!-- 项目描述 -->
     <name>project03-springboot-web-start01</name>
     <description>project03-springboot-web-start01</description>
@@ -32,12 +33,14 @@
         <url/>
     </scm>
 
+    <!-- 项目使用JDK的版本-->
     <properties>
         <java.version>21</java.version>
     </properties>
 
     <!-- 项目依赖 -->
     <dependencies>
+        <!-- Spring Boot 依赖不需要填写版本，因为在其父工程中统一管理了 -->
         <!--   1、web起步依赖    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,6 +50,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <!-- 此依赖只在测试生效 -->
             <scope>test</scope>
         </dependency>
     </dependencies>

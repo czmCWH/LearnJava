@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Import;
 //@Import(MyImportSelector.class)     // 导入接口实现类
 //@Import(HeaderConfig.class)       // 导入配置类
 //@Import({HeaderParser.class, HeaderGenerator.class, TokenParser.class})
-//@ComponentScan({"com.czm", "com.company"})
-@SpringBootApplication
+//@ComponentScan(basePackages = {"com.czm", "com.company"})     // 一旦指定了扫描的包，默认的扫描包将不生效，因此也需要添加默认的 com.czm 包。
+@SpringBootApplication  // 具备组件的扫描功能，默认扫描范围是启动类所在包及其子包。
 public class Project16SpringbootBeanApplication {
 
     public static void main(String[] args) {
@@ -27,4 +27,10 @@ public class Project16SpringbootBeanApplication {
 //    public SAXReader getSAXReader() {
 //        return new SAXReader();
 //    }
+
+//    @Bean
+//    public HeaderParser getHeaderParser() {
+//        return new HeaderParser();
+//    }
 }
+
