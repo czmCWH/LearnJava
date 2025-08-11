@@ -16,6 +16,15 @@
         <module name="project08-spring-db-mybatis" />
         <module name="project07-db-jdbc" />
       </profile>
+      <profile name="Annotation profile for project16-springboot-bean" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="project16-springboot-bean" />
+      </profile>
       <profile name="Annotation profile for project11-springboot-mybatis-select" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -26,15 +35,6 @@
         </processorPath>
         <module name="project11-springboot-mybatis-select" />
         <module name="project05-web-ioc-di" />
-      </profile>
-      <profile name="Annotation profile for project16-springboot-bean" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
-        </processorPath>
-        <module name="project16-springboot-bean" />
       </profile>
       <profile name="Annotation profile for project15-springboot-aop-quickstart" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />

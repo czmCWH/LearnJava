@@ -186,4 +186,16 @@ public class Project16SpringbootBeanApplication {
             普通类、配置类、ImportSelector实现类、@EnableXxx
 
 
-待学习视频：<https://www.bilibili.com/video/BV1yGydYEE3H/?spm_id_from=333.788.player.switch&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=145>
+# 五、
+```java
+public class AutoConfigurationImportSelector {
+        protected List<String> getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes) {
+        ImportCandidates importCandidates = ImportCandidates.load(this.autoConfigurationAnnotation, this.getBeanClassLoader());
+        List<String> configurations = importCandidates.getCandidates();
+        Assert.notEmpty(configurations, "No auto configuration classes found in META-INF/spring/" + this.autoConfigurationAnnotation.getName() + ".imports. If you are using a custom packaging, make sure that file is correct.");
+        return configurations;
+    }
+}
+```
+
+学习视频：<https://www.bilibili.com/video/BV1yGydYEE3H/?spm_id_from=333.788.player.switch&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=145>

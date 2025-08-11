@@ -57,6 +57,7 @@ private DeptDao deptDao = new DeptDaoImpl();
 ### 步骤2，为 `Controller` 及 `Service` 注入运行时所依赖的对象。
 
 - `@Autowired` 可注解于构造器、字段、setter方法或任意形参上，用于自动装配（Autowiring）其他 Bean 到当前类中。Spring容器会尝试找到合适的Bean来注入到被@Autowired注解标注的位置。
+  - 注意，`@Autowired` 只能在 `Spring bean` 中声明，即 `@Component` 注解的类中。
 - 在 `Controller` 和 `Service` 中接收 实现类的属性变量 上添加 `@Autowired` 注解；
 
 > IOC 和 DI 是 通过 `@Component` 和 `@Autowired` 来实现的。
