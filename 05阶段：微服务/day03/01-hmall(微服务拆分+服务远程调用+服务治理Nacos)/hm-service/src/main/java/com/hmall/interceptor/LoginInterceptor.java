@@ -27,7 +27,7 @@ public class LoginInterceptor implements HandlerInterceptor {   // HandlerInterc
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        // 清理用户
+        // 清理用户信息
         UserContext.removeUser();
     }
 }

@@ -1,32 +1,34 @@
-# 远程调用
+# 一、远程调用
 通过微服务拆分后，每个服务的代码是隔离开的，并且有自己独立的数据库。这样某个服务无法访问其它服务的数据库，该如何解决呢？
 
-`Spring` 提供了一个 `RestTemplate` 工具，可以方便的实现 http 请求的发送。使用步骤如下：
+`Spring` 提供了一个 `RestTemplate` 工具，可以方便的实现 `http` 请求的发送。使用步骤如下： 
 
-1、注入 RestTemplate 到 Spring 容器
+## 1、RestTemplate 的使用
+
+### 步骤1、依赖注入 `RestTemplate` 到 `Spring` 容器
 ```java
 public class CartApplication {
     ///  注入 RestTemplate 远程调用
     @Bean
-    public RestTemplate restTemplate() {
+    public RestTemplate restTemplate() { 
         return new RestTemplate();
     }
 }
 ```
 
-2、发起远程调用
+### 步骤2、发起远程调用
 ```java
 private final RestTemplate restTemplate;
 
 private void hanlde() {
     // 1、使用 RestTemplate 发起 http 请求，得到 http 相应
     ResponseEntity<List<ItemDTO>>  response = restTemplate.exchange(
-            "http://localhost:8081/items?ids={ids}",
-            HttpMethod.GET,
-            null,
+            "http://localhost:8081/items?ids={ids}",    // 请求路径，{ids} 是一个占位符
+            HttpMethod.GET,     // 请求方式
+            null,       // 请求实体，可以为空
             new ParameterizedTypeReference<List<ItemDTO>>() {
-            },
-            Map.of("ids", CollUtil.join(itemIds, ","))
+            },  // 指定返回值类型。ParameterizedTypeReference 参数类型引用，通过对象的泛型把类型传递过去。
+            Map.of("ids", CollUtil.join(itemIds, ","))      // 请求参数。给 {ids} 占位符占位符赋值
     );
 
     // 2.2、解析响应
@@ -39,20 +41,22 @@ private void hanlde() {
 }
 ```
 
+> 代码实现：`day03` -> `/cart-service/.../CartServiceImpl.java/handleCartItems`。
 
-## 注入 Bean 对象 的方式
 
-### 1、@Autowired 注解注入 Bean 对象
+## 2、Spring 依赖注入的方式
+
+### 2.1、@Autowired 注解注入 Bean 对象
 
 在 `@Component` 注解的类中使用 @Autowired 注入 Bean 对象时，IDEA 会在 `@Autowired` 下面显示下划线。
-这是因为，Spring 不推荐使用 @Autowired 方式注入。推荐使用构造函数方式注入 Bean 对象。
+这是因为，Spring 不推荐使用 `@Autowired` 方式注入。推荐使用构造函数方式注入 Bean 对象。
 
 ```java
 @Autowired
 private RestTemplate restTemplate;
 ```
 
-### 2、构造函数方式注入 bean 对象
+### 2.2、构造函数方式注入 bean 对象
 如下使用构造函数方式注入 Bean 对象，Spring 会自动完成注入，和 @Autowired 效果一直。 
 
 ```java
@@ -67,10 +71,12 @@ public class MyService {
 此方式使用时，当类中的成员变量很多，使用构造函数注入就会很麻烦。
 可以借助 `lombok` 框架自动生成构造函数完成 `Bean` 对象的注入。
 
-### 3、借助 lombok 框架注入 Bean 对象
-#### `@AllArgsConstructor`，指所有参数的构造函数。
+### 2.3、借助 lombok 框架注入 Bean 对象
+
+#### 方式一，`@AllArgsConstructor`，指所有参数的构造函数。
+
 如下代码所示，可以完成 `RestTemplate` Bean对象的注入，但是类中的 `private String name = "";` 成员变量也会成为构造函数的一部分，
-并不希望它是构造函数的一部分，可以使用 `@RequiredArgsConstructor` 注解。
+但是开发者并不希望它是构造函数的一部分，所以此注解不太合适。
 
 ```java
 @Service
@@ -82,7 +88,10 @@ public class MyService {
     private String name = "";
 }
 ```
-#### `@RequiredArgsConstructor`，指必须参数的构造函数
+
+
+#### 方式二，`@RequiredArgsConstructor`，指必须参数的构造函数（推荐）
+
 注意，把需要注入的 Bean 对象使用 `final` 修饰，这样 lombok 框架生成构造函数时会使用此属性。
 
 ```java

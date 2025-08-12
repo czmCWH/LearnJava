@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * dto --- 数据传输对象，即前端提交的数据对象
+ * dto --- 数据传输对象，即前端提交 或 与其它服务交互 的数据对象
  */
 
 @Data

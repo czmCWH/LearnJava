@@ -120,12 +120,12 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
 
         // 2.3、利用 RestTemplate 发起 http 请求，得到 http 相应
         ResponseEntity<List<ItemDTO>>  response = restTemplate.exchange(
-                instance.getUri() + "/items?ids={ids}",
+                instance.getUri() + "/items?ids={ids}",     // {ids} 是一个占位符
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<ItemDTO>>() {
-                },
-                Map.of("ids", CollUtil.join(itemIds, ","))
+                },      // ParameterizedTypeReference 参数类型引用，通过对象的泛型把类型传递过去。
+                Map.of("ids", CollUtil.join(itemIds, ","))  // 给 {ids} 占位符占位符赋值
         );
 
         // 2.2、解析响应
@@ -162,12 +162,12 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
 //        List<ItemDTO> items = itemService.queryItemByIds(itemIds);
         // 使用 RestTemplate 发起 http 请求，得到 http 相应
         ResponseEntity<List<ItemDTO>>  response = restTemplate.exchange(
-                "http://localhost:8081/items?ids={ids}",
+                "http://localhost:8081/items?ids={ids}",    // {ids} 是一个占位符
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<ItemDTO>>() {
-                },
-                Map.of("ids", CollUtil.join(itemIds, ","))
+                },      // ParameterizedTypeReference 参数类型引用，通过对象的泛型把类型传递过去。
+                Map.of("ids", CollUtil.join(itemIds, ","))      // 给 {ids} 占位符占位符赋值
         );
 
         // 2.2、解析响应
