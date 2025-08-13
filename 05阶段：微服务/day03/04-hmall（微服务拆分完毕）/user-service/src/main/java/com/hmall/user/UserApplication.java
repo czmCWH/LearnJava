@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+// 启用封装的 OpenFeign 客户端的 Bean，并配置日志级别
 @EnableFeignClients(basePackages = "com.hmall.api.clients", defaultConfiguration = DefaultFeignConfig.class)
 @MapperScan("com.hmall.user.mapper")
 @SpringBootApplication

@@ -101,19 +101,19 @@ feign:
 其它服务中可能也需要远程调用，采用这种方式存在代码重复，当远程调用业务修改时每个服务的 `FeignClient` 也需要修改。
 
 ## 方式一
-- 实现：在每一个被调用者的服务中，把对外提供接口功能单独分离出来成新的模块，这些新模块由该被调用者开发维护，其它微服务中通过 Maven 坐标引入 进行调用。
+- 实现：由 服务提供者把 对外提供接口功能单独分离出来成 新的模块，将 FeignClient及DTO抽取，其它微服务中通过 Maven 坐标引入 进行调用。
 - 缺点：原先微服务的项目结构变复杂； 
 - 适用于：工程结构为 独立 Project 的微服务项目。
 
 ## 方式二
 
-- 实现：在 `Project` 工程中，创建一个新的模块作为通用模块，此模块包含整个项目所用用于远程调用的客户端 和 dto，其它需要使用的模块通过 Maven 坐标引入 进行调用。
+- 实现：在 `Project` 工程中，创建一个新的模块作为通用模块，此模块包含整个项目所用用于远程调用的 FeignClient 和 dto，其它需要使用的模块通过 Maven 坐标引入 进行调用。
 - 缺点：这样做耦合度高，因为不同业务的暴露的接口需要放在同一个服务中开发。
 - 适用于：工程结构为 Maven 聚合的微服务项目。
 
 > 方式二代码实现：`day03` -> 抽取`hm-api` 通用模块 ；
 
-### ⚠️ 实践会报错 - 配置feign包扫描
+### ⚠️ 实践会报错 - 配置 feign 包扫描
 
 使用 方式一 或 方式二 实现 `FeignClient` 客户端后，在其它服务中通过坐标引入使用时，将无法扫描到 `FeignClient` 客户端，只能获取其类型。
 第三方依赖的 FeignClient 类型 Bean 不在当前服务 `SpringBootApplication` 的扫描包范围内。
@@ -136,18 +136,18 @@ public class CartApplication {
 }
 ```
 
+# 五、配置 OpenFeign 日志输出
+`OpenFeign` 只会在 `FeignClient` 所在包的日志级别为 `Debug` 时，才会输出日志。而且其自身日志级别有4级：
+  - `NONE`：不记录任何日志信息，这是默认值。所以项目运行调试时，默认我们看不到请求日志。
+  - `BASIC`：仅记录 请求的方法，URL 以及相应状态码 和 执行时间。
+  - `HEADERS`：在 `BASIC` 的基础上，额外记录了 请求和响应的头信息。
+  - `FULL`：记录所有请求和响应的明细，包括 头信息、请求体、元数据。
 
+配置 OpenFeign 输出日志 级别：
 
-# 五、OpenFeign 日志输出
-OpenFeign 只会在 FeignClient 所在包的日志级别为 Debug 时，才会输出日志。而且其日志级别有4级：
-`NONE`：不记录任何日志信息，这是默认值。
-`BASIC`：仅记录请求的方法，URL以及相应状态码和执行时间。
-`HEADERS`：在 `BASIC` 的基础上，额外记录了请求和响应的头信息。
-`FULL`：记录所有请求和响应的明细，包括头信息、请求体、元数据。
+## 步骤1，声明一个类型为 `Logger.Level` 的 `Bean`，在其中定义日志级别
 
-由于 Feign 默认的日志级别时 NONE，所以默认我们看不到请求日志。
-
-* 1、要自定义 `OpenFeign` 日志级别需要声明一个类型为 `Logger.Level` 的 `Bean`，在其中定义日志级别：
+在定义 Client 的 `hm-api` 模块中实现如下代码：
 ```java
 public class DefaultFeignConfig {
     @Bean
@@ -157,8 +157,14 @@ public class DefaultFeignConfig {
 }
 ```
 
-* 2、但此时这个 Bean 并未生效，要想配置某个 FeignClient 的日志，可以在 @FeignClient 注解中声明:
-但此方式只是作用在某个 ItemCli ent 上，只对配置的 ItemClient 有效，其它的 Client 无效。
+此时这个 Logger.Level 的 Bean 并未生效，还需通过如下2种方式配置：
+
+## 步骤2，使用自定义日志级别
+
+### 方式一，在 @FeignClient 注解中声明 - 局部配置！
+此方式只是作用在某个 ItemClient 上，只对配置的 ItemClient 有效，其它的 Client 无效。
+
+在 `hm-api` 模块中自定义 Client 中添加 configuration 日志级别配置：
 ```java
 @FeignClient(value = "item-service", configuration = DefaultFeignConfig.class)
 public interface ItemClient {
@@ -166,7 +172,10 @@ public interface ItemClient {
 }
 ```
 
-* 3、如果想要全局配置，让所有 `FeignClient` 都按照这个日志配置，则需要在 `@EnableFeignClients` 注解中声明:
+### 方式二，在 @EnableFeignClients 注解中声明 - 全局配置！
+在 `@EnableFeignClients` 注解中声明日志级别，所有 `FeignClient` 都将使用这个日志配置。
+
+在引入 `hm-api` 模块中添加 `defaultConfiguration` 配置：
 ```java
 @EnableFeignClients(basePackages = "com.hmall.api.clients", defaultConfiguration = DefaultFeignConfig.class)
 ```

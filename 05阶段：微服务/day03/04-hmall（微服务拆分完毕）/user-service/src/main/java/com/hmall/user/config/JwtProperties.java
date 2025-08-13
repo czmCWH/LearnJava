@@ -6,6 +6,10 @@ import org.springframework.core.io.Resource;
 
 import java.time.Duration;
 
+/**
+ * 读取 application.yaml 文件中的配置信息
+ */
+
 @Data
 @ConfigurationProperties(prefix = "hm.jwt")
 public class JwtProperties {

@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 自定义 SpringMVC 拦截器，用于获取登录用户信息保存到 ThreadLocal 中
- * 注意：次拦截器不需要做登录校验，因为登录校验放在官网里做了，请求能到此拦截器，说明校验通过了。
+ * 注意：次拦截器不需要做登录校验，因为登录校验放在 hm-gateway 网关里做了，请求能到此拦截器，说明校验通过了。
  */
 
 public class UserInfoInterceptor implements HandlerInterceptor {
-
-    // preHandle 在 Controller 之前执行
+    /**
+     * preHandle 在请求进入 Controller 之前执行
+     * @param request 请求头
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 1、获取登录用户信息
@@ -27,7 +29,9 @@ public class UserInfoInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    // afterCompletion 在 Controller 之后执行，用于进行清理操作
+    /**
+     * afterCompletion 在请求离开 Controller 之后执行，用于进行清理操作
+     */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         // 清理用户信息

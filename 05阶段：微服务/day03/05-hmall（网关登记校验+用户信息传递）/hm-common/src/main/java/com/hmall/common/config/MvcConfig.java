@@ -24,9 +24,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ConditionalOnClass(DispatcherServlet.class)
 public class MvcConfig implements WebMvcConfigurer {
 
+    // 添加自定义拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // 添加自定义拦截器
         registry.addInterceptor(new UserInfoInterceptor());
     }
 }

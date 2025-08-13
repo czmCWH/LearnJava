@@ -24,6 +24,7 @@ public class JwtTool {
      * 创建 access-token
      *
      * @param userId 用户id
+     * @param ttl  超时时间
      * @return access-token
      */
     public String createToken(Long userId, Duration ttl) {

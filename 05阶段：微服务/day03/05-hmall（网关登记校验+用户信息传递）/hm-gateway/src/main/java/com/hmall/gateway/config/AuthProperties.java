@@ -14,8 +14,8 @@ import java.util.List;
 @Component
 @ConfigurationProperties(prefix = "hm.auth")
 public class AuthProperties {
-    /// 需要被 JWT 校验的路径
+    /// 需要被拦截的路径， JWT 会校验
     private List<String> includePaths;
-    /// 被 JWT 排除校验的路径
+    /// 不被拦截的路径， JWT 排除校验的路径
     private List<String> excludePaths;
 }

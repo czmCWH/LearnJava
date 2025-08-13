@@ -24,7 +24,8 @@ public class DefaultFeignConfig {
         return new RequestInterceptor() {
             @Override
             public void apply(RequestTemplate requestTemplate) {
-                // 此处 UserContext 可以拿到 用户信息，因为 OpenFeign 客户端执行时是在其对应的模块中。
+                // 此处 UserContext 可以拿到 用户信息
+                // 因为进入微服务的请求是经过网关过滤器添加了用户信息到 UserContext，在微服务处理业务逻辑时发送 Feign 请求，首先进入 Feign 的拦截器，所以可以从 UserContext 中获取用户信息
                 Long userId = UserContext.getUser();
                 if (userId != null) {
                     requestTemplate.header("user-info", userId.toString());

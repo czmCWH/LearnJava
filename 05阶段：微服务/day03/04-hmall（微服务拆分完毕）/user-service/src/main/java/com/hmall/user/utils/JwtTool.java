@@ -12,6 +12,10 @@ import java.security.KeyPair;
 import java.time.Duration;
 import java.util.Date;
 
+/**
+ * JwtTool - token 生成与解析
+ */
+
 @Component
 public class JwtTool {
     private final JWTSigner jwtSigner;
