@@ -1,15 +1,17 @@
 # hmall 商城案例实现
 
+> 需求：改造余额支付功能，不再同步调用交易服务的 0penFeign 接口，而是采用 异步MQ通知 交易服务 更新 订单状态。
+
 ## 1、发送消息和接收消息端都需引入依赖 ：
 ```pom
 <!--AMQP依赖，包含RabbitMQ-->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-amqp</artifactId>
-</dependency>
+</dependency> 
 ```
 
-## 2、同事都需配置 `RabbitMQ` 服务器连接信息：
+## 2、同时都需配置 `RabbitMQ` 服务器连接信息：
 ```application.yaml
 spring:
   rabbitmq:
