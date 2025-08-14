@@ -78,7 +78,7 @@ SpringCloud 是微服务组件标准的制定者，其它微服务组件必须�
 5. 身份认证 --- Gateway 过滤器 -> SpringMVC 拦截器 -> OpenFeign 拦截器
 6. 配置管理 --- Nacos 共享配置、配置热更新
 7. 服务保护 --- Sentinel
-8. 分布式事务 --- Seata
+8. 分布式事务 --- Seata 
 9. 异步通信 
 10. 消息可靠性 
 11. 延迟消息 
