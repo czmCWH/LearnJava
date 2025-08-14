@@ -12,7 +12,7 @@
 
 > `Nacos` 组件不仅具备 注册中心的功能，还具备 `配置管理服务` 功能。 官网：<https://nacos.io/>
 
-# 二、配置文件共享
+# 二、配置共享
 ## 步骤1、在 Nacos 服务器上添加配置信息
 案例 - 把微服务 `application.yaml` 配置中的 `jdbc`、`MybatisPlus`、`日志`、`Swagger`、`OpenFeign` 等配置信息添加到 Nacos 配置管理中。
 实现 - 登录 Nacos 控制台 <http://localhost:8848/nacos/> -> `配置管理` -> `配置列表` -> 点击 “➕” 添加 -> 配置案例见图 `/img/04-配置管理-Nacos`

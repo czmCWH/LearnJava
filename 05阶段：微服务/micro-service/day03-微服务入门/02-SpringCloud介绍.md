@@ -34,9 +34,10 @@
 
 `SpringCloud` 集成了各种微服务功能组件，并基于 `SpringBoot` 实现了这些组件的自动装配，从而提供了良好的开箱即用体验
 
-## 1、选择 SpringCloud 版本
+## 1、SpringCloud 与 SpringBoot 的版本兼容关系
 
-`SpringCloud` 基于 `SpringBoot` 实现了微服务组件的自动装配，从而提供了良好的开箱即用体验。但对于 SpringBoot 的版本也有要求：见图 </img/02-SpringCloud/02-SpringCloud版本.jpg>
+`SpringCloud` 基于 `SpringBoot` 实现了微服务组件的自动装配，从而提供了良好的开箱即用体验。
+但对于 SpringBoot 的版本也有要求：见图 `/img/02-SpringCloud/02-SpringCloud版本.jpg`
 
 > `SpringBoot 3.0.0` 需要 `JDK17+`。
 
@@ -74,8 +75,8 @@ SpringCloud 是微服务组件标准的制定者，其它微服务组件必须�
 2. 远程调用 --- OpenFeign：基于 Nacos 使用 
 3. 服务治理 --- 服务注册 + 服务发现 ---> 注册中心组件（Nacos)
 4. 请求路由 --- Spring Cloud Gateway：路由转发、身份校验 
-5. 身份认证 --- 网关过滤器 -> SpringMVC 拦截器 -> OpenFeign 拦截器
-6. 配置管理 --- Nacos 共享配置、热更新配置
+5. 身份认证 --- Gateway 过滤器 -> SpringMVC 拦截器 -> OpenFeign 拦截器
+6. 配置管理 --- Nacos 共享配置、配置热更新
 7. 服务保护 --- Sentinel
 8. 分布式事务 --- Seata
 9. 异步通信 
