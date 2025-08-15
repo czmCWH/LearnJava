@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
 
 /**
- * 查询失败的逻辑
+ * 查询支付订单失败的逻辑
  */
 
 @Slf4j

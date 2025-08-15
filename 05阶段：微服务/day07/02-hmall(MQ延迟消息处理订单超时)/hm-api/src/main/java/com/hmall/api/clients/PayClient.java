@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * FeignClient远程调用 - 根据 交易订单ID 查询 支付订单ID
+ * FeignClient远程调用 - 根据 交易订单ID 查询 支付订单流水
  */
 
 @FeignClient(value = "pay-service", fallbackFactory = PayClientFallback.class)

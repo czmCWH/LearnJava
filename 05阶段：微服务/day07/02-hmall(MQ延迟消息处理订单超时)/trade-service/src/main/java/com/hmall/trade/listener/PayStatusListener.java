@@ -33,8 +33,8 @@ public class PayStatusListener {
         // 1、查询订单
         Order order = orderService.getById(orderId);
         // 2、判断订单状态，是否为未支付
-        if (order == null && order.getStatus() != 1) {
-            // 不做处理
+        if (order == null && order.getStatus() != 1) { // 此处业务逻辑判断，不管重复收到 MQ 消息多少次，都不会造成 业务非幂等性
+            // 订单状态不是未支付，所以不做处理
             return;
         }
         // 3、标记订单状态为已支付

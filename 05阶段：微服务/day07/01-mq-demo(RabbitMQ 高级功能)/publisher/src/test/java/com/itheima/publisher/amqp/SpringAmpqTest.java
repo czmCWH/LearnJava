@@ -165,7 +165,7 @@ public class SpringAmpqTest {
         // 3、发送消息
         rabbitTemplate.convertAndSend(exchangeName, "blue", message, cd);
 
-        // 延迟等待 cd 回调
+        // 因为是单元测试中，延迟等待 cd 回调
         Thread.sleep(20000);
     }
 

@@ -7,7 +7,7 @@ import org.springframework.amqp.rabbit.retry.RepublishMessageRecoverer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
+@Configuration
 public class NormalConfiguration {
     // 声明处理 error 的交换机
     @Bean

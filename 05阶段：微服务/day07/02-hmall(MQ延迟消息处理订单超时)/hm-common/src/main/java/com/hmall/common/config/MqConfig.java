@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ConditionalOnClass(RabbitTemplate.class)       // 添加条件，如果存在 RabbitTemplate 则 MqConfig 配置生效
+@ConditionalOnClass(RabbitTemplate.class)       // 添加 Bean 自动装配条件，如果存在 RabbitTemplate 则 MqConfig 配置生效
 public class MqConfig {
     @Bean
     public MessageConverter messageConverter() {
