@@ -1,0 +1,60 @@
+server:
+  port: 8085
+# spring.application.name 是指服务运行时的应用名称
+#spring:
+#  application:
+#    name: trade-service  # 微服务名称，每个服务应保证不一样
+#  profiles:
+#    active: dev
+#  datasource:
+#    url: jdbc:mysql://${hm.db.host}:3306/hm-trade?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: ${hm.db.pw}
+#  cloud:
+#    nacos: # 配置 nacos 注册中心地址
+#      server-addr: localhost:8848
+#mybatis-plus:
+#  configuration:
+#    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+#  global-config:
+#    db-config:
+#      update-strategy: not_null
+#      id-type: auto
+#logging:
+#  level:
+#    com.hmall: debug
+#  pattern:
+#    dateformat: HH:mm:ss:SSS
+#  file:
+#    path: "logs/${spring.application.name}"
+#knife4j:
+#  enable: true
+#  openapi:
+#    title: 黑马商城交易服务接口文档
+#    description: "黑马商城交易服务接口文档"
+#    email: itheima@itcast.cn
+#    concat: itheima
+#    url: https://www.itcast.cn
+#    version: v1.0.0
+#    group:
+#      default:
+#        group-name: default
+#        api-rule: package
+#        api-rule-resources:
+#          - com.hmall.trade.controller
+hm:
+  db:
+    database: hm-trade
+  swagger:
+    title: "黑马商城交易服务接口文档"
+    desc: "黑马商城交易服务接口文档"
+    package: com.hmall.trade.controller
+
+spring:
+  rabbitmq:
+    host: localhost   # RabbitMQ 服务器的地址
+    port: 5672  # 端口
+    virtual-host: /hmall  # RabbitMQ 服务器上创建的虚拟主机名
+    username: hmall  # 登录 RabbitMQ 服务器的用户名
+    password: 123     # 登录 RabbitMQ 服务器的密码

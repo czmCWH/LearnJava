@@ -1,0 +1,46 @@
+server:
+  port: 8080  # 网关服务的 端口
+#spring:
+#  application:
+#    name: gateway   # 网关服务名称
+#  cloud:
+#    nacos: # 配置 nacos 注册中心地址
+#      server-addr: localhost:8848
+#    gateway:
+#      routes:
+#        - id: user-service
+#          uri: lb://user-service
+#          predicates:
+#            - Path=/users/**,/addresses/**
+#        - id: item-service
+#          uri: lb://item-service
+#          predicates:
+#            - Path=/items/**,/search/**
+#          filters:
+#            - AddRequestHeader=X-Request-Color, blue
+#        - id: cart-service
+#          uri: lb://cart-service
+#          predicates:
+#            - Path=/carts/**
+#        - id: trade-service
+#          uri: lb://trade-service
+#          predicates:
+#            - Path=/orders/**
+#        - id: pay-service
+#          uri: lb://pay-service
+#          predicates:
+#            - Path=/pay-orders/**
+#      default-filters:
+#        - AddRequestHeader=X-Request-Color, blue
+hm:
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /items/**
+      - /hi

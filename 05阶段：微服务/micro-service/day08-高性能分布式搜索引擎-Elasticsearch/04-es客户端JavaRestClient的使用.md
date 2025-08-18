@@ -28,6 +28,7 @@ Elasticsearch Java 客户端更新很快，而企业中使用 Elasticsearch 的�
 public class ElasticTest {
     private RestHighLevelClient client;
 
+    // 
     @BeforeEach
     void setUp() {
         // 初始化
@@ -35,7 +36,8 @@ public class ElasticTest {
                 HttpHost.create("http://localhost:9200")
         ));
     }
-
+    
+    // 单元测试结束后，销毁 client
     @AfterEach
     void tearDown() throws IOException {
         if (client != null) {
@@ -146,6 +148,10 @@ void testCreateIndex() throws IOException {
 void testGetIndex() throws IOException {
     // 1、准备 request 对象，items 表示索引库名称
     GetIndexRequest request = new GetIndexRequest("items");
+
+    // 查询索引库结构信息
+    GetIndexResponse getIndexResponse = client.indices().get(request, RequestOptions.DEFAULT);
+    
     // 2、发送请求
     boolean isExists = client.indices().exists(request, RequestOptions.DEFAULT);
     System.out.println("/items 索引库是否存在，isExists = " + isExists);
@@ -166,7 +172,13 @@ void testDeleteIndex() throws IOException {
 }
 ```
 
+> 代码实现：`/item-service/src/test/.../ElasticIndexTest.java`
+
+
+
 ## 5、文档操作
+
+> 代码实现：`/item-service/src/test/.../ElasticDocumentTest.java`
 
 ### 5.1、新增文档
 ```java
@@ -252,6 +264,9 @@ void testUpdateDocById() throws IOException {
 
 ## 6、批处理
 BulkRequest 封装普通的 CRUD请求
+
+> 代码实现：`/item-service/src/test/.../ElasticDocBatchTest.java`
+
 ```java
 void test() {
   // 1、创建 Bulk Request
@@ -261,19 +276,16 @@ void test() {
 // 批量添加
 // items，表示索引库名称；id：文档ID
   request.add(new IndexRequest("items").id("1").source("json", XContentType.JSON));
-  request.add(new IndexRequest("items").id("1").source("json", XContentType.JSON));
-  request.add(new IndexRequest("items").id("1").source("json", XContentType.JSON));
+  request.add(new IndexRequest("items").id("2").source("json", XContentType.JSON));
+  request.add(new IndexRequest("items").id("3").source("json", XContentType.JSON));
 
 // 批量删除
 // items，表示索引库名称；id：文档ID
   request.add(new DeleteRequest("items").id("1"));
-  request.add(new DeleteRequest("items").id("1"));
-  request.add(new DeleteRequest("items").id("1"));
+  request.add(new DeleteRequest("items").id("2"));
+  request.add(new DeleteRequest("items").id("3"));
 
 // 3、发送 Bulk 请求
   client.bulk(request, RequestOptions.DEFAULT);
 }
 ```
-
-# 代码实现：
-`hmall - item-service服务 - test单元测试`
