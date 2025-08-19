@@ -1,7 +1,9 @@
+> 代码实现：`/item-service/src/test/.../ElasticSearchTest.java`
+
 # 一、基于 Java 客户端构建查询条件
 在 Java 中我们使用 `RestHighLevelClient` 进行文档搜索的基本步骤是：
 1. 创建`request`对象，这次是搜索，所以是`SearchRequest`
-2. 准备`request.source()`，也就是DSL，DSL中可以包含查询、分页、排序、高亮等。
+2. 准备`request.source()` 构建请求体，也就是DSL，DSL中可以包含查询、分页、排序、高亮等。
     1. 使用 `QueryBuilders`来构建查询条件
     2. 传入`request.source()` 的` query() `方法
 3. 发送请求，得到结果
@@ -16,7 +18,7 @@ void testMatchAll() throws IOException {
     // 1、创建 request 对象
     SearchRequest request = new SearchRequest("items");
     // 2、配置 request 参数
-    request.source()    // source()，构建DSL，DSL中可以包含查询、分页、排序、高亮等 
+    request.source()    // source() 构建完整的请求体，包含查询、分页、排序、高亮等 
             .query(QueryBuilders.matchAllQuery());  
     // query() 设置查询条件，在 JavaRestAPI 中，所有类型的Query查询条件都是由 QueryBuilders 来构建的。
     // QueryBuilders.matchAllQuery() 构建一个 match_all 查询的DSL，即查询所有数据。
@@ -88,7 +90,7 @@ void testSearch() throws IOException {
             QueryBuilders.boolQuery()   // 创建 bool查询对象
                     .must(QueryBuilders.matchQuery("name", "脱脂牛奶"))     // 关键字搜索
                     .filter(QueryBuilders.termQuery("brand.keyword", "德亚")) // 品牌过滤
-                    .filter(QueryBuilders.rangeQuery("price").lte("30000"))  // 价格过滤
+                    .filter(QueryBuilders.rangeQuery("price").lt("30000"))  // 价格过滤
     );
     
     // 3、发送请求

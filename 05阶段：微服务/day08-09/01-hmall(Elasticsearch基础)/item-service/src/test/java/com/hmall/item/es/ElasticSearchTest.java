@@ -31,9 +31,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 使用 Elasticsearch Java 客户端 搜索文档
+ * 4、使用 Elasticsearch Java 客户端 搜索文档
  */
-
 
 public class ElasticSearchTest {
     private RestHighLevelClient client;
@@ -66,7 +65,7 @@ public class ElasticSearchTest {
         // 1、创建 request 对象
         SearchRequest request = new SearchRequest("items");
         // 2、配置 request 参数
-        request.source()     // source()，构建DSL，DSL中可以包含查询、分页、排序、高亮等
+        request.source()     // source() ，构建完整的请求体，包含查询、分页、排序、高亮等
                 .query(QueryBuilders.matchAllQuery());
         // query() 设置查询条件，在 JavaRestAPI 中，所有类型的Query查询条件都是由 QueryBuilders 来构建的。
         // QueryBuilders.matchAllQuery() 构建一个 match_all 查询的DSL，即查询所有数据。
@@ -74,12 +73,14 @@ public class ElasticSearchTest {
         // 3、发送请求
         SearchResponse response = client.search(request, RequestOptions.DEFAULT);
 
+        // 查询结果与使用 Kibana Dev Tools 中查询一样
         System.out.println("--- 快速入门，查询items 索引库中所有数据 = "+ response);
 
         // 4、解析查询结果
         parseResponseResult(response);
     }
 
+    // response：查询结果与使用 Kibana Dev Tools 中查询一样
     private static void parseResponseResult(SearchResponse response) {
         // 4、解析查询结果
         SearchHits searchHits = response.getHits();
@@ -127,9 +128,9 @@ public class ElasticSearchTest {
 //        request.source().query(QueryBuilders.multiMatchQuery("脱脂牛奶", "name", "category"));
 
         // 2.2、精确查询
-        // 2.2.1、term 查询
+        // 2.2.1、term 查询，词条查询
 //        request.source().query(QueryBuilders.termQuery("brand.keyword", "华为"));
-        // 2.2.2、Range 查询
+        // 2.2.2、Range 查询，范围查询
         request.source().query(QueryBuilders.rangeQuery("price").gte(10000).lte(20000));
 
         // 3、发送请求获取响应结果
@@ -151,7 +152,7 @@ public class ElasticSearchTest {
                 QueryBuilders.boolQuery()   // 创建 bool查询对象
                         .must(QueryBuilders.matchQuery("name", "脱脂牛奶"))     // 关键字搜索
                         .filter(QueryBuilders.termQuery("brand.keyword", "德亚")) // 品牌过滤
-                        .filter(QueryBuilders.rangeQuery("price").lte("30000"))  // 价格过滤
+                        .filter(QueryBuilders.rangeQuery("price").lt("30000"))  // 价格过滤
         );
 
         // 3、发送请求

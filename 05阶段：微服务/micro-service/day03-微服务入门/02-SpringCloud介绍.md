@@ -82,6 +82,6 @@ SpringCloud 是微服务组件标准的制定者，其它微服务组件必须�
 9. 异步通信 --- RabbitMQ
 10. 消息可靠性 --- 有3个方面保证 MQ消息的可靠性
 11. 延迟消息
-12. 分布式搜索  --- ElasticSearch 
+12. 分布式搜索  --- ElasticSearch、kibana
 13. 倒排索引 
 14. 数据聚合
