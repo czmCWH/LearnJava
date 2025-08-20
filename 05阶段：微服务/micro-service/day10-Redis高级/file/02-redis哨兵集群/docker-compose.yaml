@@ -7,6 +7,7 @@ services:
     container_name: r1
     network_mode: "host"
     entrypoint: ["redis-server", "--port", "7001"]
+  # 设置 "--slaveof", "127.0.0.1", "7001" 表示 r2、r3 在启动那一刻就会自动成为 r1 的 slave，就不需要手动配置了。
   r2:
     image: redis
     container_name: r2
@@ -18,6 +19,7 @@ services:
     network_mode: "host"
     entrypoint: ["redis-server", "--port", "7003", "--slaveof", "127.0.0.1", "7001"]
   # 2、配置 redis 哨兵集群
+  # 哨兵集群使用的镜像依然是 redis，Redis 即可以部署主从集群，也可以用来部署 哨兵集群。
   s1:
     image: redis
     container_name: s1
