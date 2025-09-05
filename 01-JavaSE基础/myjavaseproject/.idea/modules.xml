@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/day01-variable/day01-variable.iml" filepath="$PROJECT_DIR$/day01-variable/day01-variable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02-variable-type-operator/day02-variable-type-operator.iml" filepath="$PROJECT_DIR$/day02-variable-type-operator/day02-variable-type-operator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day03-flow-control-random/day03-flow-control-random.iml" filepath="$PROJECT_DIR$/day03-flow-control-random/day03-flow-control-random.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day04-array/day04-array.iml" filepath="$PROJECT_DIR$/day04-array/day04-array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day05-method/day05-method.iml" filepath="$PROJECT_DIR$/day05-method/day05-method.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day06-case-code/day06-case-code.iml" filepath="$PROJECT_DIR$/day06-case-code/day06-case-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day07-oop-code/day07-oop-code.iml" filepath="$PROJECT_DIR$/day07-oop-code/day07-oop-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day08-api-code/day08-api-code.iml" filepath="$PROJECT_DIR$/day08-api-code/day08-api-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myjavaseproject.iml" filepath="$PROJECT_DIR$/myjavaseproject.iml" />
+    </modules>
+  </component>
+</project>

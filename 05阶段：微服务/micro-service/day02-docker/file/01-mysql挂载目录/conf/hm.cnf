@@ -6,3 +6,5 @@ default_character_set=utf8mb4
 character_set_server=utf8mb4
 collation_server=utf8mb4_unicode_ci
 init_connect='SET NAMES utf8mb4'
+# 设置时区为东八区（北京时间）
+default_time_zone='+08:00'
