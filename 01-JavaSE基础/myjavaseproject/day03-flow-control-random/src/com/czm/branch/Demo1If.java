@@ -11,7 +11,7 @@ public class Demo1If {
             3、循环结构，控制某段代码的重复执行。for、while、do-while
 
          1、if 分支结构
-         根据条件(true 或 false)来决定执行某段代码。
+         根据 条件(true 或 false) 来决定执行某段代码。
          */
 
         // if分支写法1
