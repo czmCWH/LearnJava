@@ -4,7 +4,7 @@ public class d3_param {
 
     public static void main(String[] args) {
         /*
-         1、Java的参数传递机制都是：值传递
+         1、⚠️Java的参数传递机制都是：值传递
             所谓值传递：指的是在传输实参给方法的形参的时候，传输的是实参变量中存储的值的副本
                 a、基本数据类型（byte、short、char、int、long、float、double、boolean）作为方法参数 或 方法返回值 传递的是数据值；--- 值传递
                 b、引用类型（String、类、接口、数组）作为方法参数 或 方法返回值 传递的是引用对象的地址值；--- 引用传递

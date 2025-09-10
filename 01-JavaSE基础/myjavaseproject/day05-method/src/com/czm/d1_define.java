@@ -76,7 +76,7 @@ public class d1_define {
     }
 
     /*
-     4、print 打印
+     4、print 格式化打印
      */
     public static void testPrint() {
         // 如下所示，println 方法只能接收一个参数，因此遇到多个参数时只能拼接
