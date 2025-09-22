@@ -1,8 +1,10 @@
-package com.czm.d4_generics.Test02;
+package com.czm.d4_generics;
+
+import com.czm.d4_generics.demo.Box;
 
 import java.util.*;
 
-public class Test01 {
+public class Test02Inherit {
 
     /*
       1、泛型类型的继承

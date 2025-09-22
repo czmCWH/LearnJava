@@ -1,6 +1,8 @@
-package com.czm.d4_generics.Test03;
+package com.czm.d4_generics;
 
-public class Test01 {
+import com.czm.d4_generics.demo.BoxRaw;
+
+public class Test03RawType {
 
     /*
       1、原始类型（Raw Type）
@@ -15,10 +17,10 @@ public class Test01 {
     public static void main(String[] args) {
         // 如下代码所示，Box 称为是 Box<E> 的原始类型（Raw Type）
         @SuppressWarnings("rawtypes")
-        Box rawBox = new Box();
+        BoxRaw rawBox = new BoxRaw();
         // Box<String>、Box<Object> 是非原始类型
-        Box<String> strBox = new Box<>();
-        Box<Object> objBox = new Box<>();
+        BoxRaw<String> strBox = new BoxRaw<>();
+        BoxRaw<Object> objBox = new BoxRaw<>();
 
         rawBox = strBox;    // ok
         rawBox = objBox;    // ok

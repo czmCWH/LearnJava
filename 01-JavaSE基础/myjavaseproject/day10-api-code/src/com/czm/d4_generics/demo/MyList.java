@@ -1,4 +1,4 @@
-package com.czm.d4_generics.Test02;
+package com.czm.d4_generics.demo;
 
 import java.util.List;
 

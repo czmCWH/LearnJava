@@ -1,6 +1,6 @@
-package com.czm.d4_generics.Test03;
+package com.czm.d4_generics.demo;
 
-public class Box<E> {
+public class BoxRaw<E> {
     private E element;
 
     public E getElement() {

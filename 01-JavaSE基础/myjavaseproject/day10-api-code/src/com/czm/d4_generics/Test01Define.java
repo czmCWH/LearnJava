@@ -1,6 +1,8 @@
-package com.czm.d4_generics.Test01;
+package com.czm.d4_generics;
 
-public class Test01 {
+import com.czm.d4_generics.demo.Student;
+
+public class Test01Define {
 
     /*
       1、泛型（Generics）
