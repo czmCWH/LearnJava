@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * 实现泛型类型，此类型可以进行比较，并且是通过其 类型参数 实现的
- *
+
  * <T extends Number & Comparable<T>>，表示 类型参数 T 具备可比较性；
  * Comparable<Sport<T>>，表示泛型类型 Sport 具备可比较性；
  *
