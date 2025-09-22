@@ -1,5 +1,7 @@
 package com.czm;
 
+import java.util.Arrays;
+
 public class d1_define {
     public static void main(String[] args) {
         /*
@@ -17,6 +19,7 @@ public class d1_define {
         // 定义数组时指定长度
         int[] arr4 = new int[5];
         System.out.println("--- 定义数组时指定长度 = " + arr4.length);   // 打印：5
+        System.out.println("--- 把数组转换为 String = " + Arrays.toString(arr4)); // [0, 0, 0, 0, 0]
 
         // 定义多维数组
 
