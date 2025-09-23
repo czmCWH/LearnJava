@@ -13,8 +13,7 @@ public class Test01 {
       2、List vs Set vs Map
         a、List 的特点：
             可以存储重复的元素，即元素之间 equals 可能返回 true；
-            可以通过索引访问元素；
-            有记录元素的添加顺序；
+            可以通过索引访问元素；（有记录元素的添加顺序）
 
         b、Set的特点：
             不可以存储重复的元素，即元素之间 equals 不可能返回 true；
@@ -22,9 +21,16 @@ public class Test01 {
             不记录元素的添加顺序（LinkedHashSet 除外）；
 
         c、Map 的特点
-            不可以存储重复的key；
+            不可以存储重复的key，可以存储重复的 value；
             不可以通过索引访问 key-value;
             不记录 key-value 的添加顺序(LinkedHashMap 除外)；
+            Map 底层使用了 红黑树、链表、哈希表
+
+        d、Set 的底层是基于 Map 实现的
+            HashSet 底层用了 HashMap；
+            LinkedHashSet 底层用了 LinkedHashMap；
+            TreeSet 底层用了 TreeMap；
+
      */
 
     public static void main(String[] args) {

@@ -14,7 +14,7 @@ public class Test01 {
         无法动态扩容；如：int[] array = new int[4]; 最多只能存储4个数据。
         操作元素的过程不够面向对象；如：无法通过数组对象进行增、删等操作。
 
-      2、ArrayList
+      2、ArrayList 动态数组
         java.util.ArrayList 是 Java 中的基于动态数组实现的 List 类，有如下特点：
             它是一个可以动态扩容的数组；
             允许元素重复 与 null值‌；
@@ -55,9 +55,13 @@ public class Test01 {
         list.add(0, "jack");
         list.add("888");
 
+        System.out.println(list.get(3));    // null
         System.out.println(list.indexOf(null)); // 3
         System.out.println(list.size());    // 6
         System.out.println(list);   // [jack, 11, false, null, 3.14, 888]
+
+        List<Object> list2 = Arrays.asList(1, 2, 3, null, "你好");
+        System.out.println("list2 = " + list2);     // [1, 2, 3, null, 你好]
 
     }
 
