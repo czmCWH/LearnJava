@@ -1,6 +1,6 @@
 package com.czm.d2_safe;
 
-public class Test01 {
+public class Test01Unsafe {
 
     /*
       1、线程安全问题
@@ -11,8 +11,8 @@ public class Test01 {
        多个线程共享同一个资源；
        且至少有一个线程正在进行写的操作；
 
-      3、线程安全问题 - 解决方案
-       a、线程同步，有2种方式：
+      3、线程安全问题解决方案 - 线程同步
+       线程同步，有2种方式：
         同步语句（Synchronized Statement）
         同步方法（Synchronized Method）
 

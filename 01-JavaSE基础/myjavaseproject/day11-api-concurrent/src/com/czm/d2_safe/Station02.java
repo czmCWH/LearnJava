@@ -4,6 +4,7 @@ public class Station02 implements Runnable {
 
     private int tickets = 100;
 
+    // 使用 线程同步 让同一时刻只能有一个线程进入卖票
     public boolean salleTicket() {
         // 线程同步 - 同步语句
         synchronized (this) {

@@ -1,6 +1,6 @@
 package com.czm.d2_safe;
 
-public class Test03 {
+public class Test03TypeSafe {
 
     /*
       几个常用类的细节：
