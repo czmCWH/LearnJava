@@ -16,7 +16,7 @@ public class Test01Unsafe {
         同步语句（Synchronized Statement）
         同步方法（Synchronized Method）
 
-       b、
+       Thread.join 只是单方面的等待，无法达到通知的效果。
 
      */
 

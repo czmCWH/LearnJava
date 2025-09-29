@@ -21,6 +21,13 @@ public class Test01HashMap {
         map.put("Rose", 80);
         map.put("Jack", 88);
 
+        // 双括号初始化 Map
+        Map<String, Integer> map2 = new HashMap<String, Integer>() {{
+            put("Jack", 90);
+            put("Tom", 80);
+        }};
+        System.out.println("map2 = " + map2);
+
         System.out.println("--- map = " + map);     // {Tom=80, Kate=70, Rose=80, Jack=88}
 
         System.out.println("--- size = " + map.size());     // size = 4

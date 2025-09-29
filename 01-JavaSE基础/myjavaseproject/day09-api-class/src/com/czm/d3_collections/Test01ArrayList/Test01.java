@@ -63,6 +63,13 @@ public class Test01 {
         List<Object> list2 = Arrays.asList(1, 2, 3, null, "你好");
         System.out.println("list2 = " + list2);     // [1, 2, 3, null, 你好]
 
+        // 双括号初始化
+        List<Integer> list3 = new ArrayList<Integer>() {{
+            add(11);
+            add(22);
+        }};
+        System.out.println("list3 = " + list3);
+
     }
 
 }

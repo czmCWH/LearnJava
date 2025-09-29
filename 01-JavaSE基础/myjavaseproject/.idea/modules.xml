@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/day10-api-code/day10-api-code.iml" filepath="$PROJECT_DIR$/day10-api-code/day10-api-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/day11-api-concurrent/day11-api-concurrent.iml" filepath="$PROJECT_DIR$/day11-api-concurrent/day11-api-concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/day12-api-io/day12-api-io.iml" filepath="$PROJECT_DIR$/day12-api-io/day12-api-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day13-java-add/day13-java-add.iml" filepath="$PROJECT_DIR$/day13-java-add/day13-java-add.iml" />
       <module fileurl="file://$PROJECT_DIR$/myjavaseproject.iml" filepath="$PROJECT_DIR$/myjavaseproject.iml" />
     </modules>
   </component>
