@@ -137,6 +137,17 @@ eclipse、IntelliJ IDEA、NetBeans
 
 * `Ctrl + /、Ctrl + Shift + / `：对代码进行注释；
 
+### 在 IntelliJ IDEA中，快速生成类的getter和setter方法
+#### 方法1，快捷键
+将光标放在类内部或选中需要生成方法的字段，按下快捷键：
+```
+Windows/Linux：Alt + Insert
+macOS：Command + N
+```
+#### 方法2，右键菜单‌
+`通过右键点击代码 → Generate → Getter and Setter`
+
+
 
 ## IDEA 其它操作
 
