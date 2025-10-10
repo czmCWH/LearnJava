@@ -44,6 +44,8 @@ public class Test1 {
 //        String name = "123a";
 //        int i = Integer.valueOf(name);
 
+
+
         // 2、执行函数时，捕获异常
         try {
             System.out.println(divide(5, 0));
