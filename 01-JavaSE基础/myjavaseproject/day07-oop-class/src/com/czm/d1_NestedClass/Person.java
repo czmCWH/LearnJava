@@ -15,17 +15,17 @@ public class Person {
         this.name = name;
     }
 
-    // ⚠️ 静态嵌套类
+    // 1、静态嵌套类
     static class StaticNestedClass {
 
     }
 
-    // ⚠️ 非静态嵌套类（内部类）
+    // 2、非静态嵌套类 --- 内部类
     class InnerClass {
 
     }
 
-    // 内部类的特点
+    // 3、内部类的特点
     public class Hand {
         private int no;
         private int weight;

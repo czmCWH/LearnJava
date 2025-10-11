@@ -33,11 +33,12 @@ public class Student extends Person {
 
     // 构造方法
     public Student() {
-        super();  // super 调用父类的构造方法
+        super();  // super 调用父类的构造方法，super(); 默认写不写都有
 //        this(12);   // this 调用本类的构造方法
         System.out.println("Student constructor");
     }
     public Student(int age) {
 //        super(age);
     }
+
 }

@@ -17,8 +17,6 @@ public class Test02AbstractVSInterface {
        只是定义特定数据类型的行为，不关心具体是谁实现了行为；
        想实现类型的多重继承，接口之间可以多继承，并且类型可以实现多个接口；
 
-     3、
-
      */
 
     public static void main(String[] args) {

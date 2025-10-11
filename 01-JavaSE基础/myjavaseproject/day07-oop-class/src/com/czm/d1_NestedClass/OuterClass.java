@@ -5,6 +5,7 @@ package com.czm.d1_NestedClass;
  */
 public class OuterClass {
     private int x = 1;
+
     public class InnerClass {
         private int x = 2;
         public void print() {

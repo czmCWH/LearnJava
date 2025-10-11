@@ -4,9 +4,12 @@ import java.util.*;
 
 public class Test01HashSet {
     /*
-      1、HashSet - 无序Set
+      1、HashSet - 无序、无索引、无重复代码
 
-      2、
+      2、Set 的 API
+       Set要用到的常用方法，基本上就是Collection提供的!!
+       自己几乎没有额外新增一些常用功能!
+
       3、
      */
     public static void main(String[] args) {
@@ -29,6 +32,8 @@ public class Test01HashSet {
         String[] str2 = st2.toArray(new String[0]);
         System.out.println("--- str2 = " + Arrays.toString(str2));  // str2 = [Tom, Kate, Jack]
 
+
+
         System.out.println("\n--- 3、HashSet 的遍历：");
         System.out.println("--- for-each 方式遍历：");
         // for-each 方式 等价于 迭代器方式遍历
@@ -49,9 +54,6 @@ public class Test01HashSet {
         st.forEach((s) -> {
             System.out.print(s + "、");
         });
-
-
-
 
     }
 }

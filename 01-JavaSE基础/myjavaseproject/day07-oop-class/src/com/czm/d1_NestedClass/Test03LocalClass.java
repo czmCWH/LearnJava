@@ -3,7 +3,7 @@ package com.czm.d1_NestedClass;
 public class Test03LocalClass {
 
     /*
-     1、局部类（Local Class）
+     1、局部类（Local Class）--- 【了解】
       局部类是指 定义在代码块中的类（可以定义在方法中、for循环中、if语句中、初始化块 等）。
       代码块是指 大括号内，并且大括号里面可以直接放可执行的代码。
 
@@ -44,7 +44,7 @@ public class Test03LocalClass {
             int b = 10;
             b++;
 
-            // 定义一个局部类
+            // ⚠️ 定义一个局部类
             class A {
                 // 1、定义局部类的成员
 //                static  int a = 10;   // 报错！无法定义 static 成员

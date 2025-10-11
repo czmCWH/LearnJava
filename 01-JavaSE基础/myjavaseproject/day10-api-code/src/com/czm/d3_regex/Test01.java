@@ -3,7 +3,7 @@ package com.czm.d3_regex;
 public class Test01 {
     /*
       1、正则表达式 Regex Expression
-       正则表达式用于字符串的合法验证。
+       正则表达式就是由一些特定的字符组成，用于字符串的合法验证。
        正则表达式用非常精简的语法取代了复杂的验证逻辑，极大地提高了开发效率。
        正则表达式是一种通用的技术，适用于绝大多数流行编程语言。
 
@@ -30,7 +30,9 @@ public class Test01 {
 
         c、量词（Quantifier），表示字符出现的次数，有3种形式/形态。
 
-        d、
+      3、String 提供了一个匹配正则表达式的方法
+        public boolean matches(string regex)，判断字符串是否匹配正则表达式，匹配返回true，不匹配返回false。
+
      */
     public static void main(String[] args) {
         System.out.println("--- 自己编写字符串合法校验：");

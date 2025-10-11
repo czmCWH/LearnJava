@@ -11,7 +11,7 @@ public class Test01Lambda {
 
       函数式接口（Functional Interface）：只包含1个抽象方法的接口，并定义的接口上面加上 @FunctionalInterface 注解来表示它是一个函数式接口。
 
-      ⚠️ 当匿名类实现的是函数式接口时，可以使用 Lambda 表达式进行简化！
+      ⚠️ 作用：当匿名类实现的是函数式接口时，可以使用 Lambda 表达式进行简化！
 
      2、Lambda 表达式简化规则
       a、参数列表可以省略参数类型；

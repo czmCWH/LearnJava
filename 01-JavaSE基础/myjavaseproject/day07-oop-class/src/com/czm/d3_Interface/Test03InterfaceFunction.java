@@ -30,6 +30,7 @@ public class Test03InterfaceFunction {
 
      4、静态方法
       接口中定义的静态方法 只能通过接口名 调用，不能被继承。
+      基本上没什么用，一般源码会使用。
 
      5、
      */

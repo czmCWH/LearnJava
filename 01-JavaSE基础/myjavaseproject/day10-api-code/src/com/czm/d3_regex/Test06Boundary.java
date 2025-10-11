@@ -1,7 +1,5 @@
 package com.czm.d3_regex;
 
-import java.util.regex.Pattern;
-
 public class Test06Boundary {
 
     /*

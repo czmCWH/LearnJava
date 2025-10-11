@@ -7,13 +7,20 @@ import java.util.function.Consumer;
 
 public class Test02All {
     /*
-      👉 2、ArrayList 的基本使用2
+      1、ArrayList 的基本使用2
         public boolean addAll(Collection<? extends E> c)，把集合对象的所有元素添加到当前数组。
         public boolean addAll(int index, Collection<? extends E> c)，把集合中所有元素添加到 index 索引的位置。
         public boolean removeAll(Collection<?> c)，把集合中所有元素从数组中删除。
         public boolean retainAll(Collection<?> c)，删除当前数组中不包含在集合c中的所有元素。
         public void forEach(Consumer<? super E> action)，接收 函数式接口类 型参数，可以使用。
         public void sort(Comparator<? super E> c)，数组元素排序。
+
+      2、遍历 List<E> 单列集合
+        a、迭代器
+        b、for-each 格式快速遍历（增强for循环）
+        c、函数式遍历（Lambda表达式）
+        以上继承自 Collection 集合
+        c、for循环，因为List集合有索引
      */
     public static void main(String[] args) {
 
@@ -51,20 +58,27 @@ public class Test02All {
         }
 
         System.out.println("\n--- 集合遍历2：迭代器方式遍历");
-        Iterator<Integer> it = list1.iterator();    // 获取迭代器
+        Iterator<Integer> it = list1.iterator();    // 返回集合中的迭代器对象
+
+//        System.out.println(it.next());    // 取出第0个元素
+//        System.out.println(it.next());    // 取出第1个元素
+//        System.out.println(it.next());    // 取出第2个元素
+//        System.out.println(it.next());    // 取出第3个元素
+//        System.out.println(it.next());  // 超出元素，报异常：NoSuchElementException
+
         while (it.hasNext()) {  // 查看 cursor 游标是否指向 集合 size 位置，如果不是则返回 true；
             System.out.println(it.next());  // next()方法作用：将 cursor 游标指向的集合元素取出返回；cursor 游标向后移动一位；
         }
 
         System.out.println("\n--- 集合遍历3：for-each 格式快速遍历，官方特指");
         /*
-          for-each 语法：
+          for-each 语法（增强 for）：
             for (元素类型 变量名 : 数组/Iterable) { ... }
 
           特点：
             a、实现了 Iterable 接口的对象，都可以使用 for-each 遍历元素，比如：List、Set 等。
             b、Iterable 在使用 foreach 格式遍历元素时，本质是使用了 Iterator 对象。
-            c、⚠️ for-each 本质是 【集合遍历2：迭代器方式遍历】。
+            c、⚠️ for-each 本质是 本质就是迭代器遍历集合的简化写法。
          */
 
         System.out.println("--- 遍历 List 集合类型：");
@@ -89,8 +103,9 @@ public class Test02All {
         }
 
 
-        System.out.println("\n--- 集合遍历4：函数式遍历");
+        System.out.println("\n--- 集合遍历4：函数式遍历、Lambda表达式遍历");
         // forEach 接收函数式接口类型参数，可以使用非常简洁的写法，如下是不断简化的过程：
+        // forEach 本质也是基于迭代器遍历集合。
         list1.forEach(new Consumer<Integer>() {
             @Override
             public void accept(Integer el) {

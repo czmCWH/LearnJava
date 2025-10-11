@@ -1,5 +1,7 @@
 package com.czm.d1_method;
 
+import java.util.Arrays;
+
 public class d1_define {
     /*
     1、方法
@@ -27,10 +29,11 @@ public class d1_define {
         System.out.println("较大值 = " + max);
 
         System.out.println("------ 可变参数 与 数组类型参数");
-//        sum1();   // 如果数组作为参数，参数必须传递，否则会报错。
+//        sum1();   // 如果参数类型为数组，调用方法时，必须传递参数，否则会报错。
         sum1(new int[] {1,2,3});
         sum2(1,2,3);
-        sum2();     // 可变参数不传递值，不会报错。
+        sum2();     // 如果方法参数为可变参数，调用方法时，可以不传递值，不会报错。
+        sum2(new int[] {1,2,3});  // 可变参数可以接受一个数组
 
         System.out.println("---- 打印");
         testPrint();
@@ -53,8 +56,10 @@ public class d1_define {
 
     /**
      3、可变参数方法 与 数组类型的方法
-     调用方法时，可变参数可以不传递任何值；
-     可变参数必须是方法的最后一个参数；
+      调用方法时，可变参数可以不传递任何值；
+      可变参数在形参列表中只能出现一个；
+      可变参数必须是方法的最后一个参数；
+
      */
     public static int sum1(int[] numbers) {
         System.out.println(numbers);
@@ -65,9 +70,11 @@ public class d1_define {
         }
         return result;
     }
+
     public static int sum2(int... numbers) {
-        System.out.println(numbers);
         System.out.println(numbers.length);
+        System.out.println(Arrays.toString(numbers));
+
         int result = 0;
         for (int number : numbers) {
             result += number;

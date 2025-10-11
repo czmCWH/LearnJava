@@ -1,7 +1,5 @@
 package com.czm.d3_regex.example;
 
-import com.czm.d3_regex.RegexTool;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

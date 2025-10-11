@@ -18,10 +18,11 @@ public class Test01 {
      Java 中所有的异常最终都继承自 java.lang.throwable。继承关系如下：
         Object:
             throwable:
-                Exception:
-                    RuntimeException
+                Exception: 代表程序中的错误，开发者使它或其子类来封装程序出现的问题。
+                    RuntimeException：运行时异常，编译阶段不会出现错误提醒，运行时出现的异常(如:数组索引越界异常)
+                    编译时异常：编译阶段就会出现错误提醒的。(如:日期解析异常）
                     ....
-                Error:
+                Error: 代表系统级别错误，sun公司会把这些问题封装成Error对象给出来。开发者不必使用 Error。
                     ....
 
      3、异常的分类

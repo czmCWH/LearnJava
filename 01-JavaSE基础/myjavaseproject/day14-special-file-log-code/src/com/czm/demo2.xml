@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<contactlist>
+    <contact id="1" vip="true">
+        <name>张三</name>
+        <gender>男</gender>
+        <email>zhangsan@czm.com</email>
+    </contact>
+    <contact id="2" vip="false">
+        <name>小明</name>
+        <gender>男</gender>
+        <email>xiaoming@qq.com</email>
+    </contact>
+    <contact id="2" vip="false">
+        <name>李芳</name>
+        <gender>女</gender>
+        <email>lifang@czm.com</email>
+    </contact>
+</contactlist>

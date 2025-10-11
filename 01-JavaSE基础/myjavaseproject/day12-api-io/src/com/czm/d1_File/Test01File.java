@@ -7,7 +7,9 @@ public class Test01File {
 
     /*
      1、File
-      一个 File 对象就代表一个文件或目录（文件夹）
+      一个 File 对象就代表一个文件或目录（文件夹）。
+      File 类只能对文件本身进行操作，不能读写文件里面存储的数据。
+      File封装的对象仅仅是一个路径名，这个路径可以是存在的，也允许是不存在的。
 
      2、名字分隔符（name separator）
       名字分隔符 是指文件路径使用字符串表示时，文件夹与文件之间的分隔符。
@@ -67,6 +69,13 @@ public class Test01File {
         boolean setReadable(boolean readable, boolean ownerOnly)
         boolean setReadable(boolean readable)
 
+     7、listFiles() 注意事项
+        主调 <=> 调用 listFiles 的File 对象
+        a、当主调的文件 or 路径不存在时，返回 null；
+        b、当主调是空文件夹时，返回一个长度为 0 的数组；
+        c、当主调是一个有内容的文件夹时，将里面所有一级文件和文件夹的路径放在 File 数组中返回；
+        d、当主调是一个文件夹，且里面有隐藏文件时，将里面所有文件和文件夹的路径放在File数组中返回，包含隐藏文件
+        e、当主调是一个文件夹，但是没有权限访问该文件夹时，返回 null
 
      */
 
@@ -99,13 +108,16 @@ public class Test01File {
         System.out.println("文件最后一次修改时间戳，lastModified = " + file.lastModified());    //  1758072787444
 
         System.out.println("\n--- 相对路径文件：");
-        File fl = new File("22.txt");   // 获取工程根目录下的 22.txt 文件
+        // 相对路径：默认相对到相当工程下寻找文件的，即直接到project(工程)下找文件
+        // 一般是用来查找项目中的资源文件
+//        File fl = new File("22.txt");   // 获取工程根目录下的 22.txt 文件
+        File fl = new File("day12-api-io/src/22.txt");   // 获取指定模块下的 22.txt 文件
         if (!fl.exists()) {
             System.out.println("文件不存在！");
             return;
         }
-        System.out.println("获取相对路径：" + fl.getPath());   // 22.txt
-        System.out.println("获取绝对路径： " + fl.getAbsolutePath());  // /Users/CZM/Git/github/LearnJava/01-JavaSE基础/myjavaseproject/22.txt
+        System.out.println("获取相对路径：" + fl.getPath());   // day12-api-io/src/22.txt
+        System.out.println("获取绝对路径： " + fl.getAbsolutePath());  // /Users/CZM/Git/github/LearnJava/01-JavaSE基础/myjavaseproject/day12-api-io/src/22.txt
 
         // 获取绝对路径形式的文件
         File absoluteFl = fl.getAbsoluteFile();

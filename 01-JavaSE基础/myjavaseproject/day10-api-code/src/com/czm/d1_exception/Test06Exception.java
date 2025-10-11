@@ -7,10 +7,10 @@ public class Test06Exception {
       1、自定义异常
       开发中自定义的异常类型，基本都是以下2中做法：
         a、继承自 Exception
-            它是检查型异常，使用起来代码会稍微复杂；
+            它是检查型异常（即，编译时异常），使用起来代码会稍微复杂；
             表示开发者需重视这个异常、认真处理这个异常；
-        b、继承自 RuntimeException
-            它是非检查型异常，使用起来代码更简洁；
+        b、继承自 RuntimeException  --- 建议使用！！！
+            它是非检查型异常（即，运行时异常），使用起来代码更简洁；
             不严格要求开发者去处理这个异常，但编写代码时需避免；
 
      */
@@ -23,7 +23,7 @@ public class Test06Exception {
 
     public static void test1(int age) {
         if (age < 18) {
-            throw new WrongAgeException(age, 18);
+            throw new WrongAgeException(age, 18);   // 创建异常对象并抛出
         } else {
             System.out.println("--- age = " + age);
         }

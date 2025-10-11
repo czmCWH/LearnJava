@@ -14,34 +14,37 @@ public class Test01Init {
       在类变量声明中；
       在 静态初始化块 中；
 
-
-     4、⚠️初始化块
-      直接在类里面写一个大括号，叫做初始化块。特点如下：
+     4、初始化块
+      直接在类里面写一个大括号，叫做初始化块。
+      语法格式：{}
+      特点如下：
        a、编译器会将初始化块复制到每个构造方法的头部执行。
        b、初始化块中的代码会先执行，执行完后再执行构造方法中的代码。
        c、每创建一个实例对象，就会执行一次初始化块。
 
-     5、静态初始化块的特点
+     5、静态初始化块
+      语法格式：static {}
       当一个类被初始化的时候会执行 静态初始化块；
       当一个类第一次被主动使用时，JVM 会对类进行初始化；（即，只会执行一次）
+      作用：完成类的初始化，例如：对类变量的初始化赋值。
 
      */
 
-    // 初始化块
+    public int count;
+
+    // （实例）初始化块 --- 实用性几乎为零
     {
         count = 10;
         System.out.println("--- 初始化块");
     }
 
-    // 静态初始化块
+    public static String name;
+
+    // 静态初始化块 --- 使用多
     static {
         name = "abc";
         System.out.println("--- 静态初始化块");
     }
-
-    public int count;
-
-    public static String name;
 
     public static void main(String[] args) {
         Test01Init test = new Test01Init();

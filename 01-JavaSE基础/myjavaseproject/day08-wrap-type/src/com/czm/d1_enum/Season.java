@@ -29,7 +29,9 @@ package com.czm.d1_enum;
 //    }
 //}
 
-
+/**
+ * 自定义一个枚举
+ */
 public enum Season {
     SPRING(5, 15), SUMMER(25, 45), AUTUMN(15, 25), WINTER(-5, 15);
 

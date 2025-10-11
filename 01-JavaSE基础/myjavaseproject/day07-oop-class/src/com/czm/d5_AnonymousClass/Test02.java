@@ -4,9 +4,6 @@ import com.czm.d5_AnonymousClass.util.Files;
 import com.czm.d5_AnonymousClass.util.Networks;
 import com.czm.d5_AnonymousClass.util.Times;
 
-import java.io.File;
-import java.io.FileFilter;
-
 public class Test02 {
 
     /*
@@ -14,9 +11,6 @@ public class Test02 {
       代码传递
       过滤器
       回调，与代码传递一样
-
-     2、
-
      */
 
     public static void main(String[] args) {

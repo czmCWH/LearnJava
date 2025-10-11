@@ -3,13 +3,15 @@ package com.czm.d1_NestedClass;
 public class Test02StaticNestedCls {
 
     /*
-      1、静态嵌套类（static nested class）
-       静态嵌套类是指被 static 修饰的嵌套类。
+      1、静态嵌套类（static nested class）--- 【了解】
+       静态嵌套类是指被 static 修饰的嵌套类。创建静态内部类对象语法：
+        Outer.Inner in = new Outer.Inner();
 
        ⚠️ 静态嵌套类在行为上就是一个顶级类，只是定义的代码写在了另一个类中。
 
        对比一般的顶级类，静态嵌套类多了一些特殊权限：
         a、可以直接访问外部类中除实例变量、实例方法外的其它成员（即使被声明为 private）。
+            因为静态内部类属于外部类持有，它没有外部类对象，所以无法获取外部类对象的信息。
 
       2、嵌套类的应用场景
        如果 A类 只用在 类C 内部，可以考虑将 类A 嵌套到 类C 中，这样做的优点：

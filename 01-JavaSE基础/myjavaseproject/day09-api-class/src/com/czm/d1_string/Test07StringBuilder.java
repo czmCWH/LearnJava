@@ -2,18 +2,22 @@ package com.czm.d1_string;
 
 public class Test07StringBuilder {
 
-    public static void main(String[] args) {
+    /*
+    1、StringBuilder 类
+        a、在进行大量字符串的改动操作时(比如 拼接、替换)
+           使用 String 会非常消耗内存、降低程序性能；
+           使用 StringBuilder 可以节省内存、提高程序性能；
+        b、StringBuilder 的常用方法有：append、insert、delete、replace、reverse等
+        c、⚠️⚠️⚠️
+           StringBuilder 并不是 String 的子类 或者 父类；
+           StringBuilder、String 都实现了 CharSequence 接囗；因此许多方法参数类型会使用 CharSequence 接口
 
-        /*
-         1、StringBuilder 类
-             a、在进行大量字符串的改动操作时(比如 拼接、替换)
-                使用 String 会非常消耗内存、降低程序性能；
-                使用 StringBuilder 可以节省内存、提高程序性能；
-             b、StringBuilder 的常用方法有：append、insert、delete、replace、reverse等
-             c、⚠️⚠️⚠️
-                StringBuilder 并不是 String 的子类 或者 父类；
-                StringBuilder、String 都实现了 CharSequence 接囗；因此许多方法参数类型会使用 CharSequence 接口
-         */
+    2、StringBuffer 与 StringBuilder
+       StringBuffer 的用法与 StringBuilder 是一模一样的。
+       但 StringBuilder 是线程不安全的 StringBuffer 是线程安全的。
+       开发中一般使用 StringBuilder，不用考虑 线程安全。
+    */
+    public static void main(String[] args) {
 
         // 1、为什么使用 String 进行拼接、替换操作时会耗内存？
         // 如下所示 s1 变量进行操作时，会不断的产生新的对象，这样非常消耗内存。另外，开辟/销毁新堆空间会消耗性能。
@@ -40,6 +44,8 @@ public class Test07StringBuilder {
           StringBuilder 只有在真正需要开辟堆空间的时候才会进行，不会浪费内存空间。
          */
 
+        int[] arr = {1,2,3,4,5,6,7,8,9};
+        System.out.println(getArrayData(arr));
     }
 
     static void testString() {
@@ -60,5 +66,23 @@ public class Test07StringBuilder {
         }
         long end = System.currentTimeMillis();
         System.out.println(" StringBuilder Time = " + (end - start));
+    }
+
+    /**
+     * 案例：用于返回任意整型数组的内容，要求返回的数组内容格式如: [11，22，33]
+     */
+    public static String getArrayData(int[] array) {
+        if (array == null || array.length == 0) {
+            return "";
+        }
+        // 1、创建 StringBuilder 对象
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        // 2、遍历数组拼接内容
+        for (int i = 0; i < array.length; i++) {
+            sb.append(i == array.length - 1 ? array[i] : array[i] + ", ");
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }

@@ -1,7 +1,5 @@
 package com.czm.d5_ReentrantLock;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 public class Test01 {
 
     /*

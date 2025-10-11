@@ -1,6 +1,6 @@
 package com.czm.d8_extends_modifier2;
 
-import com.czm.d8_extends_modifier.Father;
+import com.czm.d8_extends_modifier_x.Father;
 
 public class Demo {
 
