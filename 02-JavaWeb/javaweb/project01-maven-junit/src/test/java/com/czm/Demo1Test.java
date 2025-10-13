@@ -17,7 +17,7 @@ public class Demo1Test {
         System.out.println("test.....222.....");
     }
 
-    @BeforeEach
+    @BeforeEach // 在每一个单元测试方法运行之前，都会运行一次
     public void testBeforeEach() {
         System.out.println("BeforeEach.........");
     }
@@ -27,7 +27,7 @@ public class Demo1Test {
         System.out.println("AfterEach.........");
     }
 
-    @BeforeAll
+    @BeforeAll  // 在所有的单元测试方法运行之前，都会运行一次
     public static void testBeforeAll() {
         System.out.println("testBeforeAll......");
     }

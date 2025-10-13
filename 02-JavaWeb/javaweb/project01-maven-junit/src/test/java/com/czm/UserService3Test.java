@@ -1,18 +1,16 @@
 package com.czm;
 
 import com.czm.d1_test.UserService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * 演示3：@Test 和 断言
- *
  * 测试类，用于测试 UserService 业务方法，规范的命名方式为 “类名 + Test” 或者 “Test + 类名”
-
- * 运行单元测试 (测试通过：绿色；测试失败：红色)。
+ * 演示3：@Test 和 断言
  */
-public class UserServiceTest {
+public class UserService3Test {
     @Test
     public void testGetAge() {
         Integer age = new UserService().getAge("111122198408201111");
@@ -26,6 +24,16 @@ public class UserServiceTest {
         assertEquals("男", gender, "性别获取错误！");
         assertEquals("女", gender, "性别获取失败！");
         assertEquals("男", gender, "性别获取成功！");
+//        Assertions.assertThrows()
+    }
+
+    @Test
+    public void testGetGender2() {
+        UserService userService = new UserService();
+        // 断言，抛出的异常是否和预期异常类型一致
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            userService.getGender(null);
+        });
     }
 
 }
