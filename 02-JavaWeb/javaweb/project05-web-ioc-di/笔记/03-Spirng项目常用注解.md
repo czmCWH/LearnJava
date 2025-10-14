@@ -1,13 +1,13 @@
-# Spring Boot 项目基础注解
+# Spring Boot 项目常用注解
 @SpringBootApplication --- 启动类声明注解，SpringApplication.run 方法来启动程序。
-    包含 @ComponentScan 注解。
+    包含 @ComponentScan 组件扫描注解。
 
 - Controller 层
   @RestController，修饰类，请求处理类。<==> @Controller + @ResponseBody
     @Controller，声明为 bean 对象。
     @ResponseBody，接收响应请求，将方法返回值(实体对象、集合)以 `JSON/XML` 数据直接响应。
 
-  @RequestMapping(value = "/info", method = RequestMethod.GET)，修饰方法 or 类，请求映射路径注解。
+  @RequestMapping(value = "/info", method = RequestMethod.GET)，修饰方法、类，请求映射路径注解。
   简化版 @RequestMapping，限定特定 HTTP 方法：
     @PostMapping("/depts") 		// 增
     @DeleteMapping("/depts") 	// 删

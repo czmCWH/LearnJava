@@ -40,23 +40,26 @@
 
     <!-- 项目依赖 -->
     <dependencies>
-        <!-- Spring Boot 依赖不需要填写版本，因为在其父工程中统一管理了 -->
-        <!--   1、web起步依赖    -->
+        <!--
+            1、Spring Boot Web 起步依赖，用于 Web开发
+            Spring Boot Web 依赖不需要填写版本，因为在其父工程（即，spring-boot-starter-parent）中统一管理了
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+
         </dependency>
         <!--  2、单元测试起步依赖    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <!-- 此依赖只在测试生效 -->
+            <!-- 依赖作用范围：test，此依赖只在测试生效 -->
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <!-- 打包插件，如果没有此插件，Springboot 项目打出的包无法用 -->
+        <!-- Spring Boot 打包插件，如果没有此插件，Springboot 项目打出的包无法用 -->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

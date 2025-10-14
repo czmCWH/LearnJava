@@ -1,13 +1,18 @@
-package com.czm.mapper;
+package com.czm.dao.impl;
 
+import com.czm.dao.DeptDao;
 import org.apache.commons.io.IOUtils;
+import org.springframework.stereotype.Repository;
 
 import java.io.InputStream;
 import java.util.List;
 
 /**
- * 在实现类中实现接口
+ * 数据访问层，处理数据访问数据
  */
+
+//@Component      // 将当前类交给 IOC 容器管理 --- 控制反转的实现，IOC
+@Repository     // 用来标识该类是一个数据访问层类，效果等价于 @Component ，后续基本上不用，因为有 mybatis。
 public class DeptDaoImpl implements DeptDao {
     public List<String> list() {
         // 1、加载并读取 dept.txt 文件

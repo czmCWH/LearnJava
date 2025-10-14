@@ -2,13 +2,18 @@ package com.czm.entity;
 
 //import lombok.Data;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 /**
  * 实现一个实体类，用于封装数据。
  */
-
-//@Data     // 可以直接通过 lombok 依赖实现 get/set 方法
+//  lombok 依赖的相关注解：
+//@Data     // 实现所有属性的 get/set 方法
+//@NoArgsConstructor  // 用于生成无参构造器
+//@AllArgsConstructor // 用于生成所有有参构造器
 public class Dept {
     private Integer id;
     private String name;

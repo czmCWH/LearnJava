@@ -1,8 +1,9 @@
-package com.czm.service;
+package com.czm.service.impl;
 
-import com.czm.mapper.DeptDao;
-import com.czm.mapper.DeptDaoImpl;
+import com.czm.dao.DeptDao;
+import com.czm.dao.impl.DeptDaoImpl;
 import com.czm.entity.Dept;
+import com.czm.service.DeptService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,12 +18,12 @@ public class DeptServiceImpl implements DeptService {
     private DeptDao deptDao = new DeptDaoImpl();
 
     public List<Dept> list() {
-        // 1、通过 Dao 获取原始数据
-        List<String> stringList = deptDao.list();
+        // 1、调用 Dao 获取原始数据
+        List<String> lines = deptDao.list();
 
         // 2、处理数据 - 将数据封装成 List<Dept>
         // 解析文本中的数据，并将其封装成集合
-        List<Dept> depts = stringList.stream().map((str) -> {
+        List<Dept> depts = lines.stream().map((str) -> {
             String[] parts = str.split(",");
             Integer id = Integer.parseInt(parts[0]);
             String name = parts[1];

@@ -16,29 +16,29 @@
         <module name="project08-spring-db-mybatis" />
         <module name="project07-db-jdbc" />
       </profile>
-      <profile name="Annotation profile for project11-springboot-mybatis-select" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
-        </processorPath>
-        <module name="project11-springboot-mybatis-select" />
-        <module name="project05-web-ioc-di" />
-      </profile>
-      <profile name="Annotation profile for project16-springboot-bean" enabled="true">
+      <profile name="Annotation profile for project04-web-manager" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="project04-web-manager" />
         <module name="project16-springboot-bean" />
         <module name="project14-springboot-login" />
-        <module name="project04-web-manager" />
         <module name="project15-springboot-aop-quickstart" />
         <module name="project12-springboot-mybatis-insert" />
         <module name="project13-springboot-mybatis-delete-update" />
+      </profile>
+      <profile name="Annotation profile for project05-web-ioc-di" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="/Library/apache-maven-3.9.9/repo/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="project05-web-ioc-di" />
+        <module name="project11-springboot-mybatis-select" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21" />

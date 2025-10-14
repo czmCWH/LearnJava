@@ -1,7 +1,8 @@
-package com.czm.service;
+package com.czm.service.impl;
 
-import com.czm.mapper.DeptDao;
+import com.czm.dao.DeptDao;
 import com.czm.entity.Dept;
+import com.czm.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +14,30 @@ import java.util.List;
  * 业务逻辑处理层
  */
 
-//@Component      // @Component 注解实现 Spring IOC，当程序启动时，会自动创建该类对象，并交由IOC容器管理。也称为 Bean 对象。
+//@Component      // 将当前类交给 IOC 容器管理 --- 控制反转的实现，IOC
 @Service    // 用来标识当前类属于逻辑处理类，也是将该类型交给 IOC 容器管理。与 @Component 作用一样。
 public class DeptServiceImpl implements DeptService {
 
 //    private DeptDao deptDao = new DeptDaoImpl();
-    @Autowired      // @Autowired 注解的作用是从 Spring IOC 容器中，自动寻找 Bean 对象，并为该变量赋值 --- 即：依赖注入，DI的实现
+
+
+    // @Autowired 依赖注入，方式1，基于属性注入
+    @Autowired      // @Autowired 注解作用，应用程序运行时，会自动从 Spring 容器中查找该类型的 Bean 对象，并赋值该成员变量 --- 依赖注入，ID的实现
     private DeptDao deptDao;
+
+    // @Autowired 依赖注入，方式2，基于构造器注入
+//    private final DeptDao deptDao;
+//    @Autowired    // 如果当前类的构造函数只有一个，可以省略 @Autowired
+//    public DeptServiceImpl(DeptDao deptDao) {
+//        this.deptDao = deptDao;
+//    }
+
+    // @Autowired 依赖注入，方式3，基于setter方法注入
+//    private DeptDao deptDao;
+//    @Autowired
+//    public void setDeptDao(DeptDao deptDao) {
+//        this.deptDao = deptDao;
+//    }
 
     public List<Dept> list() {
         // 1、获取原始数据

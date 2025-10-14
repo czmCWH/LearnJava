@@ -1,7 +1,8 @@
-package com.czm.service;
+package com.czm.service.impl;
 
-import com.czm.mapper.DeptDao;
+import com.czm.dao.DeptDao;
 import com.czm.entity.Dept;
+import com.czm.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -16,11 +17,11 @@ import java.util.List;
 
 @Primary
 @Service   // value 属性指定 bean 的名字
-//@Service("DeptServiceImpl2")    // value 属性指定 bean 对象的名字，默认是类名的首字母小写。
+//@Service("DeptServiceImpl2")    // value 属性指定 bean 对象的名字，默认是类名的首字母小写。通常不指定
 public class DeptServiceImpl2 implements DeptService {
 
     //    private DeptDao deptDao = new DeptDaoImpl();
-    @Autowired      // 从 Spring IOC 容器中，自动寻找 Bean 对象，为改变了赋值 --- 依赖注入，ID的实现
+    @Autowired      // 应用程序运行时，会自动从 Spring 容器中查找该类型的 Bean 对象，并赋值该成员变量 --- 依赖注入，ID的实现
     private DeptDao deptDao;
 
     public List<Dept> list() {
