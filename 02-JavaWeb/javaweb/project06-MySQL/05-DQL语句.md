@@ -1,15 +1,15 @@
-# DQL 查询表数据
+# DQL 查询表数据 --- 重点！
 
 DQL 英文全称是 `Data Query Language` (数据查询语言)，用来查询数据库表中的记录。
 
 完整的DQL语句语法：
 
 ```
-select 字段列表 from 表名称 
-where 条件列表 
-group by 分组字段列表 
+select 字段列表 from 表名称        -- 基础查询
+where 条件列表                    -- 条件查询
+group by 分组字段列表              -- 分组查询
 having 分组后条件列表 
-order by 排序字段列表 
+order by 排序字段列表              -- 排序查询
 limit 分页参数;
 ```
 
@@ -25,7 +25,7 @@ select * from 表名;
 -- 为查询字段设置别名 --- as 关键字可以省略
 select 字段1 [as 别名1]，字段2 [as 别名2] from 表名;
 
--- 去除重复记录
+-- 去除重复记录，即去除查询的数据中 指定 字段列表 值完全相同的记录
 select distinct 字段列表 from 表名;
 ```
 
@@ -49,6 +49,7 @@ select distinct entrydate, username from emp;
 ```
 
 ## 2、DQL-条件查询
+条件查询 是指在基本查询的基础上增加查询条件，只有符合条件的记录才会被查询出来。语法如下：
 
 `select 字段列表 from 表名 where 条件列表;`
 
@@ -59,7 +60,7 @@ select distinct entrydate, username from emp;
 
 <> 或 !=，不等于
 
-between ... and ...，在某个范围之内（闭区间，包含最大最小值）
+between 最小最 and 最大值，在某个范围之内（闭区间，包含最大最小值）
 
 in(...)，在in之后的列表中的值，多选一
 
@@ -107,6 +108,8 @@ select * from emp where name like '%剑%';
 ```
 
 ## 3、DQL-分组查询
+分组，是指将数据按照某一个属性分成多个部分，然后针对各个部分进行处理。例如：把所有员工按照性别分组，并统计每组人数、平均身高、最高薪资等（聚合操作）。
+在数据库中进行分组查询时，分组伴随着聚合操作。
 
 ### 3.1、聚合函数：将一列数据作为一个整体，进行纵向计算。
 
@@ -120,7 +123,7 @@ sum，求和
 
 > 注意：⚠️ 
 > null 值不参与所有聚合函数的运算 
-> 统计数量可以使用: `count(*)、count(字段)、count(常量)、推荐使用count(*)`
+> 统计数量可以使用: count(*)、count(字段)、count(常量)、推荐使用count(*)。count(*) 与 count(常量) 性能差不多
 
 案例：
 ```mysql
@@ -141,19 +144,22 @@ select max(salary) from emp;
 select sum(salary) from emp;
 ```
 
-### 3.2、分组查询语法：
+### 3.2、分组查询
+
+语法：
 
 `select 字段名列表 from 表名 [where 条件列表] group by 分组字段名 [having 分组后过滤条件]`
 
-> ⚠️注意：分组查询只支持查询 分组字段 以及 聚合函数，因为已经分组了，再查其它字段是没有意义的！
+#### where 与 having 的区别： 
+1、执行时机不同：where 是分组之前进行过滤，不满足 where 条件，不参与分组；而 having 是分组之后对结果进行过滤； 
+2、判断条件不同：where 不能对聚合函数进行判断，而 having 可以；
 
-> where 与 having 的区别： 
-> 1、执行时机不同：where 是分组之前进行过滤，不满足 where 条件，不参与分组；而 having 是分组之后对结果进行过滤； 
-> 2、判断条件不同：where 不能对聚合函数进行判断，而 having 可以；
+> 注意⚠️：
+> 1、分组查询时，select 后面的字段列表只支持 分组字段 or 聚合函数，其它字段没有意义！因为已经分组了，再查其它字段是没有意义的！
+> 2、sql语句执行顺序：where > 聚合函数 > having 。
 
-> 注意：
-> 1、分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义。
-> 2、执行顺序：where > 聚合函数 > having 。
+为什么 where 后面不能使用聚合函数，而 having 之后可以？
+因为 sql 语句在执行的时候先执行 where 这部分，where 之后才执行分组操作，分组执行时就会执行聚合函数。分组和聚合函数执行完了，才会执行 having。
 
 案例：
 
@@ -171,13 +177,14 @@ select  job, count(*) cnt from emp where entrydate <= '2020-01-01' group by job 
 
 ## 4、DQL-排序查询
 
-语法：
+排序查询，是指对查询的数据根据 指定的排序字段 和 排序方式 进行排序，语法：
 
 ```mysql
-select 字段列表 from 表名 [where 条件列表] [group by 分组字段名 having 分组后过滤条件] order by 排序字段 排序方式;
+select 字段列表 from 表名 [where 条件列表] [group by 分组字段名 having 分组后过滤条件] order by 排序字段1 排序方式1, 排序字段2 排序方式2...;
 ```
-* 排序方式：升序(asc)、降序(desc)；默认为 升序(asc)，可以不写
-* 如果是多字段排序，当第一个字段值相同时，才会根据第二个字段进行排序
+> 注意：
+> 排序方式：升序(asc)、降序(desc)；默认为 升序(asc)，可以不写
+> 如果是多字段排序，当第一个字段值相同时，才会根据第二个字段进行排序;
 
 ```mysql
 -- 升序，从小到大，默认升序
@@ -189,18 +196,20 @@ select * from emp order by salary desc;
 select * from emp order by entrydate desc, update_time asc;
 ```
 
-## 5、DQL-分页查询
+## 5、DQL-MySql 的 分页查询 语法
 
-语法：
+如果查询的数据比较多，通常采用分页查询。语法：
 
 ```mysql
 select 字段列表 from 表名 [where 条件列表] [group by 分组字段名 having 分组后过滤条件] [order by 排序字段 排序方式] limit 起始索引值, 查询每页记录数;
 ```
 
 说明:
-1. 起始索引值从0开始，起始索引值 = (查询页码 - 1) * 每页显示记录数
-2. 分页查询是数据库的方言，不同的数据库有不同的实现，MySQL 中是 `LIMIT`，其它数据库可能不一样。
-3. 如果查询的是第一页数据，起始索引可以省略，直接简写为 limit 10。
+1. 分页查询是数据库的方言，不同的数据库有不同的实现，MySQL 中是 `LIMIT`，其它数据库可能不一样。
+2. 如果查询的是第一页数据（即起始索引为0），起始索引可以省略，直接简写为 limit 10。
+3. ⚠️ 起始索引值从0开始，起始索引值 = (查询页码 - 1) * 每页显示记录数
+
+项目开发中，前端传递过来的是页码，需要转换为起始索引。
 
 案例：
 

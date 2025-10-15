@@ -6,6 +6,7 @@ insert into emp(username, name, gender, phone) values
     ("Jan", "张剑", "男", "12312312312");
 
 -- 为 emp 表所有字段插入值
+-- 此处 create_time、update_time 不直接写具体时间，而是用 mysql 的 now() 函数，获取当前时间
 insert into emp values (null, "xiaoming", "小明", "男", "12345678909", 2, 6000, '001.jpg', '2000-01-01', now(), now());
 
 -- 为 emp 表指定字段批量插入数据

@@ -2,13 +2,13 @@
 
 数据库：`DataBase(DB)`，是存储和管理数据的仓库。
 
-数据库管理系统：`DataBase Management System(DBMS)`，操纵和管理数据库的**大型软件**。
+数据库管理系统：`DataBase Management System(DBMS)`，操纵和管理数据库的 大型软件。
 
-`SQL`：`Structured Query Language`，操作关系型数据库的编程语言，定义了一套操作关系型数据库统一标准。
+`SQL`：`Structured Query Language`，操作 关系型数据库 的编程语言，定义了一套操作关系型数据库统一标准。
 
 > 开发者 给 数据库软件 发送 `SQL` 指令，数据库软件 就会去操作数据库。
 
-## 数据库软件产品：
+## 数据库产品：
 
 	`Oracle`：收费的大型数据库，0racle 公司的产品。如：银行、保险...
 	
@@ -29,6 +29,8 @@
 `DBMS`：数据库管理系统，操作和管理数据库的软件。
 `RDBMS`：关系型数据库，由二维表组成的数据库
 
+
+
 # 二、MySQL 安装
 
 MySQL 官方提供了2种不同的版本：
@@ -45,7 +47,7 @@ MySQL 官方提供了2种不同的版本：
 
 ## 1、Mac 上安装 MySQL
  
-1、Mac 上直接下载安装包双击安装即可，中间需要配置 管理员root账号密码；
+1、Mac 上直接下载安装包双击安装即可，⚠️此过程需要配置 管理员root账号密码，用于后面登录 mysql；
 2、安装完成后，【系统偏好设置】> 【MySQL】> 【Configuration】> 复制 `Base Directory` 通常为：`/usr/local/mysql`
 3、配置 Mac 编辑Shell配置文件 如下：
 
@@ -58,21 +60,12 @@ export PATH=/usr/local/mysql/bin:$PATH
 $ source ~/.zshrc
 ```
 
-打开 【系统偏好设置】> 【MySQL】启动，可在终端执行如下命令：
-
-```shell
-# 登陆 mysql
-$ mysql -u[用户名] -p[密码]
-
-# 退出登录
-$ exit
-$ quit
-```
+在 MacOS 上打开 【系统偏好设置】> 【MySQL】启动，可在终端执行如下命令：
 
 ```shell
 # root 管理员用户登录
-# 方式1
-$ mysql -uroot -p123
+# 方式1，mysql -u[用户名] -p[密码]
+$ mysql -uroot -p123  # 使用 Mysql 的默认账号 root 登录
 # 方式2  
 $ mysql -u root -p
 # 输入密码登录成功
@@ -80,6 +73,10 @@ $ mysql -u root -p
 # 修改管理员密码，账号：root，修改密码为：123
 $ mysqladmin -u root -p password 123
 # 输入原老密码...
+
+# 退出登录，使用 exit、quit
+mysql> exit
+Bye
 ```
 
 ```shell
@@ -89,8 +86,7 @@ $ mysqladmin -u root -p ping
 # 注册MySQL服务，首次安装时windows上执行
 $ mysqld -install
 
-# 启动/停止 mysql 服务 --- net 命令不兼容 macOS
-# Mac端通过：【系统偏好设置】 → 【MySQL‌】
+# 启动/停止 mysql 服务 --- windows 命令
 $ net start mysql
 $ net stop mysql
 ```
@@ -98,7 +94,8 @@ $ net stop mysql
 ## 2、连接远程 MySQL
 
 ```shell
-mysql -u[用户名] -p[密码] -h[数据库服务器IP地址] -P[端口号：默认3306]
+# 语法：mysql -u[用户名] -p[密码] -h[连接数据库服务器IP地址] -P[端口号：默认3306]
+> mysql -h192.168.200.168 -P3306 -uroot -p
 ```
 
 ## 3、MySQL 客户端工具 - 图形化工具
@@ -112,7 +109,10 @@ mysql -u[用户名] -p[密码] -h[数据库服务器IP地址] -P[端口号：默
 
 > 开发中使用 `IDEA` 连接数据库即可。
 
-# 三、MySQL 的数据模型
+
+
+
+# 三、MySQL 数据模型
 
 关系型数据库(RDBMS)：建立在关系模型基础上，由多张相互连接的二维表组成的数据库。
 
