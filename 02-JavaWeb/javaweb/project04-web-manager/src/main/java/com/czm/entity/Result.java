@@ -3,7 +3,7 @@ package com.czm.entity;
 import lombok.Data;
 
 /**
- * 此实体类，用于统一响应结果类
+ * 定义实体类，用于统一响应结果类
  */
 @Data
 public class Result {

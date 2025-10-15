@@ -28,6 +28,7 @@
             <version>5.11.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- lombok 依赖 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

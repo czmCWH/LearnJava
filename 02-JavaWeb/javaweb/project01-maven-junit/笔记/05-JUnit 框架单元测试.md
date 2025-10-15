@@ -85,10 +85,15 @@ JUnit 是最流行的 Java 测试框架之一，提供了一些功能，方便�
 @AfterAll：用来修饰一个静态方法，该方法会在所有测试方法之后只执行一次。 --- 释放资源( 清理工作)
 
 @ParameterizedTest：参数化测试的注解 (可以让单个测试运行多次，每次运行时仅参数不同) --- 用了该注解，就不需要@Test注解了
+    如：
+        @ParameterizedTest + @ValueSource
+        @ParameterizedTest + @CsvSource
 
 @ValueSource：参数化测试的参数来源，赋予测试方法参数 --- 与参数化测试注解配合使用
 
 @DisplayName：指定测试类、测试方法显示的名称 (默认为类名、方法名)
+
+
 
 
 ## 3、JUnit 中的断言
