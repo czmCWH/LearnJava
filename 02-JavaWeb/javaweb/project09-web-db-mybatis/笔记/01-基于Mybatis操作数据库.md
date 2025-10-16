@@ -21,7 +21,7 @@
 
 ## 步骤2，编写 Mybatis 程序：编写 Mybatis 的持久层接口，定义SQL(注解/XML)
 1. JavaWeb 三层架构中的 数据访问层 采用 `MyBatis` 依赖的 `@Mapper` 注解，因此数据访问层由 `Dao层` 替换为 `Mapper层` 表示。
-2. Mybatis 的持久层接口命名规范为 XxxMapper，也称为 Mapper 接口。
+2. Mybatis 的持久层接口命名规范为 `XxxMapper`，也称为 `Mapper接口`。
 3. `@Mapper` 注解是 Mybatis 提供的。
     作用：程序运行时，会自动为 @Mapper 注解修饰的接口创建一个实现类对象（即动态代理对象），并自动将该实现类对象交由 IOC 容器管理，成为 bean对象。
 
@@ -40,6 +40,14 @@
 ```
 mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 ```
+
+- 配置4、在数据库表名、字段命名时多个单词之间使用下划线分割，Java程序中成员属性命名采用 驼峰命名。可以通过 mybatis 配置命名的映射关系，如下所示：
+在 `application.properties` 文件中添加如下配置：
+```
+# 开启 Mybatis 数据封装时，采用驼峰配，如：create_time > createTime
+mybatis.configuration.map-underscore-to-camel-case=true
+```
+
 
 # 三、JDBC VS Mybatis
     JDBC 存在的问题                          Mybatis 结局方案

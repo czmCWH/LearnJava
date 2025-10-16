@@ -42,3 +42,17 @@ mybatis.mapper-locations=classpath:mapper/*.xml
 `MybatisX` 是一款基于 `IDEA` 的快速开发 `Mybatis` 的插件，为效率而生。
 安装方式：选中 IDEA 图标 > Settings > Plugins > 搜索 `MybatisX`，安装即可。
 
+
+# 二、Mybatis 实现动态 SQL
+SQL语句不是固定的，而是 随着用户的输入 或 外部条件的变化而变化的 SQL语句，称为 `动态SQL`。
+
+* 动态SQL 是通过 XML配置文件配置 来实现的。
+* XML 中动态SQL常用标签：
+  `<if>`: 用于判断条件是否成立。使用test属性进行条件判断，如果条件为true，则拼接 SQL。
+  `<set>`：用于 `update` 语句中，替换其 `set` 关键字，可去除多余的逗号。
+
+实现案例可查看 `src/main/resources/com/czm/mapper/DeptMapper.xml`。
+
+> 动态 Sql 的应用场景：
+> 更新时，根据值来更新部分SQL；
+> 查询时，根据变化的筛选条件来查询；

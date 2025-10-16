@@ -7,6 +7,7 @@ import com.czm.service.impl.DeptServiceImpl;
 import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.InputStream;
@@ -29,7 +30,7 @@ public class DeptController {
      * 部门列表查询
      * @return 部门列表数据
      */
-    @RequestMapping("/depts")
+    @RequestMapping(value = "/depts", method = RequestMethod.GET)
     public List<Dept> getAllDept() {
         // 1、加载并读取 dept.txt 文件
 

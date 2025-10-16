@@ -41,7 +41,6 @@ public class DeptServiceImpl implements DeptService {
 
     /**
      * 新增部门
-     * @param dept
      */
     @Override
     public void addDept(Dept dept) {

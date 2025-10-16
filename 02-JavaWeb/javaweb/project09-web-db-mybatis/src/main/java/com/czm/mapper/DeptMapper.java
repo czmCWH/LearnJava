@@ -14,13 +14,15 @@ public interface DeptMapper {
 
     /**
      * 查询部门列表
+     * Mybatis 结果数据封装，方式1:
+     *      @Results+@Result 注解，用于指定返回数据库中字段名 与 返回实体类的属性名映射，column 是数据库表字段；property 是返回实体类属性名。
      */
     @Results({
             @Result(column = "create_time", property = "createTime"),
             @Result(column = "update_time", property = "updateTime")
-    })  //  Mybatis数据封装方式1，@Results 设置返回数据库中字段名 与 返回实体类的属性名映射
+    })
     @Select("select * from dept")
-//    @Select("select id, name, update_time updateTime from dept")  // Mybatis数据封装方式2 取别名
+//    @Select("select id, name, update_time updateTime from dept")  // Mybatis 结果数据封装，方式2：在 sql 语句中取别名
     List<Dept> list();
 
 
@@ -39,7 +41,7 @@ public interface DeptMapper {
     /**
      * 新增部门
      * dept(name, create_time, update_time)，dept 是数据库表名称，括号内的是数据库中的字段名。
-     * values (#{name}, #{createTime}, #{updateTime})，中的字段是 insert 方法中 dept 参数的属性名。
+     * values (#{name}, #{createTime}, #{updateTime})，是方法的 dept 参数的属性名。
      */
     @Insert("insert into dept(name, create_time, update_time) values (#{name}, #{createTime}, #{updateTime})")
     void insert(Dept dept);

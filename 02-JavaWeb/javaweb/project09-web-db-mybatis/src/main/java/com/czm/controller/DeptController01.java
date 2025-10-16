@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @RestController
-public class Controller01 {
+public class DeptController01 {
 
     // 👉 方式1，通过原始的 HttpServletRequest 对象获取请求参数。此方式使用繁琐，项目开发基本不用。
 //    @RequestMapping(value = "/depts1", method = RequestMethod.DELETE)
@@ -23,7 +23,7 @@ public class Controller01 {
         return Result.success();
     }
 
-    // 👉 方式2（有可能会用），通过 Spring 提供的 `@RequestParam` 注解，将请求参数绑定给方法形参。
+    // 👉 方式2（有可能会用），通过 Spring 提供的 @RequestParam 注解，将请求参数绑定给方法形参。
     @DeleteMapping("/depts2")
     // public Result delete(@RequestParam("id") Integer deptId) {
     public Result delete(@RequestParam(value = "id", required = false) Integer deptId) {
@@ -36,7 +36,7 @@ public class Controller01 {
 
     // 👉 方式3（🚩推荐），如果请求参数名 与 形参变量名相同，直接定义方法形参即可接收。(省略@RequestParam)
     @DeleteMapping("/depts3")    // 简写方式
-    public Result deleteWithId(Integer id) {
+    public Result delete3(Integer id) {
         System.out.println("--- depts3 删除ID = " + id);
         return Result.success();
     }

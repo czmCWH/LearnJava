@@ -11,10 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class Controller02 {
+public class DeptController02 {
 
+    /**
+     * JSON 格式的参数，通常会使用一个实体对象进行接收。
+     * 规则：JSON数据的键名 必须与 方法形参对象的属性名相同，并需要使用 @RequestBody 注解标识。
+     * json 格式参数适用场景：主要在 POST、PUT 请求的 请求体 中传递。
+     *
+     */
     @PostMapping("/depts1")
-    public Result save(@RequestBody Dept dept) {    // @RequestBody 注解，用来接收 json 格式请求参数，参数的key与实体类属性名必须相同。
+    public Result save(@RequestBody Dept dept) {
         System.out.println("--- 接收到部门参数 = " + dept);
         return Result.success();
     }

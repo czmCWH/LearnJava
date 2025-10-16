@@ -7,6 +7,7 @@ spring:
     name: project12-springboot-mybatis-insert
   # 数据库连接信息配置
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/czm_db03
     username: root

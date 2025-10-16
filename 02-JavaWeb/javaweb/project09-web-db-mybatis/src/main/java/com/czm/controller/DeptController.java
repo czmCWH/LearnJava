@@ -4,6 +4,7 @@ import com.czm.pojo.Dept;
 import com.czm.pojo.Result;
 import com.czm.service.DeptService;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,15 +17,13 @@ import java.util.List;
 @RestController
 public class DeptController {
 
-//    @Autowired
-    @Resource(name = "deptServiceImpl")
+    @Autowired
     private DeptService deptService;
 
     /**
      * Get 请求，获取所有数据
-     * @return
      */
-    @GetMapping("/depts")
+    @GetMapping("/depts")   // ⚠️ 等价于：@RequestMapping(value = "/depts", method = RequestMethod.GET)
     public Result getAllDept() {
         // 1、调用 Service，获取数据
         List<Dept> depts = deptService.list();
@@ -35,7 +34,6 @@ public class DeptController {
 
     /**
      * delete 请求，如：/depts?id=1
-     * @return
      */
     @DeleteMapping("/depts")
     public Result delete(Integer id) {
@@ -45,8 +43,6 @@ public class DeptController {
 
     /**
      * 新增部门
-     * @param dept
-     * @return
      */
     @PostMapping("/depts")
     public Result addDept(@RequestBody Dept dept) {
@@ -55,28 +51,24 @@ public class DeptController {
         return Result.success();
     }
 
+
     // /depts?id=1，id 为 URL查询参数
-    // /depts/{id}/{name}，id、name 为路径参数
+    // /depts/{id}/{name}，id、name 为 URL路径参数
 
     /**
      * 根据ID查询部门信息
-     * @param id
-     * @return
-     *
      * @PathVariable 注解用于接收路径参数。
      */
     @GetMapping("/depts/{id}")
-    public Result getById(@PathVariable Integer id) {
-        System.out.println("---接收到 路径参数 id = " + id);
+    public Result getById(@PathVariable("id") Integer deptId) {
+        System.out.println("---接收到 路径参数 id = " + deptId);
         // 调用 Service 的方法
-        Dept dept = deptService.getById(id);
+        Dept dept = deptService.getById(deptId);
         return Result.success(dept);
     }
 
     /**
      * put 请求更新部门信息
-     * @param dept
-     * @return
      */
     @PutMapping("/depts")
     public Result update(@RequestBody Dept dept) {
@@ -87,8 +79,6 @@ public class DeptController {
 
     /**
      * put 请求更新部分部门信息 --- 使用 动态sql 以 XML 方式实现
-     * @param dept
-     * @return
      */
     @PutMapping("/depts2")
     public Result updateOption(@RequestBody Dept dept) {
