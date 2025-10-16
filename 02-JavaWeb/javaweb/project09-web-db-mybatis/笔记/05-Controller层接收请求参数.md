@@ -1,51 +1,11 @@
-# 一、三层架构职责
-
-`浏览器 -> Controller -> Service -> Mapper -> DB Server`
-
-1、`Controller` 层
-* 接收请求参数；
-* 调用 Service 层的方法；
-* 响应结果
-
-2、`Service` 层
-* 补全基础属性； 
-* 调用 `Mapper` 接口方法
-
-3、`Mapper` 层
-* 执行 `sql` 语句；
-
-# 二、Spring boot + Mybatis 接收网络请求，响应数据
+# 三、Controller 层接收请求参数的方式
+案例：实现 `DELETE 请求，/depts?id=123`，根据ID删除数据。
 
 ## 1、Controller 中接收  URL 查询请求参数
 
-案例实现 `DELETE 请求，/depts?id=123`，根据ID删除数据，具体实现查看 
-`src/main/java/com/czm/controller/Controller01.java` 中的示例。
+代码见：`src/.../Controller01.java` 中的示例。
 
-## 2、Mapper 中接收 Controller 的参数
-
-案例实现，实现根据 ID 删除部门操作:
-
-```java
- @Delete("delete from dept where id = #{id}")
-Integer delete(Integer id);
-// void delete(Integer id);
-```
-> 执行 DML 语句时，可以返回一个int类型的返回值，表示该DML执行影响的记录数。用于判断SQL是否执行成功。一般不用！！！
-> 如果 mapper 接口方法形参只有一个普通类型的参数，#{……}里面的属性名可以随便写，如: #{id}、#{value}。
-
-### Mybatis 中的 #号 与 $号:
-
-`#{...}`：
-执行时，会将#{.}替换为?，生成预编译SQL，并自动设置参数值；
-参数值传递；
-安全、性能高 (推荐)；
-
-`${...}`：
-执行时，直接将参数拼接在SQL语句中，存在SQL注入问题；
-表名、字段名动态设置时使用；
-不安全、性能低；
-
-## 3、Controller 中接收 json 格式请求参数
+## 2、Controller 中接收 json 格式请求参数
 
 接收json格式的请求参数：`POST /depts {"name":"教研部"}`
 
@@ -86,13 +46,11 @@ SQL语句不是固定的，而是 随着用户的输入 或 外部条件的变�
 
 * 动态SQL 是通过 XML配置文件配置 来实现的。
 * XML 中动态SQL常用标签：
-`<if>`: 用于判断条件是否成立。使用test属性进行条件判断，如果条件为true，则拼接 SQL。
-`<set>`：用于 `update` 语句中，替换其 `set` 关键字，可去除多余的逗号。
+  `<if>`: 用于判断条件是否成立。使用test属性进行条件判断，如果条件为true，则拼接 SQL。
+  `<set>`：用于 `update` 语句中，替换其 `set` 关键字，可去除多余的逗号。
 
 实现案例可查看 `src/main/resources/com/czm/mapper/DeptMapper.xml`。
 
-> 动态 Sql 的应用场景： 
-> 更新时，根据值来更新部分SQL； 
+> 动态 Sql 的应用场景：
+> 更新时，根据值来更新部分SQL；
 > 查询时，根据变化的筛选条件来查询；
-
-

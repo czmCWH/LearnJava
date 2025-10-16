@@ -1,6 +1,6 @@
 package com.czm;
 
-import com.czm.entity.User;
+import com.czm.pojo.User;
 import com.czm.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,11 @@ import java.util.List;
  * 解决此类报错：@SpringBootTest(classes = 启动类名称.class)
  */
 
-// @SpringBootTest  注解作用：在单元测试运行时加载 Spring 环境，拿到 IOC容器
+// @SpringBootTest 是 SpringBoot 单元测试的注解。作用是：当前测试类中的测试方法运行时，会启动 SpringBoot 项目，拿到 IOC 容器。
 @SpringBootTest
 public class UserMapperTest {
 
-    @Autowired  // 依赖注入，
+    @Autowired  // 依赖注入
     private UserMapper userMapper;
 
     @Test

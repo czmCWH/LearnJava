@@ -9,15 +9,16 @@
             <if test="name != null and name != ''">
                 name = #{name},
             </if>
-<!--
- ⚠️：创建 XML 文件的路径命名输入方式：com/czm/mapper 即会生成 com.czm.mapper 的路径
- <if>：用于判断条件是否成立。使用test属性进行条件判断，如果条件为true，则拼接SQL。
- <set>：优化 sql语句 中条件后面多余的逗号，通常是 update语句中多参数更新，比如： `name = #{name},` 语句后的逗号
--->
             <if test="updateTime != null">
                 update_time = #{updateTime}
             </if>
         </set>
         where id = #{id}
     </update>
+
+    <!--
+     ⚠️：创建 XML 文件的路径命名输入方式：com/czm/mapper 即会生成 com.czm.mapper 的路径
+     <if>：用于判断条件是否成立。使用test属性进行条件判断，如果条件为true，则拼接SQL。
+     <set>：优化 sql语句 中条件后面多余的逗号，通常是 update语句中多参数更新，比如： `name = #{name},` 语句后的逗号
+    -->
 </mapper>

@@ -1,7 +1,7 @@
 package com.czm.controller;
 
-import com.czm.entity.Dept;
-import com.czm.entity.Result;
+import com.czm.pojo.Dept;
+import com.czm.pojo.Result;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

@@ -13,7 +13,7 @@
     @DeleteMapping("/depts") 	// 删
     @PutMapping("/depts") 		// 改
     @GetMapping("/depts")		// 查
-  @RequestMapping 修饰类时，来对其简化版抽取公共路径。
+  @RequestMapping 修饰类时，常用来对其简化版抽取公共路径。
 
   请求参数接收：
      @RequestBody
@@ -32,4 +32,6 @@
 
 - Mapper 层(Mybatis)
   
+
+
   

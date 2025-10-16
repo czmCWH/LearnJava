@@ -1,6 +1,6 @@
 package com.czm.controller;
 
-import com.czm.entity.Result;
+import com.czm.pojo.Result;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
 

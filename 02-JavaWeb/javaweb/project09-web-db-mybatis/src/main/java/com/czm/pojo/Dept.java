@@ -1,4 +1,4 @@
-package com.czm.entity;
+package com.czm.pojo;
 
 //import lombok.Data;
 

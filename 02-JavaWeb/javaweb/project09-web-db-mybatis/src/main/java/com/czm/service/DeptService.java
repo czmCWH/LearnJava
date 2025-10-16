@@ -1,6 +1,6 @@
 package com.czm.service;
 
-import com.czm.entity.Dept;
+import com.czm.pojo.Dept;
 
 import java.util.List;
 

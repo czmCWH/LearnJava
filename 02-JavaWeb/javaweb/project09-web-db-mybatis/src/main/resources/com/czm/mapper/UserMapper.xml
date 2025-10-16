@@ -5,7 +5,7 @@
 <!--书写Sql语句-->
 <mapper namespace="com.czm.mapper.UserMapper">
     <!-- 查询全部数据 -->
-    <select id="findList" resultType="com.czm.entity.User">
+    <select id="findList" resultType="com.czm.pojo.User">
         select * from user
     </select>
 </mapper>

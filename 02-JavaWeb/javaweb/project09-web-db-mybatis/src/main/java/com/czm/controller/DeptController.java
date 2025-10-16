@@ -1,11 +1,9 @@
 package com.czm.controller;
 
-import com.czm.entity.Dept;
-import com.czm.entity.Result;
+import com.czm.pojo.Dept;
+import com.czm.pojo.Result;
 import com.czm.service.DeptService;
 import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

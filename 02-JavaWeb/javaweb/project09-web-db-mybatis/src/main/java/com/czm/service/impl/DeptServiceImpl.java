@@ -1,6 +1,6 @@
 package com.czm.service.impl;
 
-import com.czm.entity.Dept;
+import com.czm.pojo.Dept;
 import com.czm.mapper.DeptMapper;
 import com.czm.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;

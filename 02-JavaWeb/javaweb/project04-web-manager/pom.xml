@@ -50,7 +50,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- 添加 lombok 依赖 -->
+        <!-- 添加 lombok 依赖，用于简化实体类的定义 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
