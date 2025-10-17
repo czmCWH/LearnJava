@@ -6,7 +6,8 @@ import org.slf4j.LoggerFactory;
 
 // @slf4j 注解，如果导入了 lombok 依赖则可以使用此注解，会自动生成: private final Logger log = LoggerFactory.getLogger(LogTest.class);
 public class LogTest {
-    // 定义 log 日志对象
+    // Logger：日志记录对象
+    // getLogger(name = 日志记录器的名字)、 getLogger(Class = 记录那个类中的日志)
     private final Logger log = LoggerFactory.getLogger(LogTest.class);
 
     // 直接点击右侧允许标记，即可运行测试

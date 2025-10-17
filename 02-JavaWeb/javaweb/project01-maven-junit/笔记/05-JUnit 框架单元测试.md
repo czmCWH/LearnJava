@@ -93,7 +93,7 @@ JUnit 是最流行的 Java 测试框架之一，提供了一些功能，方便�
 
 @DisplayName：指定测试类、测试方法显示的名称 (默认为类名、方法名)
 
-@SpringBootTest：用于修饰测试类，表示一个 SpringBoot 单元测试类
+`@SpringBootTest`：用于修饰测试类，表示一个 SpringBoot 单元测试类
 
 
 ## 3、JUnit 中的断言
