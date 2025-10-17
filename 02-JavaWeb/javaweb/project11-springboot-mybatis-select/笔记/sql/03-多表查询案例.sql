@@ -20,7 +20,7 @@ insert into dept (id, name, create_time, update_time) values
 create table emp(
     id              int unsigned primary key auto_increment comment 'ID，主键',
     username        varchar(20) not null unique comment '用户名',
-    password        varchar(32) not null comment '密码',
+    password        varchar(32) not null default '123456' comment '密码',
     name            varchar(10) not null comment '姓名',
     gender          tinyint unsigned not null comment '性别， 1 男，2 女',
     phone           char(11) not null unique comment '手机号',
@@ -52,7 +52,7 @@ insert into emp values
 
 
 -- ===================== 2、内连接多表查询 ======================
--- 1、查询所有员工的ID、姓名、所属部门
+-- 1、查询所有员工的ID、姓名、所属部门，操作 emp表, dept表
 # 隐式内联接查询
 select emp.id, emp.name, dept.name from emp, dept where emp.dept_id = dept.id;
 
@@ -64,14 +64,15 @@ select emp.id, emp.name, dept.name from emp inner join dept on emp.dept_id = dep
 # 可以给表取别名简化书写，一旦为表指定了别名，就要通过别名来指定字段名，而不能再使用表名了。
 select t1.id, t1.name, t2.name, t1.salary from emp t1, dept t2 where t1.dept_id = t2.id and t1.gender = 2 and t1.salary > 15000;
 
-# 显式内联接查询，消除笛卡尔积放在 on 后面；正常的条件查询放在 where  后面；
+# 显式内联接查询，消除笛卡尔积的连接条件放在 on 后面；正常的条件查询放在 where  后面；
 select t1.id, t1.name, t2.name, t1.salary from emp t1 join dept t2 on t1.dept_id = t2.id where t1.gender = 1 and t1.salary > 15000;
 
 
 -- ===================== 3、外连接多表查询 ======================
--- 1、查询员工表 所有员工 的姓名、对应的部门名称（左外连接），没有部门的员工也会查询出来
+-- 1、查询员工表 所有员工 的姓名、对应的部门名称，左外连接
+-- 即，没有部门的员工也会查询出来。
 # 查那张表的全部信息就写在 left 的左边
-select emp.*, dept.name from emp left join dept on emp.dept_id = dept.id;
+select emp.*, dept.name from emp left outer join dept on emp.dept_id = dept.id;
 
 -- 2、查询部门表 所有部门名称 和对应员工名称，右外连接
 select dept.*, emp.name from emp right join dept on emp.dept_id = dept.id;
@@ -85,38 +86,50 @@ select emp.*, dept.name from emp left join dept on emp.dept_id = dept.id where e
 -- ===================== 4、子查询 ======================
 -- 1、标量子查询
 # 查询最早入职的员工信息
-# 先查询最早入职的日期
+# 步骤1，先查询最早入职的日期
 select min(entry_date) from emp;
-# 再把 最早入职的日期 作为条件去查询 员工信息
+# 步骤2，再把 最早入职的日期 作为条件去查询 员工信息
 select * from emp where entry_date = (select min(entry_date) from emp);
 
 # 查询在 小兰 入职之后员工信息
-# 先查询小兰入职的日期
+# 步骤1，先查询小兰入职的日期
 select entry_date from emp where emp.name = '小兰';
-# 再把 小兰入职的日期 作为条件，查询其之后的信息
+# 步骤2，再把 小兰入职的日期 作为条件，查询其之后的信息
 select * from emp where entry_date > (select entry_date from emp where emp.name = '小兰');
 
 -- 2、列子查询
 # 查询 教研部 和 咨询部 的所有员工信息
-# 先查询 教研部 和 咨询部 的主键IDs
+# 步骤1，先查询 教研部 和 咨询部 的 部门IDs
 select id from dept where name = '教研部' or name = '咨询部';    -- 查询的结果是一列
-# 再用 主键IDs 去匹配员工信息
+# 步骤2，再查询指定 部门IDs 的员工信息
 select * from emp where dept_id in (select id from dept where name = '教研部' or name = '咨询部');
 
 -- 3、行子查询
 # 查询与 小兰 的薪资、职位都相同的员工的所有信息
-# 先查询 小兰的薪资和职位
+# 步骤1，先查询 小兰的薪资和职位
 select salary, job from emp where name = '小兰';
-# 再以 小兰的薪资和职位 为条件判断，查询其它员工
+# 步骤2，再以 小兰的薪资和职位 为条件判断，查询其它员工
+select * from emp where salary = (select salary from emp where name = '小兰') and job = (select job from emp where name = '小兰');
 select * from emp where (salary, job) = (select salary, job from emp where name = '小兰');
 
 -- 4、表子查询
 # 查询入职日期是 2020-01-01 之后的员工信息，及其部门信息；
+# 步骤1，先查询入职日期是 2020-01-01 之后的员工信息
 select * from emp where entry_date > '2020-01-01';
-select t1.*, t2.name from (select * from emp where entry_date > '2020-01-01') t1, dept t2 where t1.dept_id = t2.id;
+# 步骤2，再查询他们的部门信息
+select t1.*, t2.name from (select * from emp where entry_date > '2020-01-01') t1, dept t2
+                     where t1.dept_id = t2.id;
 
 # 内连接查询也可以实现
 select * from emp, dept where emp.dept_id = dept.id and emp.entry_date > '2020-01-01';
+
+# 获取每个部门中薪资最高的员工信息
+# 步骤1，获取每个部门的最高薪资
+select dept_id, max(salary) from emp group by dept_id;
+# 步骤2，查询每个部门薪资最高的员工信息
+select * from emp e, (select dept_id, max(salary) from emp group by dept_id) a
+         where e.dept_id = a.dept_id and e.salary = max(salary);
+
 
 
 -- ===================== 5、查询案例 ======================
@@ -135,15 +148,22 @@ select * from emp where salary <= (select avg(emp.salary) from emp) and gender =
 select dept_id, avg(salary) from emp group by dept_id;
 # 表子查询
 select * from emp t1, (select dept_id, avg(salary) sa from emp group by dept_id) t2
-                                                      where t1.dept_id = t2.dept_id and t1.salary < t2.sa;
+         where t1.dept_id = t2.dept_id and t1.salary < t2.sa;
 
--- 4、查询部门人数超过 2 人的部门名称
+-- 4、查询在"2010-05-01”后入职，且薪资高于 10000 的"教研部”员工信息，并根据薪资倒序排序
+select e.* from emp e, dept d where e.dept_id = d.id and e.entry_date > '2010-05-01'
+    and e.salary > 10000 and d.name = '教研部' order by e.salary desc;
+
+-- 5、查询部门人数超过 2 人的部门名称
 # 分组查询，每个部门下有多少人
 select dept_id, count(*) cnt from emp group by emp.dept_id;
 # 再查询部门人数超过2人的部门
 select dept_id, count(*) cnt from emp group by emp.dept_id having cnt > 2;
 # 连表查询，查询部门名称
-select dept.name, dept_id, count(*) cnt from emp, dept where emp.dept_id = dept.id group by emp.dept_id having cnt > 2;
+select dept.name, dept_id, count(*) cnt from emp, dept
+                                        where emp.dept_id = dept.id
+                                        group by emp.dept_id
+                                        having cnt > 2;
 
 -- 员工列表查询
 -- 基本查询

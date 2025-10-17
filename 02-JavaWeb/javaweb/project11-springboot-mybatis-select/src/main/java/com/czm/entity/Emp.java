@@ -6,9 +6,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- * 员工信息
+ * 员工信息实体类
  */
-
 @Data
 public class Emp {
     private Integer id; // id 主键
@@ -25,6 +24,8 @@ public class Emp {
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 
-    // 封装部门名称
+    /**
+     * 增加字段，封装部门名称
+     */
     private String deptName;
 }

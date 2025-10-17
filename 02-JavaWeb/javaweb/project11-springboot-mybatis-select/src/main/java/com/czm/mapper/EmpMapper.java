@@ -12,29 +12,27 @@ import java.util.List;
  * Mapper 层 执行 `sql` 语句。
  * 用于查询员工信息 List
  */
-
 @Mapper
 public interface EmpMapper {
     /**
      * 统计员工总记录数
-     * @return
      */
     @Select("select count(*) from emp")
     Long count();
 
     /**
-     * 分页查询每页员工信息list
+     * 分页查询 员工信息list
      * @param start 起始索引
      * @param pageSize 每页条数
-     * ⚠️⚠️⚠️  d.name deptName 定义 deptName 别名是为了匹配返回数据 Emp 实体类中的属性。
+     * ⚠️ d.name deptName 定义 deptName 别名是为了匹配返回数据 Emp 实体类中的属性。
      */
-    @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id limit #{start}, #{pageSize}")
+    @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc limit #{start}, #{pageSize}")
     List<Emp> page(Integer start, Integer pageSize);
 
     /**
      * 使用 PageHelper 插件，简化 Mybatis 分页查询
      */
-    @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id")
+    @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc")
     List<Emp> spPage();
 
     /**

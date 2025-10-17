@@ -7,9 +7,9 @@
     <file url="file://$PROJECT_DIR$/project07-db-jdbc/笔记/sql/user.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project09-web-db-mybatis/src/main/java/com/czm/mapper/DeptMapper.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project09-web-db-mybatis/笔记/sql/创建部门表.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/01-多表关系.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/02-多表查询案例.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/03-项目案例准备.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/01-项目案例准备.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/02-多表关系.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/project11-springboot-mybatis-select/笔记/sql/03-多表查询案例.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/project12-springboot-mybatis-insert/笔记/sql/01-创建员工日志表.sql" dialect="MySQL" />
   </component>
 </project>

@@ -4,24 +4,23 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- XML 文件头需要从 Mybatis 官网中获取：https://mybatis.org/mybatis-3/zh_CN/getting-started.html  -->
 <mapper namespace="com.czm.mapper.EmpMapper">
-    <select id="pageOpt" resultType="com.czm.entity.Emp">
+
     <!--
-        select e.*, d.name deptName
-        from emp e
-                 left join dept d on e.dept_id = d.id
-        where e.name like '%#{name}%'
-            and e.gender = #{gender}
-            and e.entry_date between #{begin} and #{end}
-        order by e.update_time desc
+        由于业务场景中，name、gender、begin和end 查询条件是随着用户输入的变化而变化的，即可能存在或不存在
+        EmpMapper0.xml 中定义 SQL 的这些查询参数是写死的，如果参数变化会导致SQL执行异常！因此需要借助 动态SQL解决此问题。
+
+        随着用户的输入或外部条件的变化而变化的SQL语句，我们称为 动态SQL.
+        Mybatis 基于XML实现 动态SQL，基本实现语法如下：
+            <if> 标签：判断条件是否成立，如果条件为true，则拼接SQL。
+            <where> 标签：
+              根据查询条件来生成 where 关键字，例如：如果条件都不存在，则 sql 语句中不添加 where。
+              自动去除掉where内查询条件前面多余的 `and`、或 `or`；如：如果 name 为 null，则 gender 前面 and 会被去掉
     -->
+
+    <select id="pageOpt" resultType="com.czm.entity.Emp">
         select e.*, d.name deptName
         from emp e
                  left join dept d on e.dept_id = d.id
-        <!--
-            <where> 标签的作用
-                  自动根据条件判定是否添加 where 关键字；
-                  可以去除掉第一个前面多余的 and 或 or；
-        -->
         <where>
             <if test="name != null and name != ''">
                 e.name like concat('%', #{name}, '%')

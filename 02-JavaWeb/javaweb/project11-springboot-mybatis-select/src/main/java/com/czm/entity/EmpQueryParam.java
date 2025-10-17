@@ -5,6 +5,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
+/**
+ * 请求参数
+ */
 @Data
 public class EmpQueryParam {
     private Integer page = 1;       // 页码

@@ -4,9 +4,8 @@ import lombok.Data;
 import java.time.LocalDate;
 
 /**
- * 员工工作经历
+ * 员工工作经历实体类
  */
-
 @Data
 public class EmpExpr {
     private Integer id;         //主键ID

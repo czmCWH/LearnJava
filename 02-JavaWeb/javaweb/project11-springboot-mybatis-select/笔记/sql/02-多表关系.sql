@@ -1,5 +1,5 @@
 -- ==================================== 1、一对多关系，物理外键约束 ===================================
--- 创建表
+-- 创建部门表
 create table dept(
     id int unsigned primary key auto_increment comment 'ID，主键',
     name varchar(10) not null unique comment '部门名称' ,
@@ -15,7 +15,7 @@ insert into dept values (1, '学工部', '2025-05-27 09:29:40', '2025-05-27 09:2
                         (5, '人事部', '2025-05-27 09:29:40', '2025-05-27 09:29:40'),
                         (15, '行政部', '2025-05-27 09:30:20', '2025-05-27 09:30:20');
 
--- 创建表
+-- 创建员工表
 create table emp(
     id          int unsigned primary key auto_increment comment 'ID 主键',
     username    varchar(20) not null unique  comment '用户名',
@@ -29,7 +29,7 @@ create table emp(
     entry_date  date comment '入职日期',
     create_time datetime comment '创建日期',
     update_time datetime comment '更新日期',
-    dept_id     int unsigned comment '部门ID'
+    dept_id     int unsigned comment '关联的部门ID'
 ) comment '员工表';
 
 -- 添加外键
@@ -88,7 +88,7 @@ insert into tb_course(name) values ('Java'), ('PHP'), ('C'), ('C++');
 create table tb_student_course(
     id int auto_increment primary key comment '主键',
     student_id int not null comment '学生ID',
-    course_id int not null comment '课程ID',
+    course_id int not null comment '学生选修的课程ID',
     constraint fk_studentid foreign key (student_id) references tb_student(id),
     constraint fk_courseid foreign key (course_id) references tb_course(id)
 ) comment '学生课程中间表';

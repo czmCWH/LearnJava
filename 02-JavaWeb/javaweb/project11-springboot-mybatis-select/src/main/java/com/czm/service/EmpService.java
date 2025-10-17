@@ -1,5 +1,6 @@
 package com.czm.service;
 
+import com.czm.entity.Emp;
 import com.czm.entity.EmpQueryParam;
 import com.czm.entity.PageBean;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -21,7 +22,7 @@ public interface EmpService {
      * @param pageSize 每页条数
      * @return
      */
-    PageBean page(Integer page, Integer pageSize);
+    PageBean<Emp> page(Integer page, Integer pageSize);
 
 
     /**
@@ -30,7 +31,7 @@ public interface EmpService {
     PageBean spPage(Integer page, Integer pageSize);
 
     /**
-     * 按条件分页查询（可选方法实现）
+     * 按条件分页查询（default，可选方法实现）
      */
     default PageBean page(String name, Integer gender, LocalDate begin, LocalDate end, Integer page, Integer pageSize) {
         return null;

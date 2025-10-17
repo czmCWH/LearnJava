@@ -5,7 +5,7 @@
 ### 1.1、URL查询请求参数：`/depts?id=1`
 
 - 方式1，通过 Spring 提供的 @RequestParam 注解，将请求参数绑定给方法形参。--- 有时可能会用
-
+  @RequestParam 注解的作用：绑定请求参数到形参、设置请求参数默认值、请求参数是否必传等
 ```java
 // @RequestParam 注解的 required 属性默认为 true，代表 id 参数必须传递，如果不传递请求将报错：code=400。
 // 如果参数可选，可以将 required 属性设置为 false 避免报错。
