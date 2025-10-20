@@ -21,18 +21,19 @@ import java.util.List;
 @Service
 public class EmpServiceImpl implements EmpService {
 
-    // --- 1、实现员工信息新增
-
     @Autowired
     private EmpMapper empMapper;
 
     @Autowired
     private EmpExprMapper empExprMapper;
 
+    /**
+     * 1、新增实现员工信息基本实现
+     */
     @Override
     public void save(Emp emp) {
         // 1、调用 mapper 保存员工的基本信息到 emp 表
-        // 补充缺失的字段
+        // 补全基础属性
         emp.setPassword("123456");
         emp.setCreateTime(LocalDateTime.now());
         emp.setUpdateTime(LocalDateTime.now());
@@ -57,9 +58,11 @@ public class EmpServiceImpl implements EmpService {
         }
     }
 
-    // ---- 2、指定 Spring 事务处理异常，优化员工信息新增
-    // 优化点：即只有当 emp、emp_expr 都操作成功，才提交事务。如果抛出任何异常，则进行事务回滚。
 
+    /**
+     * 2、优化员工信息新增 - Spring 事务管理
+     * 优化点：即只有当 emp、emp_expr 都操作成功，才提交事务。如果抛出任何异常，则进行事务回滚。
+     */
     @Transactional(rollbackFor = Exception.class)    // ⚠️⚠️⚠️ 开启 Spring 事务，并指定其能处理所有异常
     @Override
     public void save2(Emp emp) throws Exception {
@@ -95,7 +98,7 @@ public class EmpServiceImpl implements EmpService {
     }
 
 
-    // ---- 3、模拟 Spring 事务的行为
+    // ---- 3、模拟 Spring 事务传播行为
 
     @Autowired
     private EmpLogService empLogService;
@@ -130,10 +133,12 @@ public class EmpServiceImpl implements EmpService {
                 // 批量保存工作经历
                 empExprMapper.insertBatch(exprList);
             }
-        } finally {
+        } finally { // 无论是否出现 异常，finally 中的代码都会在最后执行
+
+            // 记录操作日志
             EmpLog empLog = new EmpLog();
             empLog.setOperateTime(LocalDateTime.now());
-            empLog.setInfo("插入员工信息 ：" + emp);
+            empLog.setInfo("新增员工信息 ：" + emp);
             empLogService.insertLog(empLog);
         }
     }

@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * 日志记录 Service - 模拟Spring事务 传播行为
+ */
 @Service
 public class EmpLogServiceImpl implements EmpLogService {
 
@@ -15,7 +18,7 @@ public class EmpLogServiceImpl implements EmpLogService {
     private EmpLogMapper empLogMapper;
 
 //    @Transactional(propagation = Propagation.REQUIRED)    // 事务默认行为：如果被调用的方法存在事务，则加入该事务，否则创新新事物。
-    @Transactional(propagation = Propagation.REQUIRES_NEW)  // 指定事务行为：开启一个新事务，不会被调用方法中的事务影响。
+    @Transactional(propagation = Propagation.REQUIRES_NEW)  // 指定事务行为：方法在开启一个新事务中执行，不会被调用方法中的事务影响。
     @Override
     public void insertLog(EmpLog empLog) {
         empLogMapper.insert(empLog);

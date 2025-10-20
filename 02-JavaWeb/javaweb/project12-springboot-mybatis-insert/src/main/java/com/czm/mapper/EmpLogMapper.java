@@ -4,6 +4,9 @@ import com.czm.entity.EmpLog;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ * 日志记录 Mapper
+ */
 @Mapper
 public interface EmpLogMapper {
 

@@ -14,11 +14,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * 文件上传 Controller
+ */
 @Slf4j
 @RestController
 public class UploadController {
 
-    // --------------- 1、把前端 form 表单提交的文件，存储到 java 本地服务器
+    /**
+     * 1、文件上传 - 本地存储
+     * 接收前端 form 表单提交的文件，存储到 java 本地服务器
+     */
     @PostMapping("/upload")
     Result upload(String username, Integer age, MultipartFile file) throws IOException {
         log.info("--- 本地文件上传参数 = {}, {}, {}", username, age, file);
@@ -30,13 +36,15 @@ public class UploadController {
         String uuid = UUID.randomUUID().toString();
         String fileName = uuid + fileTypeName;
 
-        // 1、把前端上传的文件，存储到本地
+        // 1、把前端上传的文件，转存到本地磁盘
         file.transferTo(new File("/Users/chen/Desktop/" + fileName));
 
         return Result.success(fileName);
     }
 
-    // --------------- 2、把前端 form 表单提交的文件，存储到阿里云 OSS
+
+
+    // --------------- 2、文件上传 - 存储到阿里云OSS
 
     // 方式1：直接项目硬编码配置常量。缺点：不方便的管理
 //    private final String bucketName = "zm-java";    // oss 上的桶空间名
@@ -54,18 +62,15 @@ public class UploadController {
 
     @PostMapping("/upload2")
     Result uploadOSS(MultipartFile file) throws Exception {
-        log.info("--- 本地文件上传参数 = {}", file);
-
-        log.info("---- czm 配置对象 = {}", aliyOSSProperties.toString());
+        log.info("---- czm OSS 配置对象 = {}", aliyOSSProperties.toString());
 
         // 1、获取文件原始文件名，截取文件后缀
-        // 获取原始文件名
-        String originalFilename = file.getOriginalFilename();
+        String originalFilename = file.getOriginalFilename();   // 获取原始文件名
         String extName = originalFilename.substring(originalFilename.lastIndexOf(".")); // 获取文件名后缀
 
         // 2、调用阿里云OSS工具类，讲文件上传到OSS
         String fileUrl = AliyunOSSUtils.upload(endpoint, bucketName, file.getBytes(), extName);
-        System.out.println("--- 文件上传成功 = " + fileUrl);
+        System.out.println("--- 文件上传成功，文件访问路径 = " + fileUrl);
 
         // 3、返回图片路径到前端
         return Result.success(fileUrl);

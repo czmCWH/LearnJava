@@ -7,8 +7,13 @@ import com.aliyun.oss.common.comm.SignVersion;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.aliyun.oss.model.PutObjectResult;
 import java.io.ByteArrayInputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
+/**
+ * 阿里云OSS 工具类
+ */
 public class AliyunOSSUtils {
     /**
      * 阿里云OSS文件上传工具类
@@ -28,7 +33,9 @@ public class AliyunOSSUtils {
         // 填写Bucket名称，例如examplebucket。
 //        String bucketName = "zm-java";
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
-        String objectName = UUID.randomUUID() + extName;
+        String dir = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM"));
+        String fileName = UUID.randomUUID() + extName;
+        String objectName = dir + "/" + fileName;
 
         // 填写Bucket所在地域。以华东1（杭州）为例，Region填写为cn-hangzhou。
         String region = "cn-hangzhou";

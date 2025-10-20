@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 /**
  * 员工工作经历
  */
-
 @Data
 public class EmpExpr {
     private Integer id;         //主键ID

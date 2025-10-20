@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 /**
  * 日志对象实体类
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
