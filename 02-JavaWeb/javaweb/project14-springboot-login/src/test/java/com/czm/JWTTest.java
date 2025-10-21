@@ -15,14 +15,14 @@ import java.util.Map;
 public class JWTTest {
 
     /**
-     * 测试JWT令牌生成
+     * JWT令牌生成
      */
     @Test
-    void testGenerateJwt() {
+    void testGenerateJwt() throws Exception {
         // 自定义信息
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("id", 1);
-        claims.put("username", "czm");
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("id", 1);
+        dataMap.put("username", "czm");
 
         // HS256 签名字符串必须 >= 256 bits
         SecureRandom secureRandom = new SecureRandom();
@@ -36,9 +36,9 @@ public class JWTTest {
         // 生成 jwt 令牌
         String jwt = Jwts.builder()     // 构建令牌
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)     // 设置签名算法 + 开发者自定义密钥（解密时需要）
-                .addClaims(claims)  // 添加第二部分，有效载荷
+                .addClaims(dataMap)  // 添加第二部分，有效载荷
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))  // 令牌过期时间为 1 天。如果不设置，则令牌永久有效。
-                .compact();
+                .compact(); // 生成令牌
 
         System.out.println("--- jwt令牌 = " + jwt);
 
@@ -59,11 +59,12 @@ public class JWTTest {
     @Test
     void testParseJwt() {
         // 签名密钥
+        // ⚠️ JWT校验时使用的签名秘钥，必须和生成JWT令牌时使用的秘钥是配套的
         String SECRET_KEY = "UhVgHq3VJCOypk/7s/7+k4wU5w0Alx+y23dPvVKrwdM=";
         // JWT 令牌
         String token = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJjem0iLCJleHAiOjE3NTEzNTA1MDh9.9L7J7tCCMF0Q30Lv38BDtsQj2tfYodEdY_jRGILpMiQ";
         Claims claims = Jwts.parser()
-                .setSigningKey(SECRET_KEY)  // 设置签名密钥
+                .setSigningKey(SECRET_KEY)  // 指定生成令牌的签名密钥
                 .build()
                 .parseClaimsJws(token)  // 解析带签名的JWT
                 .getBody();    // 获取第二部分的有效载荷
@@ -71,6 +72,7 @@ public class JWTTest {
         System.out.println("--- 解密结果 =" + claims);
 
         /*
+         令牌报错的2种情况：
           1、如果第二部分有效载荷被篡改，会报错：
           io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
 

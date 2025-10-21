@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SessionController {
 
+    // --------------- 1、Cookie - 客户端会话跟踪技术
+    /**
+     * 设置 Cookie
+     */
     @GetMapping("/c1")
     Result cookie1(HttpServletResponse response) {
         // 设置 Cookie ，响应 Cookie
@@ -26,8 +30,12 @@ public class SessionController {
         return Result.success();
     }
 
+    /**
+     * 获取 Cookie
+     */
     @GetMapping("/c2")
     Result cookie2(HttpServletRequest request) {
+        // 获取 Cookie
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if ("login_name".equals(cookie.getName())) {
@@ -38,6 +46,11 @@ public class SessionController {
     }
 
 
+    // --------------- 2、Session - 服务端会话跟踪技术
+
+    /**
+     * 存储值到 Session
+     */
     @GetMapping("/s1")
     Result session1(HttpSession session) {
         log.info("--- session.hashCod {}", session.hashCode());
@@ -45,6 +58,9 @@ public class SessionController {
         return Result.success();
     }
 
+    /**
+     * 从 Session 中获取值
+     */
     @GetMapping("/s2")
     Result session2(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -53,6 +69,4 @@ public class SessionController {
         log.info("--- loginUser = {}", loginUser);
         return Result.success(loginUser);
     }
-
-
 }

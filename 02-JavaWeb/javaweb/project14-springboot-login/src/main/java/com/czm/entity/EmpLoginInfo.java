@@ -5,9 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 登录请求成功实体类
+ * 封装登录结果的实体类
  */
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 登录 Controller
+ */
 @Slf4j
 @RestController
 public class LoginController {
@@ -17,13 +20,16 @@ public class LoginController {
     @Autowired
     private EmpService empService;
 
+    /**
+     * 登录
+     */
     @PostMapping("/login")
     Result login(@RequestBody Emp emp) {
         log.info("--- 登录操作 = ${}", emp);
         EmpLoginInfo info = empService.login(emp);
-        if (info == null) {
-            return Result.error("用户名或密码错误！");
+        if (info != null) {
+            return Result.success(info);
         }
-        return Result.success(info);
+        return Result.error("用户名或密码错误！");
     }
 }

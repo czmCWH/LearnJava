@@ -18,9 +18,12 @@ public class EmpServiceImpl implements EmpService {
     @Autowired
     private EmpMapper empMapper;
 
+    /**
+     * 登录
+     */
     @Override
     public EmpLoginInfo login(Emp emp) {
-        // 1、调用 mapper 查询 username、password 是否正确
+        // 1、调用 mapper，根据查询 username、password 查询员工信息
         Emp empDB = empMapper.selectUsernameAndPassword(emp);
 
         // 2、判断用户账号密码是否正确，即查询的数据是否为空

@@ -1,4 +1,4 @@
-package com.czm;
+package com.czm.config;
 
 import com.czm.interceptor.DemoInterceptor;
 import com.czm.interceptor.LoginCheckInterceptor;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 声明一个配置类，用于注册拦截器
+ * 声明一个配置类，用于注册 Interceptor 拦截器
  */
 @Slf4j
 @Configuration  // @Configuration 也是 @Component 衍生注解，表示声明当前类是一个配置类。（即自动生成 Bean 对象，放到 Spring 容器中管理。）
@@ -22,17 +22,18 @@ public class WebConfig implements WebMvcConfigurer {
     private LoginCheckInterceptor loginCheckInterceptor;
 
     /**
+     * 向当前 Spring 环境添加 Interceptor 拦截器
      * 注册自定义拦截器，设置拦截路径
      * @param registry
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         log.info("------ 注册拦截器");
-//        registry.addInterceptor(demoInterceptor)
-//                .addPathPatterns("/**")     // 设置需要拦截的路径
-//                .excludePathPatterns("/login");     // 设置排除拦截的路径
+        registry.addInterceptor(demoInterceptor)
+                .addPathPatterns("/**")     // 设置需要拦截的路径
+                .excludePathPatterns("/login");     // 设置排除拦截的路径
 
-        registry.addInterceptor(loginCheckInterceptor);
+        registry.addInterceptor(loginCheckInterceptor);     // 添加拦截器
 //                .addPathPatterns("/**")     // 设置需要拦截的路径，如果不设置则拦截所有
 //                .excludePathPatterns("/login");     // 设置排除拦截的路径
     }
