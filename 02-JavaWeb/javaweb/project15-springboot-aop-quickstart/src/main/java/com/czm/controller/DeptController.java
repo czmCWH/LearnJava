@@ -1,5 +1,6 @@
 package com.czm.controller;
 
+import com.czm.anno.Log;
 import com.czm.entity.Dept;
 import com.czm.entity.Result;
 import com.czm.service.DeptService;
@@ -40,6 +41,7 @@ public class DeptController {
      * delete 请求，如：/depts?id=1
      * @return
      */
+    @Log
     @DeleteMapping
     public Result delete(Integer id) {
         deptService.delete(id);
@@ -51,6 +53,7 @@ public class DeptController {
      * @param dept
      * @return
      */
+    @Log
     @PostMapping
     public Result addDept(@RequestBody Dept dept) {
         System.out.println("--- post 请求参数 = " + dept);
@@ -93,6 +96,7 @@ public class DeptController {
      * @param dept
      * @return
      */
+    @Log
     @PutMapping
     public Result updateOption(@RequestBody Dept dept) {
         System.out.println("接收到请求参数 dept = " + dept);

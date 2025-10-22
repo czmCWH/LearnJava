@@ -1,6 +1,7 @@
 package com.czm.filter;
 
 import com.czm.exception.BusinessException;
+import com.czm.utils.CurrentHolder;
 import com.czm.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.*;
@@ -68,7 +69,12 @@ public class LoginCheckFilter implements Filter {
 
         // 5、解析token，如果解析失败，响应 401
         try {
-            Claims  clamis = JwtUtils.parseJwt(token);
+            Claims clamis = JwtUtils.parseJwt(token);
+
+            // ⚠️：使用 ThreadLocal 存储当前登录用户ID
+            Integer empId = Integer.valueOf(clamis.get("id").toString());
+            CurrentHolder.setCurrentId(empId);
+
             log.info("--- doFilter 令牌解析成功 = {}", clamis);
         } catch (Exception e) {
             log.info("--- doFilter 令牌非法，响应401 ");
@@ -80,5 +86,9 @@ public class LoginCheckFilter implements Filter {
 
         // 6、校验通过，放行
         filterChain.doFilter(servletRequest, servletResponse);
+
+        // 放行后的业务逻辑
+        // ⚠️：清理 ThreadLocal 中的数据
+        CurrentHolder.remove();
     }
 }

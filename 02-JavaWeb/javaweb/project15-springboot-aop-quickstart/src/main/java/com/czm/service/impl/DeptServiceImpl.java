@@ -1,6 +1,6 @@
 package com.czm.service.impl;
 
-import com.czm.aspect.Log;
+import com.czm.anno.Log;
 import com.czm.entity.Dept;
 import com.czm.mapper.DeptMapper;
 import com.czm.service.DeptService;
