@@ -37,12 +37,13 @@ class Project16SpringbootBeanApplicationTests {
     }
 
     /**
-     * 测试 - 获取的 Bean 对象是否是单例
+     * 测试 - 默认声明的 Bean 对象是否是单例
      */
     @Test
     void testScope() {
-        for (int i = 0; i < 10; i++) {
-            DeptController bean1 = (DeptController) applicationContext.getBean("deptController");
+        for (int i = 0; i < 1000; i++) {
+            // 根据 Bean 的名称或 bean 对象
+            DeptController bean = (DeptController) applicationContext.getBean("deptController");
             System.out.println("------ bean1 = " + bean1);
         }
     }

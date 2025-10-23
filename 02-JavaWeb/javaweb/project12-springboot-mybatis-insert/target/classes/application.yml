@@ -1,0 +1,43 @@
+server:
+  port: 9090    # 设置 SpringBoot 项目端口号
+
+# 配置 Spring boot 项目信息
+spring:
+  application:
+    name: project12-springboot-mybatis-insert
+  # 数据库连接信息配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/czm_db03
+    username: root
+    password: 123
+
+  # 配置文件上传大小
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+# Mybatis 配置
+mybatis:
+  configuration:
+    # 配置日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启驼峰命名：abx_xyz=abcXyz
+    map-underscore-to-camel-case: true
+
+# 打开 spring事务管理 的 debug 日志：
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          support:
+            JdbcTransactionManager: debug
+
+# 配置自定义对象
+aliyun:
+  oss:
+    endpoint: http://oss-cn-hangzhou.aliyuncs.com
+    bucket: zm-java

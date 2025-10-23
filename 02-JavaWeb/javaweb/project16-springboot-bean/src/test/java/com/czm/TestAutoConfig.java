@@ -16,10 +16,14 @@ public class TestAutoConfig {
     @Autowired
     private ApplicationContext appContext;
 
+    @Autowired
+    private TokenParser tokenParser;
+
     @Test
     public void testGetTokenParser() {
-        TokenParser tokenParser = appContext.getBean(TokenParser.class);
-        System.out.println("--- tokenParser ---" + tokenParser);
+        System.out.println("--- tokenParser = " + tokenParser);
+        TokenParser tokenParser1 = appContext.getBean(TokenParser.class);
+        System.out.println("--- tokenParser1 = " + tokenParser1);
 
         /*
          1、测试获取第三方依赖中使用 @Component 声明的 TokenParser 的 Bean 对象失败！

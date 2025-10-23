@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * 如果使用了 @Configuration 注解，则需要通过 @ComponentScan({"com.czm", "com.company"}) 指定扫描包的方式导入
  */
 
-//@Configuration
+@Configuration
 public class HeaderConfig {
 
     @Bean

@@ -1,6 +1,7 @@
 package com.czm;
 
 import com.company.*;
+import com.czm.utils.*;
 import org.dom4j.io.SAXReader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,5 +33,10 @@ public class Project16SpringbootBeanApplication {
 //    public HeaderParser getHeaderParser() {
 //        return new HeaderParser();
 //    }
+
+    @Bean
+    public AliyunOSSOperator aliyunosSOperator(AliyunOSSProperties ossProperties) {  // ⚠️ AliyunOSSProperties 必须是一个 Bean，此处会自动完成依赖注入
+        return new AliyunOSSOperator(ossProperties);
+    }
 }
 
