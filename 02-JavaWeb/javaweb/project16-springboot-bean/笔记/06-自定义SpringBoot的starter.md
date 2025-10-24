@@ -10,12 +10,3 @@
   2. 创建 `aliyun-oss-spring-boot-autoconfigure` 模块，在 `starter` 中引入该模块；
   3. 在 `aliyun-oss-spring-boot-autoconfigure` 模块中的定义自动配置功能，并定义自动配置文件 `META-INF/spring/xxxx.imports`；
 
-
-
-
-
-
-
-<https://www.bilibili.com/video/BV1yGydYEE3H?vd_source=f97692c2f656607aeb97ee92b4310d9e&spm_id_from=333.788.videopod.episodes&p=147>
-
-<https://www.bilibili.com/video/BV1yGydYEE3H?spm_id_from=333.788.player.switch&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=147>
