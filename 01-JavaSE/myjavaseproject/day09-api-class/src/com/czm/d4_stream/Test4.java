@@ -10,7 +10,6 @@ public class Test4 {
 
      2、收集 Stream 流
         收集stream流就是把 Stream 流操作后的结果转回到集合或者数组中去返回。
-
         Stream 流是方便操作集合/数组的手段；获取有用的 集合/数组 才是目的。
 
      */
@@ -35,7 +34,7 @@ public class Test4 {
 
         // 3、最大、小值
         System.out.println("--- 3、最大、小值：");
-        // 用 Optional 类型包一层，避免 null 指针异常。
+        // 用 Optional 类型包一层，Optional可以存放 null，避免 null 指针异常。
         Optional<Movie> m = movies.stream().min((m1, m2) -> Double.compare(m1.getScore(), m2.getScore()));
         // 取出 Optional 对象里的值
         Movie min = m.get();
@@ -61,9 +60,9 @@ public class Test4 {
 //        System.out.println(newList1);
 
         // 方法2：JDK16 中的 toList() 方法，它返回一个不可变集合
-//        List<String> newList2 = list.stream().filter(s1 -> s1.startsWith("张")).toList();
-////        newList2.add("张道士");    // 报错
-//        System.out.println(newList2);
+        List<String> newList2 = list.stream().filter(s1 -> s1.startsWith("张")).toList();
+//        newList2.add("张道士");    // 报错
+        System.out.println(newList2);
 
 
         System.out.println();
@@ -88,7 +87,8 @@ public class Test4 {
 //        System.out.println(mp);
 
         // 由于合并式，Map集合中 key 不能重复，但是 movies2 中存在重复 key，所以需要合并取出一个
+        // Collectors.toMap(如何从元素提取 key，如何从元素提取 value，当 key 冲突时，合并函数‌如何合并 value)
         Map<String,Double> mp = movies2.stream().collect(Collectors.toMap(Movie::getName, Movie::getScore, (v1, v2) -> Double.max(v1, v2)));
-        System.out.println(mp);
+        System.out.println(mp);     // {【三国演义】=9.6, 【水浒传】=8.1, 【西游记】=8.5}
     }
 }

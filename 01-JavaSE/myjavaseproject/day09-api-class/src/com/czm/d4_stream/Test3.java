@@ -6,10 +6,9 @@ import java.util.stream.Stream;
 
 public class Test3 {
     /*
-     1、Stream 流常见的中间方法
+     1、Stream 流常用的中间方法
         中间方法指的是调用完成后会返回新的 Stream 流，可以继续使用(支持链式编程)。
-     2、
-     3、
+
      */
     public static void main(String[] args) {
         // 1、获取集合的 Stream 流
@@ -50,7 +49,7 @@ public class Test3 {
 
         // 5、去重复
         System.out.println("--- 5、distinct 去重复：");
-        // 注意⚠️：需重写对象的 equals 和 hashCode 方法
+        // 注意⚠️：如果希望自定义对象能够去重，需重写对象的 equals 和 hashCode 方法
         movies.stream().distinct().forEach(System.out::println);
 
         // 6、map 转换，把流上的数据转换成新的数据
@@ -60,8 +59,8 @@ public class Test3 {
         // 7、合并流，把2个流合并起来
         System.out.println("--- 7、合并流，把2个流合并起来：");
         Stream<String> s1 = Stream.of("AA", "BB", "CC");
-        Stream<String> s2 = Stream.of("张三", "李斯", "王五");
-        Stream<String> allS = Stream.concat(s1, s2);
+        Stream<Integer> s2 = Stream.of(11, 22, 33);
+        Stream<Object> allS = Stream.concat(s1, s2);
         System.out.println(allS.collect(Collectors.toList()));
     }
 }
