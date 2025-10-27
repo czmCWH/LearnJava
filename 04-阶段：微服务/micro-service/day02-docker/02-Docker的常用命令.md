@@ -21,14 +21,12 @@ $ docker info
 ```
 > 亲测在mac上配置了阿里云镜像加速地址无效！ 
 
+
+
 # 二、Docker 常见命令
 
-Docker最常见的命令就是操作镜像、容器的命令，详见官方文档：<https://docs.docker.com/reference/cli/docker/>
-
-常见命令如下：`day02-docker/img/02-Docker常用命令.jpg`
-
-## 1、docker 创建 MySql 容器（即部署 MySql）详解
-
+## 1、docker 命令解读
+如下所示使用 docker 部署 MySql 容器：
 ```shell
 # 把下载本地镜像加载到本地镜像仓库
 $ docker load -i mysql.tar  
@@ -37,33 +35,43 @@ $ docker load -i mysql.tar
 $ docker images
 
 $ docker run -d \     # docker run 创建并运行一个容器，如果镜像不存在会先拉取；-d：让容器在后台运行
---name mysql \        # -name 给创建的容器起一个名字，并且必须唯一
--p 3306:3306 \        # -p 设置容器的端口映射，宿主机(即 Docker 运行的主机)端口号 : 容器内部端口（制作镜像时就已经确定了）
--e TZ=Asia/Shanghai \   # -e 设置环境变量，可以在 dockerHub 里面搜索镜像查询如何配置。设置时区
+--name mysql \        # -name 给创建的容器起一个名字，名字必须唯一！
+-p 3306:3306 \        # -p 设置容器的端口映射，把宿主机端口映射到容器内的端口
+-e TZ=Asia/Shanghai \   # -e 设置环境变量，可以在 dockerHub 里面搜索镜像查询如何配置其环境变量。设置时区
 -e MYSQL_ROOT_PASSWORD=123 \  # 设置 mysql root 密码
-mysql   # 从镜像仓库中拉取镜像的名字，如果不携带版本号，则默认使用最新镜像版本
+mysql   # 从镜像仓库中拉取镜像的名字、版本
 ```
-> 注意：shell 指令使用 `\` 换行符连接时， `\`不能有任何空格，否则会执行报错！！！
+注意：shell 指令使用 `\` 换行符连接时， `\`不能有任何空格，否则会执行报错！！！
 
-* 1、`-p 宿主机端口:容器端口` 端口映射的作用？
-因为容器在部署的服务器（宿主机）上运行时，外部是无法访问容器的，通过让 宿主机的端口 与 容器的端口 进行映射。
-当外部访问 宿主机的某个端口时，docker 就能把这个请求转到 对应的容器，这样外部就可以对容器访问。
+### docker run 命令中常见的参数：
+* `-d`：表示容器在后台运行。
+  - 如果没有 `-d`，这条命令执行完毕后，会占用前台命令行窗口，如果关闭前台窗口 或者 输入`ctrl+c`命令，那么容器也停止运行了。
 
-> `docker run -d --name mysql -p 3307:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123 mysql`
-> 可以通过如上命令在同一台服务器上，根据同一个镜像创建多个不同端口的容器，如：`-p 3306:3306`、`-p 3307:3306`...等。
+* `-p 3306:3306`：宿主机(即 Docker 运行的主机)端口号 : 容器内部端口（制作镜像时就已经确定了）
+  - 容器是环境隔离的，容器和其宿主机是不在同一个网络环境，需要将宿主机端口与容器端口建立映射，这样才能通过访问宿主机上的端口访问到容器。
+  - 可以通过如上命令在同一台服务器上，根据同一个镜像创建多个不同端口的容器，如：`-p 3307:3306`、`-p 3308:3306`...等
+    ```shell
+    $ docker run -d --name mysql2 -p 3307:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123 mysql
+    $ docker run -d --name mysql3 -p 3308:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123 mysql
+    ```
+    
+* `-e KEY=VALUE`：用于设置环境变量
+  - 环境变量是创建容器运行时用到的变量，由创建镜像时指定。需要通过 dockerHub 里面搜索对应的镜像查询如何配置其环境变量。
 
-* 2、`-e` 环境变量的作用？
-创建容器运行时用到的变量。由创建镜像时指定，需要查询镜像文档说明进行配置。
+* 镜像命名规范：镜像名称一般分为两部分组成：[repository]:[tag]，如：mysql:8
+  - repository 是镜像名；tag 是镜像版本号 
+  - 如果 docker run 部署容器时，不指定镜像的 tag，则默认是 `latest`，代表使用最新版本的镜像。
 
-* 3、镜像名称结构
-镜像名称一般分为两部分组成：[repository]:[tag]。
-`repository：镜像名；tag：镜像版本号`
+    
 
 ## 2、docker 命令基本使用
+docker 常见命令：`day02-docker/img/02-Docker常用命令.jpg`
+Docker最常见的命令就是操作镜像、容器的命令，详见官方文档：<https://docs.docker.com/reference/cli/docker/>
+
 
 ### 1、镜像的导入与导出
 ```shell
-# 查看本地镜像列表
+# 查看本地所有镜像
 $ docker images
 REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
 nginx        latest    af5dda48e624   6 days ago     198MB
@@ -72,7 +80,7 @@ $ docker save -o nginx.tar nginx:latest
 # 查看保存的镜像压缩包
 $ open .
 
-# 删除镜像
+# 删除 nginx 镜像
 $ docker rmi nginx
 # 导入镜像到本地仓库
 $ docker load -i mysql.tar  
@@ -124,18 +132,19 @@ root@aafb2f16415e:/usr/share/nginx/html# cd ~
 # 退出容器内的应用
 root@aafb2f16415e:~# exit
 
-# 删除容器-方式1
+# 删除容器-方式1，先停止运行的容器，再删除
 $ docker stop nginx
 $ docker rm nginx
-# 删除容器-方式2，停止并删除容器
+# 删除容器-方式2，强制删除容器
 $ docker rm -f nginx
 ```
 
 进入mysql容器： `docker exec -it mysql mysql -u用户名 -p密码`
 
 ```shell
-# 进入 mysql 容器
+# 启动 mysql 容器
 $ docker start mysql
+# 进入 mysql 容器
 $ docker exec -it mysql bash
 
 # 登录 mysql

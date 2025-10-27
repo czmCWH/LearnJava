@@ -21,9 +21,9 @@
 version: "3.8"
 
 services:
-  mysql:
+  mysql: # 服务名称
     image: mysql
-    container_name: mysql
+    container_name: mysql # 容器名
     ports:
       - "3306:3306"
     environment:
@@ -34,20 +34,20 @@ services:
       - "./mysql/data:/var/lib/mysql"
       - "./mysql/init:/docker-entrypoint-initdb.d"
     networks:
-      - hm-net
+      - hm-net    # docker-compose.yml 中定义的 networks 中的 网络标识
   hmall:
-    build: 
-      context: .
+    build: # 构建镜像
+      context: .  # Dockerfile 文件存放的位置，即在当前目录
       dockerfile: Dockerfile
-    container_name: hmall
+    container_name: hmall   # 镜像创建的容器名称为 hmall
     ports:
       - "8080:8080"
     networks:
       - hm-net
     depends_on:
-      - mysql
+      - mysql   # ⚠️ 指定 hmall服务 依赖于 上面的 mysql服务。即：DockerCompose进行部署时，会先部署 mysql，再部署 hmall。
   nginx:
-    image: nginx
+    image: "nginx:1.20.2"
     container_name: nginx
     ports:
       - "18080:18080"
@@ -56,7 +56,7 @@ services:
       - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
       - "./nginx/html:/usr/share/nginx/html"
     depends_on:
-      - hmall
+      - hmall     # 指定 nginx 服务依赖于 hmall 服务
     networks:
       - hm-net
 networks:
@@ -64,16 +64,21 @@ networks:
     name: hmall   # 执行 docker network 命令时使用，或者 Dockerfile文件 中使用。
 ```
 
+## DockerCompose 一键部署项目
 `dockerCompose` 命令见 `/img/05-dockerCompose命令.jpg`
 
 ```shell
-# 创建并启动所有 service 容器；-d 在后台运行
+# 创建并启动 dockerCompose 文件中配置的所有 service 容器；-d 在后台运行
 $ docker compose up -d
-# 停止并移除容器和网络（保留卷）
+# 停止并移除容器和网络
 $ docker compose down
 ```
 
 
 # 学习地址
-<https://www.bilibili.com/video/BV1yGydYEE3H?spm_id_from=333.788.videopod.episodes&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=199>
-<https://www.bilibili.com/video/BV1S142197x7?spm_id_from=333.788.player.switch&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=35>
+* JavaWeb+AI(2024)
+笔记：<https://heuqqdmbyk.feishu.cn/wiki/GAwGwd0GHibOovkLpH3cjpMwnVm>
+视频：<https://www.bilibili.com/video/BV1yGydYEE3H?spm_id_from=333.788.videopod.episodes&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=199>
+
+* 黑马程序员SpringCloud微服务开发与实战
+视频：<https://www.bilibili.com/video/BV1S142197x7?spm_id_from=333.788.player.switch&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=35>
