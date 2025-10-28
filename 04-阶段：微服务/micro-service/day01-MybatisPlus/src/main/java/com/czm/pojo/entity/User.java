@@ -41,7 +41,7 @@ public class User {
 
     // 详细信息
     private String info;
-//    @TableField(typeHandler = JacksonTypeHandler.class)
+//    @TableField(typeHandler = JacksonTypeHandler.class)   // 定义类型处理器
 //    private UserInfo info;
 
     // 使用状态（1正常 2冻结）

@@ -4,8 +4,8 @@ import lombok.Data;
 
 /**
  * 用户查询条件实体
+ * 查询字段可以全部为 null
  */
-
 @Data
 public class UserQuery {
     // 用户名关键字

@@ -20,9 +20,16 @@ public interface IUserService extends IService<User> {
     void deductionBalanceById(Long id, Integer amount);
 
     /**
-     * 根据用户ID扣减金额  -------- 通过 IService 的 Lambda 更新
+     * 根据用户ID扣减金额  -------- IService 的 Lambda 实现更新操作
      */
     void deductionBalanceByIdWithLambda(Long id, Integer amount);
+
+
+    /**
+     * 根据复杂条件查询用户列表
+     */
+    List<UserVO> queryList(String name, Integer status, Integer minBalance, Integer maxBalance);
+
 
     /**
      * 通过 Db 工具类查询单个用户信息
@@ -33,4 +40,6 @@ public interface IUserService extends IService<User> {
      * 通过 Db 工具类批量查询用户信息
      */
     List<UserVO> queryUserAndAddressByIds(List<Long> userIds);
+
+
 }

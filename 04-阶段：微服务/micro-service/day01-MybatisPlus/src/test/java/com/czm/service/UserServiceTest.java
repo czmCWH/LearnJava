@@ -19,7 +19,7 @@ public class UserServiceTest {
 
 
     /**
-     * 批量插入   10 万条数据插入
+     * 批量插入  10 万条数据插入
      */
     @Test
     public void testOneByOne() {
@@ -33,6 +33,9 @@ public class UserServiceTest {
         // 记录结束时间
         Long end = System.currentTimeMillis();
         System.out.println("------ 耗时：" + (end - start) + "ms 毫秒");
+
+        // 执行sql删除，重新测试：
+        // delete from tb_user where id > 5;
     }
 
 
@@ -44,12 +47,19 @@ public class UserServiceTest {
         // 记录开始时间
         Long start = System.currentTimeMillis();
 
+        // 每次批量插入1000条，插入100次即可完成10条数据的插入
+        // 因为一次性生成10条数据占用内存较大；向数据库传递数据包时，有上限大小，如果过大将无法传递成功。
+
+        // 1、准备一个容量为 1000 的集合
         List<User> list = new ArrayList<>(1000);
 
         for (int i = 0; i < 100000; i++) {
+            // 2、添加一个 User
             list.add(buildUser(i));
+            // 3、每1000条批量插入一次
             if (i % 1000 == 0) {
                 userService.saveBatch(list);
+                // 4、清空集合，准备下一批数据
                 list.clear();
             }
         }
@@ -69,7 +79,7 @@ public class UserServiceTest {
         user.setBalance(200);
         user.setInfo("{\"age\": 24, \"intro\": \"英文老师\", \"gender\": \"female\"}");
         user.setCreateTime(LocalDateTime.now());
-        user.setUpdateTime(LocalDateTime.now());
+        user.setUpdateTime(user.getCreateTime());
         return user;
     }
 

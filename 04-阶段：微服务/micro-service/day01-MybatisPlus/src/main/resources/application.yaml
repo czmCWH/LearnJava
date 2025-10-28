@@ -1,7 +1,8 @@
 spring:
   # 配置数据库连接
   datasource:
-    url: jdbc:mysql://localhost:3306/mp?rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/mp?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/shanghai
+    &rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123
@@ -20,9 +21,14 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 mybatis-plus:
-  mapper-locations: classpath*:/mapper/**/*.xml
-  type-aliases-package: com.czm.pojo
+  type-aliases-package: com.czm.pojo    # 别名扫描包，作用：在 Mapper.xml 中定义sql语句使用实体类时不用全类名，使用类名即可。
+  mapper-locations: classpath*:/mapper/**/*.xml  # 指定扫描 Mapper.xml 文件地址
   configuration:
-    map-underscore-to-camel-case: true
-    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+    map-underscore-to-camel-case: true # 是否开启下划线转驼峰的映射
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler  # 配置枚举处理器
+    cache-enabled: false  # 是否开启二级缓存，一般为 false
+  global-config:
+    db-config:
+      id-type: assign_id  # 主键 id 为雪花算法生成
+      update-strategy: not_null   # 更新策略：只更新非空字段
 

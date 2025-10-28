@@ -90,5 +90,19 @@ public class Test4 {
         // Collectors.toMap(如何从元素提取 key，如何从元素提取 value，当 key 冲突时，合并函数‌如何合并 value)
         Map<String,Double> mp = movies2.stream().collect(Collectors.toMap(Movie::getName, Movie::getScore, (v1, v2) -> Double.max(v1, v2)));
         System.out.println(mp);     // {【三国演义】=9.6, 【水浒传】=8.1, 【西游记】=8.5}
+
+
+        System.out.println("--- 5、把 Stream 流中的数据根据指定的 key 分组，收集到 Map 集合中：");
+        // Collectors.groupingBy 是一个分组收集器，它会根据你提供的“分组依据”将元素分成若干组
+        Map<String, List<Movie>> mp2 = movies2.stream().collect(Collectors.groupingBy(Movie::getName));
+        System.out.println(mp2);
+        /*
+         {
+         【三国演义】=[Movie{name='【三国演义】', score=9.6, actor='罗贯中'}],
+         【水浒传】=[Movie{name='【水浒传】', score=8.0, actor='施耐庵'}, Movie{name='【水浒传】', score=8.1, actor='施耐庵'}],
+         【西游记】=[Movie{name='【西游记】', score=8.5, actor='吴承恩'}]}
+         */
+
+
     }
 }

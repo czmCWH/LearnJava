@@ -20,7 +20,7 @@ import org.apache.ibatis.annotations.Update;
 public interface UserPlusMapper extends BaseMapper<User> {
 
     /**
-     * MyBatis-Plus 自定义拼接 SQL
+     * MyBatis-Plus 自定义 SQL
      * @Param("ew")、${ew.customSqlSegment} 都是固定写法
      */
     @Update("update user set balance = balance - #{amount} ${ew.customSqlSegment}")

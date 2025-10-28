@@ -47,7 +47,7 @@ $ catalina stop
 1、去官网下载安装包：<https://tomcat.apache.org/>，解压到 `/Library/` 目录下，即安装成功。
 2、MacOS 上配置环境变量，并运行脚本
 
-```
+```shell
 $ open ~/.zshrc
 
 # Tomcat 环境变量配置

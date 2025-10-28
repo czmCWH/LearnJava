@@ -21,7 +21,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/users")
-@RequiredArgsConstructor    // ⚠️⚠️⚠️ 不必写 @Autowired 方式注入
+@RequiredArgsConstructor    // ⚠️⚠️⚠️ 不必写 @Autowired 方式注入，只对 final 类型成员变量Spring注入
 public class UserController {
 
 //    @Autowired
@@ -76,6 +76,7 @@ public class UserController {
 
     /**
      * 根据ID扣减金额
+     * 涉及到业务：用户状态是否正常、用户余额是否充足。
      * @param id 用户ID
      * @param amount 扣减的金额
      */
@@ -84,12 +85,12 @@ public class UserController {
         //1、直接通过 IService 接口 的自定义方法处理
 //        userService.deductionBalanceById(id, amount);
 
-        // 2、使用 IService 的 Lambda 表达式出来
+        // 2、使用 IService 的 Lambda 表达式实现
         userService.deductionBalanceByIdWithLambda(id, amount);
     }
 
     /**
-     * 根据条件查询用户列表 ------ 使用 IService 的 Lambda 查询
+     * IService的Lambda查询 - 根据复杂条件查询用户列表
      */
     @PostMapping("/list")
     public List<UserVO> queryList(@RequestBody UserQuery userQuery) {
@@ -130,6 +131,8 @@ public class UserController {
                 .ge(minBalance != null, User::getBalance, minBalance)
                 .list();
         return BeanUtil.copyToList(userList, UserVO.class);
+
+//        List<UserVO>  list = userService.queryList(userQuery.getName(), userQuery.getStatus(), userQuery.getMinBalance(), userQuery.getMaxBalance());
     }
 
 

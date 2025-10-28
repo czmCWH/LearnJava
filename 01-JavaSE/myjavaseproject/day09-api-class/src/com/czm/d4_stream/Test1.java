@@ -49,7 +49,7 @@ public class Test1 {
             min，获取最小元素
 
           b、收集 Stream 流：
-            collect(Collectors.toList()/.toSet()/.toMap)，放入集合
+            collect(Collectors.toList()/.toSet()/.toMap、Collectors.groupingBy(key))，放入集合
             toList()，JDK16+，收集放入不可变集合
             toArray()，收集到数据
 
