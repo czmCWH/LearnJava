@@ -1,5 +1,6 @@
 package com.czm.service;
 
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.czm.pojo.entity.User;
 import com.czm.service.impl.UserServiceImpl;
@@ -86,19 +87,25 @@ public class UserServiceTest {
     // 测试 MyBatis-Plus 分页插件
     @Test
     public void testPage() {
-        // 1、创建一个分页对象
-        // 参数1：当前页码，从1开始
-        // 参数2：每页条数
-        Page<User> page = new Page<>(3, 2);     // 每页查询2条，查询第3页的数据
+        // 1、准备分页条件
+        // 1.1、分页条件
+        int pageNo = 1, pageSize = 10;  // 当前页码(从1开始)、每页条数
+        Page<User> page = Page.of(pageNo, pageSize);
+
+        // 1.2、排序条件
+        page.addOrder(OrderItem.desc("createTime"));    // 根据时间降序
+        page.addOrder(OrderItem.asc("balance"));    // 根据balance升序
 
         // 2、分页查询
         Page<User> userPage = userService.page(page, null);
 
-        System.out.println("--- 总页数 = " + userPage.getPages());
-        System.out.println("--- 总记录数 =" + userPage.getTotal());
-        for (User user : userPage.getRecords()) {
-            System.out.println(user);
-        }
+        // 3、解析查询结果
+        long pages = userPage.getPages();
+        long total = userPage.getTotal();
+        System.out.println("--- 总页数 = " + pages);
+        System.out.println("--- 总记录数 =" + total);
 
+        List<User> users = userPage.getRecords();
+        users.forEach(System.out::println);
     }
 }

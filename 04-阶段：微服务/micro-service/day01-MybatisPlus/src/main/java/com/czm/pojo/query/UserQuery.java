@@ -4,10 +4,9 @@ import lombok.Data;
 
 /**
  * 用户查询条件实体
- * 查询字段可以全部为 null
  */
 @Data
-public class UserQuery {
+public class UserQuery extends PageQuery {
     // 用户名关键字
     private String name;
 

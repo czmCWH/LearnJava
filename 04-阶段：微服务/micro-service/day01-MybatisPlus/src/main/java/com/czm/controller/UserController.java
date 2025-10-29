@@ -3,6 +3,7 @@ package com.czm.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.czm.pojo.dto.PageDTO;
 import com.czm.pojo.entity.User;
 import com.czm.pojo.dto.UserFormDTO;
 import com.czm.pojo.query.UserQuery;
@@ -140,5 +141,14 @@ public class UserController {
      * 更新用户余额 ------- 使用 IService 的 Lambda 更新
      */
 
+
+    /**
+     * Page分页查询 - 根据条件
+     */
+    @GetMapping("/page")
+    public PageDTO<UserVO> queryUsersPage(UserQuery query) {
+        return userService.queryUsersPage(query);
+
+    }
 
 }

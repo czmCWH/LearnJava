@@ -2,12 +2,17 @@ package com.czm.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.czm.enums.UserStatus;
 import com.czm.mapper.UserPlusMapper;
+import com.czm.pojo.dto.PageDTO;
 import com.czm.pojo.entity.Address;
 import com.czm.pojo.entity.User;
+import com.czm.pojo.query.UserQuery;
 import com.czm.pojo.vo.AddressVO;
 import com.czm.pojo.vo.UserVO;
 import com.czm.service.IUserService;
@@ -155,5 +160,65 @@ public class UserServiceImpl extends ServiceImpl<UserPlusMapper, User> implement
 
         return userVOList;
     }
+
+    /**
+     * 根据查询条件分页查询用户
+     */
+    @Override
+    public PageDTO<UserVO> queryUsersPage(UserQuery query) {
+        // 1.1、获取查询条件
+        String name = query.getName();
+        Integer status = query.getStatus();
+//
+//        // 1.2、构建分页条件
+//        Page<User> page = Page.of(query.getPageNo(), query.getPageSize());
+//
+//        // 1.3、排序条件
+//        if (StrUtil.isNotBlank(query.getSortBy())) {
+//            page.addOrder((new OrderItem()).setColumn(query.getSortBy()).setAsc(query.getIsAsc()));
+//        } else {
+//            // 默认按照更新时间排序
+//            page.addOrder(OrderItem.desc("update_time"));
+//        }
+        // ⚠️ 封装优化：
+        Page<User> page = query.toMpPageDefaultSortByUpdateTimeDesc();
+
+        // 2、分页查询
+//        Page<User> p = lambdaQuery()
+//                .like(name != null, User::getUsername, name)
+//                .eq(status != null, User::getStatus, status)
+//                .page(page);
+//
+//        // 3、把分页查询的结果 转换为 DTO
+//        PageDTO<UserVO> pageDTO = new PageDTO<>();
+//        // 总页数
+//        pageDTO.setPages(p.getPages());
+//        // 总条数
+//        pageDTO.setTotal(p.getTotal());
+//        // 查询记录数组
+//        List<User> records = p.getRecords();
+//        if (CollUtil.isEmpty(records)) {
+//            pageDTO.setList(Collections.emptyList());
+//            return pageDTO;
+//        }
+//        // 拷贝user的vo
+//        List<UserVO> vos = BeanUtil.copyToList(records, UserVO.class);
+//        pageDTO.setList(vos);
+        //  ⚠️ 封装优化：
+        PageDTO<UserVO> pageDTO = PageDTO.of(page, UserVO.class);  // 方式1，当 po 与 vo 字段名完全匹配时，直接获取返回结果
+        PageDTO.of(page, user -> BeanUtil.copyProperties(user, UserVO.class));  // 方式2，自定义转换结果
+        // 方式3，自定义转换结果，对属性加工
+        PageDTO.of(page, user -> {
+            // 1、先拷贝基础属性
+            UserVO vo = BeanUtil.copyProperties(user, UserVO.class);
+            // 2、处理特殊逻辑
+            vo.setUsername(vo.getUsername().substring(0, vo.getUsername().length() - 2) + "**");
+            return vo;
+        });
+
+        // 4、返回
+        return pageDTO;
+    }
+
 
 }

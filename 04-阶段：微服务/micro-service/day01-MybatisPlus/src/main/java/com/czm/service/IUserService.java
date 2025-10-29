@@ -1,7 +1,9 @@
 package com.czm.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.czm.pojo.dto.PageDTO;
 import com.czm.pojo.entity.User;
+import com.czm.pojo.query.UserQuery;
 import com.czm.pojo.vo.UserVO;
 
 import java.util.List;
@@ -42,4 +44,8 @@ public interface IUserService extends IService<User> {
     List<UserVO> queryUserAndAddressByIds(List<Long> userIds);
 
 
+    /**
+     * 根据查询条件分页查询用户
+     */
+    PageDTO<UserVO> queryUsersPage(UserQuery query);
 }

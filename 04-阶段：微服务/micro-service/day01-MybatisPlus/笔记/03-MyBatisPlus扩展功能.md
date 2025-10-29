@@ -111,7 +111,7 @@ public class UserVO {
 
 
 # 五、JSON 处理器
-数据库表设计过程中，有些字段采用 json 数据类型。当查询表返回的到前端的是 JSON 字符串，如何解决直接返回为一个 JSON 对象？
+数据库表设计过程中，有些字段采用 json 数据类型，以字符串的形式存入表中。当查询表返回的到前端的是 JSON 字符串，如何解决直接返回为一个 JSON 对象？
 
 MyBatis 无法实现将数据库中查询的 json 字符串与实体类做转换，MyBatis-Plus 提供了 `AbstractJsonTypeHandler` 类型处理器用于此操作。
 实现步骤如下所示：
