@@ -6,7 +6,7 @@ SQL：一门操作关系型数据库的编程语言，定义操作所有关系�
 
 * DDL，Data Definition Language，数据定义语言，用来定义数据库对象(数据库，表，字段)。（对结构操作）
 
-* DML，Data Manipulation Language，数据操作语言，用来对数据库表中的数据进行增删改。（对数据操作）
+* DML，Data Manipulation Language，数据操作语言，用来对数据库表中的数据进行 增、删、改。（对数据操作）
 
 * DQL，Data Query Language，数据查询语言，用来查询数据库中表的记录。
 

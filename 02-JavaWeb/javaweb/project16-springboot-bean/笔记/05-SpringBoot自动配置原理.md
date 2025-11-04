@@ -11,7 +11,7 @@ SpringBoot 自动配置 源码跟踪见图：`/img/02-SpringBoot自动配置源�
 `@Conditional` 本身是一个父注解，派生出大量的子注解，常见如下：
   - `@ConditionalOnClass`：判断环境中是否有对应字节码文件，才注册 `bean` 到 `IOC` 容器；
   - `@ConditionalOnMissingBean`：判断环境中没有对应的bean(类型 或 名称)，才注册bean到IOC容器；
-  - `@ConditionalOnProperty`：判断配置文件中有对应属性和值，才注册 `bean` 到 `I0C` 容器；
+  - `@ConditionalOnProperty`：判断 配置文件 中有对应属性和值，才注册 `bean` 到 `I0C` 容器；
 
 代码实现：`/project16-company/.../HeaderConfig.java`、`/project16-springboot-bean/.../TestAutoConfig.java`
 

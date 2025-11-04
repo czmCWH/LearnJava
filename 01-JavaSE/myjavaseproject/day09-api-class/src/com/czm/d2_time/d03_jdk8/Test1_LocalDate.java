@@ -6,7 +6,10 @@ import java.time.LocalDate;
 
 public class Test1_LocalDate {
     /*
-     1、
+     1、JDK 8+ 日期类
+       LocalDate：日期，日期字段：年、月、日、星期、当年/月的第几天；
+       LocalTime：时间，时间字段：时、分、秒.纳秒；
+       LocalDateTime：日期时间，包含日期+时间。功能强大！⚠️：最重要的一个类
 
      2、
 

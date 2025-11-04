@@ -5,6 +5,12 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Test3_LocalDateTime {
+    /*
+     1、LocalDateTime --- 最重要
+       plus ，增加时间
+       minus，减时间
+
+     */
     public static void main(String[] args) {
         // ⚠️：最重要的一个类
 
@@ -17,14 +23,17 @@ public class Test3_LocalDateTime {
         int year = ldt.getYear();
         int month = ldt.getMonthValue();
         int day = ldt.getDayOfMonth();
+        System.out.println("--- 年月日星期 = " + year + "-" + month + "-" + day);
+
         int dayOfYear = ldt.getDayOfYear(); // 一年中第几天
         int weak = ldt.getDayOfWeek().getValue();
-        System.out.println("--- 年月日星期 = " + year + "-" + month + "-" + day);
         System.out.println("---天 - 星期 = " + dayOfYear + "---" + weak);
+
         int hour = ldt.getHour();
         int minute = ldt.getMinute();
         int second = ldt.getSecond();
         int nano = ldt.getNano();   // 纳秒
+        System.out.printf("时分秒.纳秒 = %02d:%02d:%02d.%03d \n", hour, minute, second, nano);
 
         // 3、修改时间信息
         System.out.println("------ 3、修改时间信息");

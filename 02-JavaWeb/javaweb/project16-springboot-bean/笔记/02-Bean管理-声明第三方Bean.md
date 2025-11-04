@@ -6,8 +6,8 @@
 
 ## @Bean 注解 --- 声明第三方 Bean ⚠️⚠️⚠️
 @Bean 作用是将 @Bean 注解的方法返回的对象交给 I0C 容器管理，成为 I0C 容器的 bean 对象。
-  - @Bean 是方法级别的注解，只能作用于方法上；
-  - 如果 @Bean 注解的方法返回的对象依赖其它 bean 对象，可以直接 @Bean 注解的方法中设置形参即可，Spring 容器会根据类型自动装配（即，形参必须是 IOC 容器中的 Bean）；
+  - @Bean 是方法级的注解，只能作用于方法上；
+  - 如果 @Bean 注解的方法返回的对象依赖其它 bean 对象，可以直接 @Bean 注解的方法中设置形参即可，Spring 容器会根据类型自动装配（注意，此形参必须是 IOC 容器中的 Bean）；
   - 通过 @Bean 注解的 name 或 value 属性可以声明 bean 的名称，如果不指定，默认第三方 bean 的名称就是方法名；
   - @Bean 注解的方法通常定义在 `@Configuration 类` 或 `@Component 类`；
 

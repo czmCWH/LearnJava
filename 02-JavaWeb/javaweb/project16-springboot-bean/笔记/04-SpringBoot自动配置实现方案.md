@@ -120,7 +120,7 @@ public class HeaderConfig {
     }
 }
 ```
-如下代码所示：倒入 HeaderConfig 配置类后，此配置类 及其内部 @Bean 注解的方法返回对象，都会自动装配到 IOC 容器中。
+如下代码所示：导入 HeaderConfig 配置类后，此配置类 及其内部 @Bean 注解的方法返回对象，都会自动装配到 IOC 容器中。
 ```java
 // 本地项目中导入第三方依赖的配置类
 @Import(HeaderConfig.class)     // 或者多个配置类：@Import({HeaderConfig.class, ...})

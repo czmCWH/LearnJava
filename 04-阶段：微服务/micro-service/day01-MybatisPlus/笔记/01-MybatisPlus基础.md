@@ -50,9 +50,6 @@ public interface UserPlusMapper extends BaseMapper<User> {
 }
 ```
 
-BaseMapper 提供的方法有：
-- 
-
 ### 步骤3、配置 BaseMapper 的实体类
 自定义 Mapper 继承自 `BaseMapper<实体类>` 后，MyBatis-Plus 通过扫描实体类，并基于反射获取实体类信息作为数据库表信息。
 - MyBatis-Plus 默认映射数据库表规则如下：

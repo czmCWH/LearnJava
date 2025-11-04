@@ -1,6 +1,6 @@
 # Servlet
 
-`Servlet` 是运行在**Web服务器中的小型java程序**，是 Java 提供的一门动态 web 资源开发技术。通常通过 HTTP 协议接收和响应来自于客户端的请求。
+`Servlet` 是运行在Web服务器中的小型java程序，是 Java 提供的一门动态 web 资源开发技术。通常通过 HTTP 协议接收和响应来自于客户端的请求。
 
 Servlet 是 JavaEE 规范(即接口)之一，其实就是一个接口(定义 Servlet 需实现 Servlet 接口 或 继承 HttpServlet)，**并由 web服务器 运行 Servlet**。
 

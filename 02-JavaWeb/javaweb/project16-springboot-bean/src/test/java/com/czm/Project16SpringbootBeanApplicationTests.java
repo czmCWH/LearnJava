@@ -44,7 +44,7 @@ class Project16SpringbootBeanApplicationTests {
         for (int i = 0; i < 1000; i++) {
             // 根据 Bean 的名称或 bean 对象
             DeptController bean = (DeptController) applicationContext.getBean("deptController");
-            System.out.println("------ bean1 = " + bean1);
+            System.out.println("------ bean1 = " + bean);
         }
     }
 

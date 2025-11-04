@@ -1,6 +1,6 @@
 # 一、Tomcat
 
-`Tomcat` 是一个开源免费的**轻量级 Web服务器**，是Apache软件基金会的核心项目，支持 `Servlet/JSP` 少量 JavaEE 规范。
+`Tomcat` 是一个开源免费的轻量级 Web服务器，是Apache软件基金会的核心项目，支持 `Servlet/JSP` 少量 JavaEE 规范。
 
 * JavaSE 标准版
 * JavaME 小型版
@@ -9,7 +9,7 @@
     `Java Enterprise Edition`, Java 企业版。指 Java 企业级开发的技术规范总和，
     包含13项技术规范：`JDBC、JNDI、EJB、RMI、JSP、Servlet、XML、JMS、Java IDL、JTS、JTA、JavaMail、JAF`，基本上不直接使用，都有对应的高级框架；
 
-**Tomcat 也被称为 Web容器、Servlet容器。** Servlet 程序需要依赖于 Tomcat 才能运行。
+Tomcat 也被称为 Web容器、Servlet容器。 Servlet 程序需要依赖于 Tomcat 才能运行。
 官网：<https://tomcat.apache.org/>。
 
 # 二、Tomcat 的基本使用

@@ -6,9 +6,12 @@ import java.util.Date;
 public class Test01 {
 
     /*
+     ---------- 第二代日期类
      1、Calendar
      java.util.Calendar 也是开发中经常用到的日期处理类。它是一个 abstract 抽象类。
      功能比 Date 更加丰富，Date 中很多过期的方法都迁移到了 Calendar 中。Calendar 用于替代 Date 类
+
+     Calender 为特定瞬间与一组诸如year、month、day_of_month、hour等日历字段之间的转换提供了一些方法，并为操作日历字段提供了一些方法。
 
      ⚠️：Java 8+推荐使用java.time包（如 LocalDate、ZonedDateTime）
      */
@@ -18,12 +21,11 @@ public class Test01 {
         // getInstance 方法返回日历对象，默认表示当前时间
         Calendar calendar = Calendar.getInstance();
 
-        // 1、获取 年月日 时分秒
+        // 1、获取 年月日 时分秒，Calendar 没有专门格式化的方法，需要开发者自己按需组合显示
         int year = calendar.get(Calendar.YEAR);
-        // 注意：月取值范围：[0, 11]，0表示一月，11表示12月。
-        int month = calendar.get(Calendar.MONTH);
+        int month = calendar.get(Calendar.MONTH); // 注意：月取值范围：[0, 11]，0表示一月，11表示12月。
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);  // Calendar.HOUR_OF_DAY，24小时制；Calendar.HOUR，12小时制；
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
 

@@ -4,7 +4,7 @@
 `JDBC`，(`Java DataBase Connectivity`)，就是使用 `Java` 语言操作关系型数据库的一套 `API`。它是 `Java EE` 的13项规范之一。
 `JDBC` 偏底层，操作很繁琐，基本上不用。开发中通常使用基于 `JDBC` 封装的高级框架，简化代码开发。
 
-* `Java` 中操作数据库框架：`MyBatis`(最常用)、`MyBatisPlus`(教新)、`Hibernate`(早期)、`SpringData JPA`(早期)
+* Java 中操作数据库框架：MyBatis(最常用)、MyBatisPlus(教新)、Hibernate(早期)、SpringData JPA(早期)。
 
 ## JDBC 的本质
 为什么 `JDBC` 是一套 API，而不是实现类可以直接使用？
@@ -52,10 +52,6 @@
   释放资源；
 
 
-> Java 终端报错
-> 1、查看顺序从下往上看，即直接拉到报错信息最后；
-> 2、查看 Exception 后面的异常信息；
-
 
 # 三、JDBC API 详解
 ## 1、`DriverManager` 驱动管理器 的作用：
@@ -75,7 +71,7 @@ public class Driver {
 }
 ```
 当加载 `Driver` 驱动类时，会自动运行静态初始化块中注册驱动的代码，因此 `Class.forName` 这步操作可以省略。可以省略是因为 JDK 自带的 SPI 机制。
-SPI机制：`Service Provider Interface`，JDK 内置的一种服务提供发现机制，可以轻松的扩展你的程序(切换实现)，实现接口与实现类之间的解耦。
+SPI机制：`Service Provider Interface 服务发现机制`，JDK 内置的一种服务提供发现机制，可以轻松的扩展你的程序(切换实现)，实现接口与实现类之间的解耦。
 
 ## 2、`Connection` 数据库连接对象
 

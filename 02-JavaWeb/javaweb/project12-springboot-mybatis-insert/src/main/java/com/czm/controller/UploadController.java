@@ -23,7 +23,7 @@ public class UploadController {
 
     /**
      * 1、文件上传 - 本地存储
-     * 接收前端 form 表单提交的文件，存储到 java 本地服务器
+     * 接收前端 form表单 提交的文件，存储到 java 本地服务器
      */
     @PostMapping("/upload")
     Result upload(String username, Integer age, MultipartFile file) throws IOException {

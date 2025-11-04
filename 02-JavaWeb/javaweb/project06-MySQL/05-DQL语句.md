@@ -4,13 +4,13 @@ DQL 英文全称是 `Data Query Language` (数据查询语言)，用来查询数
 
 完整的DQL语句语法：
 
-```
+```sql
 select 字段列表 from 表名称        -- 基础查询
 where 条件列表                    -- 条件查询
 group by 分组字段列表              -- 分组查询
 having 分组后条件列表 
 order by 排序字段列表              -- 排序查询
-limit 分页参数;
+limit 分页参数(开始索引，每页条数);
 ```
 
 ## 1、DQL-基本查询

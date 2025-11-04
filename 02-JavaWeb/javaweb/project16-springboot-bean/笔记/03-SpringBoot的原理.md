@@ -29,8 +29,4 @@ Spring Boot 起步依赖原理就是 Maven 的依赖传递。
 ```
 
 
-
-
-
-
 学习视频：<https://www.bilibili.com/video/BV1yGydYEE3H/?spm_id_from=333.788.player.switch&vd_source=f97692c2f656607aeb97ee92b4310d9e&p=145>

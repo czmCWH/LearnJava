@@ -4,10 +4,16 @@
 
 * 范勤奋 | 后端学习初体验，<https://mp.weixin.qq.com/s/nMisOtGbd6kHOugGAKbQ9g>
 
+
+
 # Java 学习视频
 
 2024年黑马程序员Java学习路线图，<https://zhuanlan.zhihu.com/p/596422138>
 2025黑马程序员Java学习路线图，<https://www.bilibili.com/opus/494817843530680807?spm_id_from=333.1387.0.0>
 
+皮鱼 * 编程导航 - Java学习指南：<https://www.codefather.cn/course/1789189862986850306/section/1789190431398928386?type=>
+
 
 小码哥Java语言基础：<https://www.bilibili.com/video/BV1M7411f77i?spm_id_from=333.788.videopod.episodes&vd_source=f97692c2f656607aeb97ee92b4310d9e>
+
+
